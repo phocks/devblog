@@ -62,7 +62,7 @@ author = "Joshua Byrd"
 menu_items = [
   # each of these is optional, name and url are required
   # $BASE_URL is going to be substituted by base_url from configuration
-  # { name = "blog", url = "$BASE_URL" },
+  { name = "home", url = "$BASE_URL" },
 
   # tags should only be enabled if you have "tags" taxonomy
   # see documentation below for more details
@@ -104,4 +104,4 @@ favicon_mimetype = "image/png"
 #                 or if page_title is not defined or empty, fall back to `main_title`
 #
 # Note that the main (index) page only has the main title.
-page_titles = "main_only"
+page_titles = "combined"
