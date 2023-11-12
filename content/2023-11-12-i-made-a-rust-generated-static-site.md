@@ -28,7 +28,8 @@ Then choose a theme and follow the instructions to install it. eg. in your `mybl
 git init # if you haven't already
 git submodule add https://github.com/pawroman/zola-theme-terminimal.git themes/terminimal
 ```
-You should be able to build your site with:
+
+Add `theme = "terminimal"` (or your theme name) to your `config.toml` file and change any other relevant settings in `config.toml` and then you should be able to build your site with:
 
 ```bash
 zola build
