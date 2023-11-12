@@ -1,9 +1,9 @@
 +++
-title = "Welcome to Terminimal Theme for Zola"
-date = 2019-02-04
+title = "Hello, World!"
+date = 2023-11-11
 
 [taxonomies]
-tags = ["zola", "theme", "showcase"]
+tags = []
 +++
 
 Welcome to Terminimal! This is a theme showcase post.

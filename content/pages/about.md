@@ -3,4 +3,4 @@ title = "About Me"
 path = "about"
 +++
 
-Hello, World!
+Hi, I'm Josh and this is my dev blog.
