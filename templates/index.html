@@ -1,4 +1,42 @@
 {% extends "terminimal/templates/index.html" %}
 {% block extra_head %}
-<link rel="me" href="https://bne.social/@phocks"></link>
+<link rel="me" href="https://bne.social/@phocks">
+</link>
+<style>
+  @font-face {
+    font-family: 'Monaspace Krypton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Monaspace Krypton';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Monaspace Krypton';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Monaspace Krypton';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format('woff2');
+  }
+
+  body {
+    font-family: 'Monaspace Krypton', monospace;
+  }
+</style>
 {% endblock %}

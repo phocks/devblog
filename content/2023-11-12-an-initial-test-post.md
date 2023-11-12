@@ -8,6 +8,8 @@ tags = ["testing"]
 
 Hello! No time to write a proper post right now, but I wanted to make sure that the blog was working. I'll be back soon with something good. I promise.
 
+<!-- more -->
+
 In the meantime. Here's some [Rust](https://www.rust-lang.org) code:
 
 ```rust
