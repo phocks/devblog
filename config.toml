@@ -1,5 +1,5 @@
 base_url = "https://josh.is-cool.dev"
-title = "josh's dev blog"
+title = "Josh's Dev Blog"
 
 # Zola theme
 theme = "terminimal"
@@ -38,7 +38,7 @@ accent_color = "red-auto"
 background_color = "auto"
 
 # The logo text - defaults to "Terminimal theme"
-logo_text = "josh-dev"
+logo_text = "josh@thinkpad:~/src$"
 
 # The logo link - defaults to base_url.
 #logo_home_link = "/take/me/away!"
@@ -63,6 +63,7 @@ menu_items = [
   { name = "about", url = "$BASE_URL/about" },
   { name = "archive", url = "$BASE_URL/archive" },
   { name = "tags", url = "$BASE_URL/tags" },
+  { name = "rss", url = "$BASE_URL/atom.xml" },
 
   # set newtab to true to make the link open in new tab
   # { name = "github", url = "https://github.com/pawroman/zola-theme-terminimal", newtab = true },

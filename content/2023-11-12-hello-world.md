@@ -1,14 +1,19 @@
 +++
-title = "Hello, World!"
-date = 2023-11-11
+title = "Hello, World (again)!"
+date = 2023-11-12
+draft = true
 
 [taxonomies]
 tags = []
 +++
 
+The threat was constantly lurking. I've been threatening to write another blog for a while now
+
+<!-- more -->
+
 Welcome to Terminimal! This is a theme showcase post.
 
-Code block (using "boron" theme):
+Code block:
 
 ```python
 #!/usr/bin/python3
@@ -64,7 +69,7 @@ Horizontal line:
 
 This is where the post summary ends.
 
-<!-- more -->
+
 
 The second part follows here.
 
