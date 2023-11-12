@@ -1,5 +1,6 @@
 base_url = "https://josh.is-cool.dev"
 title = "Josh's Dev Blog"
+default_language = "en"
 
 # Zola theme
 theme = "terminimal"
