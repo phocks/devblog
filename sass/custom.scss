@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Monaspace Krypton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Monaspace Krypton";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Monaspace Krypton";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Monaspace Krypton";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2") format("woff2");
+}
+
+body {
+  font-family: "Monaspace Krypton", Hack, DejaVu Sans Mono, Monaco, Consolas,
+    Ubuntu Mono, monospace;
+}
+
+code {
+  font-family: "Monaspace Krypton", Hack, DejaVu Sans Mono, Monaco, Consolas,
+    Ubuntu Mono, monospace;
+}
+
+pre {
+  font-family: "Monaspace Krypton", Hack, DejaVu Sans Mono, Monaco, Consolas,
+    Ubuntu Mono, monospace;
+}
