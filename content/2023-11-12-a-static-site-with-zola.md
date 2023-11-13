@@ -1,66 +1,61 @@
 +++
 title = "A static site with Zola"
 date = 2023-11-13
-draft = true
+draft = false
 
 [taxonomies]
 tags = ["setup", "zola", "rust", "blog"]
 +++
 
-Much of the fun/frustration in running your own blog is the setup. Here's how to get started with [Zola](https://getzola.org), a static site generator written in Rust, which I'm using for this blog.
+There are a few static site generators out there, like [Jekyll](https://jekyllrb.com), [Hugo](https://gohugo.io), [Gatsby](https://www.gatsbyjs.org), [Pelican](https://getpelican.com), [Hexo](https://hexo.io), [Nikola](https://getnikola.com), [Metalsmith](https://metalsmith.io), [Middleman](https://middlemanapp.com), etc. I chose [Zola](https://getzola.org) to power this blog because it's simple, super speedy, and written in [Rust](https://www.rust-lang.org).
+
+Much of the ~~frustration~~ fun in running your own blog is the setup. Here's a quick and dirty guide on getting a blog up and running with Zola.
 
 Prerequisites:
 
-1. A commandline terminal.
-2. [Rust](https://www.rust-lang.org/tools/install) installed.
-3. Static site hosting.
+1. A computer.
+2. Some commandline knowledge.
+
 
 <!-- more -->
 
-After [installing Zola](https://www.getzola.org/documentation/getting-started/installation/), you can create a new site with the following command:
+First, install Zola by running `brew install zola` (if you have Homebrew installed) or by following the [Zola install instructions here](https://www.getzola.org/documentation/getting-started/installation/). 
+ 
+After installing Zola, create a new site with `zola init myblog`, answer the install questions and then `cd myblog`.
 
-```bash
-zola init myblog # or whatever directory you want
-```
-
-Then [choose a theme](https://www.getzola.org/themes/) and follow the instructions to install it. To install it you'll likely have to run something like this in your `myblog` directory:
+Then [choose a theme here](https://www.getzola.org/themes/) and follow the install instructions. Mostly it's something like `git init` and then `git submodule add <theme url> themes/<theme name>`. For example:
 
 ```bash
 git init # if you haven't already
 git submodule add https://github.com/pawroman/zola-theme-terminimal.git themes/terminimal
 ```
 
-Add `theme = "terminimal"` (or your theme name) to your `config.toml` file and change any other relevant settings.
+Then add `theme = "terminimal"` (or your theme name) to your `config.toml` file and change any other relevant settings.
 
-Add Markdown posts to the `content` directory. TIP: look in your theme's `themes/<your theme>/content/` directory for sample content files. They'll look something like this.
+Create Markdown `.md` posts to the `content` directory like this. For example, `content/2023-11-12-a-static-site-with-zola.md`:
 
 ```markdown
 +++
-title = "A static site in Zola"
+title = "Hello, World!"
 date = 2023-11-13
+
+[taxonomies]
+tags = ["hello", "world"]
 +++
 
-Hello, World!!
+Hello, World!
 ```
 
-And preview locally with:
+To preview locally run `zola serve` and build your static site with `zola build`
 
-```bash
-zola serve
-```
-
-Get Zola to build your static site with:
-
-```bash
-zola build
-```
-
-To deploy, make sure [Surge](https://surge.sh) is installed and then push your `public` dir up using:
+To deploy, make sure [Surge](https://surge.sh) is installed with `npm install --global surge` (assuming you have a recent version of [Node.js](https://nodejs.org)) and then push your `public` dir up using:
 
 ```bash
 surge public <subdomain>.surge.sh # replace <subdomain> with your subdomain
 ```
 
-The subdomain should be the same as what you set your `base_url` to in your `config.toml` file.
+NOTE: Set your `base_url` to in your `config.toml` file, eg. `base_url = "https://<subdomain>.surge.sh"` before you deploy.
 
-You could also use [Netlify](https://www.netlify.com) or [Github Pages](https://pages.github.com) or any other static site host you're familiar with.
+You could also use [Netlify](https://www.netlify.com) or [Github Pages](https://pages.github.com) or [Cloudflare](https://pages.cloudflare.com/) or whatever you want, but that's a topic for another day.
+
+And that's it. Enjoy your static site!
