@@ -1,5 +1,5 @@
 +++
-title = "I made a Rust generated static site blog (and so can you)!"
+title = "A static site with Zola"
 date = 2023-11-13
 draft = true
 
@@ -22,6 +22,7 @@ After installing Zola, you can create a new site with the following command:
 ```bash
 zola init myblog # or whatever you want to call it
 ```
+
 Then choose a theme and follow the instructions to install it. eg. in your `myblog` directory:
 
 ```bash
@@ -35,10 +36,27 @@ Add `theme = "terminimal"` (or your theme name) to your `config.toml` file and c
 zola build
 ```
 
-Then push the `public` dir up to [Surge](https://surge.sh) using:
+Add Markdown posts to the `content` directory.
+
+```markdown
++++
+title = "A static site in Zola"
+date = 2023-11-13
++++
+
+Hello, World!!
+```
+
+And preview locally with:
+
+```bash
+zola serve
+```
+
+To deploy, make sure [Surge](https://surge.sh) is installed and then push the `public` dir up using:
 
 ```bash
 surge public <subdomain>.surge.sh # replace <subdomain> with your subdomain
 ```
 
-And that's it!
+You could also use [Netlify](https://www.netlify.com) or [Github Pages](https://pages.github.com) or any other static site host you're familiar with.
