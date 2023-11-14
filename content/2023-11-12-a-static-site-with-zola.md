@@ -7,7 +7,7 @@ draft = false
 tags = ["setup", "zola", "rust", "blog"]
 +++
 
-There are a few static site generators out there, like [Jekyll](https://jekyllrb.com), [Hugo](https://gohugo.io), [Gatsby](https://www.gatsbyjs.org), [Pelican](https://getpelican.com), [Hexo](https://hexo.io), [Nikola](https://getnikola.com), [Metalsmith](https://metalsmith.io), [Middleman](https://middlemanapp.com), etc. I chose [Zola](https://getzola.org) to power this blog because it's simple, super speedy, easy to customise, and written in [Rust](https://www.rust-lang.org).
+There are a few static site generators out there, like [Jekyll](https://jekyllrb.com), [Hugo](https://gohugo.io), [Gatsby](https://www.gatsbyjs.org), [11ty](https://www.11ty.dev/), [Pelican](https://getpelican.com), [Hexo](https://hexo.io), [Nikola](https://getnikola.com), [Metalsmith](https://metalsmith.io), [Middleman](https://middlemanapp.com), etc. I chose [Zola](https://getzola.org) to power this blog because it's simple, super speedy, easy to customise, and written in [Rust](https://www.rust-lang.org).
 
 Much of the ~~frustration~~ fun in running your own blog is the setup, so here's probably the quickest and dirtiest guide to getting a blog up and running with Zola and hosting it with [Surge](https://surge.sh).
 
