@@ -1,4 +1,6 @@
 base_url = "https://josh.is-cool.dev"
+# base_url = "https://phocks.surge.sh"
+
 title = "Josh's Dev Blog"
 default_language = "en"
 
