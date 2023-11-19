@@ -16,8 +16,6 @@ Prerequisites:
 1. A computer.
 2. Some command-line knowledge.
 
-<!-- more -->
-
 First, install Zola by running `brew install zola` (if you have Homebrew installed) or by following the [Zola install instructions here](https://www.getzola.org/documentation/getting-started/installation/).
 
 After installing Zola, create a new site with `zola init myblog`, answer the install questions (we're using Surge so pick a base <abbr title="Uniform Resource Locator">URL</abbr> like: `https://<subdomain>.surge.sh`, this can be changed later), and then `cd myblog`.
