@@ -21,8 +21,6 @@ Here's how to install Arch the easy way.
 
 That's it. You're done. You have a working Arch Linux install.
 
-Of course, the journey is far from complete, but this makes it a lot easier to get started.
-
-It's dangerous to go alone. Take this: [https://wiki.archlinux.org](https://wiki.archlinux.org).
+Of course, it won't actually do much just yet, but it's a start. Here's a good place to continue your journey: [https://wiki.archlinux.org](https://wiki.archlinux.org).
 
 Good luck out there!
