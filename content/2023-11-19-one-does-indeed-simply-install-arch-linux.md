@@ -16,8 +16,9 @@ Here's how to install Arch the easy way.
 1. Download and make a bootable USB of the [Arch Linux ISO](https://archlinux.org/download/).
 2. DON'T FOLLOW THE INSTALL GUIDE.
 3. Boot into the USB and run `iwctl` and follow [these instructions](https://wiki.archlinux.org/title/Iwd#iwctl) to connect — basically `device list`, `station <device> scan`, `station <device> get-networks`, `station <device> connect <SSID>` — you can tab-complete devices and SSIDs.
-4. Run `archinstall` and follow the prompts.
-5. Hit "Install" then run `reboot` when it's done.
+4. (OR simply plug in an ethernet cable.)
+5. Run `archinstall` and follow the prompts.
+6. Hit "Install" then run `reboot` when it's done.
 
 That's it. You're done. You have a working Arch Linux install.
 
