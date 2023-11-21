@@ -7,9 +7,9 @@ draft = false
 tags = ["wifi", "bluetooth", "arch", "linux", "instructions"]
 +++
 
-I wonder who decided it might be a good idea to put Bluetooth and WiFi on the same 2.4 gigahertz frequency?
+I wonder who decided it might be a good idea to put Bluetooth and WiFi on the same 2.4 gigahertz spectrum?
 
-It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards the Internet would inexplicably slow to a crawl. Disconnect and it would be fine again. Connect and again virtually nothing.
+It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards the Internet would inexplicably slow to a crawl. Disconnect, and it would be fine again. Connect, and again, virtually nothing.
 
 The easy solution was to connect on the 5 Ghz band. It worked. No interference. And that could have been that. But still wanted to know why, and try to fix it.
 
