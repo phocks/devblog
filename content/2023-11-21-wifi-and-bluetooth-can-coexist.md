@@ -9,7 +9,7 @@ tags = ["wifi", "bluetooth", "arch", "linux", "instructions"]
 
 I wonder who decided it might be a good idea to put Bluetooth and WiFi on the same 2.4 gigahertz spectrum?
 
-It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards my internet connection would inexplicably slow to a crawl whenever I connected. Disconnect, and it would be fine again. Connect, and again, virtually nothing, especially if sound was playing through the headset.
+It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards my internet connection would inexplicably slow to a crawl whenever I connected. Disconnect, and it would be fine again. Connect, and again, virtually nothing — especially if sound was playing through the headset.
 
 The easy solution was to connect on the 5 Ghz band. Done. It worked. No interference. And that could have been that. But it was still bugging me. I still wanted to know why. I still wanted to fix it.
 
@@ -40,3 +40,9 @@ Reboot and you're all good.
 Seems to be the same fix [as described here](https://wiki.archlinux.org/title/Network_configuration/Wireless#Cause_#6), but for a different symptom.
 
 Anyway, hope this helps someone else. Happy hacking!
+
+---
+
+**ps.**
+
+- [Jim Mussared](https://mastodon.social/@jimmo/111451012551649253) put me on to this page about [iwlwifi and platform noise](https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi#about_platform_noise) which gives a bit more information about why this works.
