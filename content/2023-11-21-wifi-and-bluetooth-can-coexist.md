@@ -9,11 +9,15 @@ tags = ["wifi", "bluetooth", "arch", "linux", "instructions"]
 
 I wonder who decided it might be a good idea to put Bluetooth and WiFi on the same 2.4 gigahertz spectrum?
 
-It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards the Internet would inexplicably slow to a crawl. Disconnect, and it would be fine again. Connect, and again, virtually nothing.
+It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards the Internet would inexplicably slow to a crawl whenever I connected. Disconnect, and it would be fine again. Connect, and again, virtually nothing, especially if sound was playing through the headset.
 
-The easy solution was to connect on the 5 Ghz band. It worked. No interference. And that could have been that. But still wanted to know why, and try to fix it.
+The easy solution was to connect on the 5 Ghz band. Done. It worked. No interference. And that could have been that. But it was still bugging me. I still wanted to know why. I still wanted to fix it.
 
-I found a few possible solutions. I tried changing the WiFi channel on my router, and that helped a little bit, but not quite enough. In the Arch Wiki they have a small section about [Intel combined WiFi and Bluetooth cards](https://wiki.archlinux.org/title/Bluetooth#Intel_combined_WiFi_and_Bluetooth_cards) and playing with the coexistence setting and I thought I was onto something. 
+(2.4 Ghz gets better range than 5 Gtz because it's a lower frequency so sometimes I still like to use it.)
+
+I found a few possible solutions. I tried changing the WiFi channel on my router, and that helped a little bit, but not quite enough.
+
+In the Arch Wiki they have a small section about [Intel combined WiFi and Bluetooth cards](https://wiki.archlinux.org/title/Bluetooth#Intel_combined_WiFi_and_Bluetooth_cards) and playing with the coexistence setting and I thought I was onto something. 
 
 They suggested adding the following to `/etc/modprobe.d/iwlwifi.conf`:
 
@@ -23,7 +27,7 @@ options iwlwifi bt_coex_active=0
 
 But nope. Nothing. No difference.
 
-In the end, after a lot of searching, [a post in the Arch Forums](https://bbs.archlinux.org/viewtopic.php?pid=1991801#p1991801) put me on the right track.
+After some searching, [a post in the Arch Forums](https://bbs.archlinux.org/viewtopic.php?pid=1991801#p1991801) put me on the right track.
 
 In the end, adding this to `/etc/modprobe.d/iwlwifi.conf` fixed it for me:
 
