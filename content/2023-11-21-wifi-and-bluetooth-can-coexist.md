@@ -13,7 +13,7 @@ It was relatively easy to enable Bluetooth and connect my wireless headphones in
 
 The easy solution was to connect on the 5 Ghz band. Done. It worked. No interference. And that could have been that. But it was still bugging me. I still wanted to know why. I still wanted to fix it.
 
-(2.4 Ghz gets better range than 5 Gtz because it's a lower frequency so sometimes it actually gives me a more stable connection from further away.)
+(2.4 Ghz gets better range than 5 Ghz because it's a lower frequency so sometimes it actually gives me a more stable connection from further away.)
 
 I found a few possible solutions. I tried changing the WiFi channel on my router, and that helped a little bit, but not quite enough.
 
