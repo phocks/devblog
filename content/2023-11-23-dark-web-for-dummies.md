@@ -11,13 +11,13 @@ Get a censor-proof completely anonymous web service on the dark web in 15 minute
 
 Your very own `.onion` address.
 
-Why would you want this? Well, the [New York Times has one](https://open.nytimes.com/https-open-nytimes-com-the-new-york-times-as-a-tor-onion-service-e0d0b67b7482). Also handy if you want to publish information that is vulnerable to censorship.
+Why would you want this? Well, the [New York Times has one](https://open.nytimes.com/https-open-nytimes-com-the-new-york-times-as-a-tor-onion-service-e0d0b67b7482), (good for getting around that pesky NYTimes paywall). Also handy if you want to publish information that is vulnerable to censorship.
 
 What you need:
 
 1. An Internet connection.
 2. [A Linux server](https://ubuntu.com/download/server).
-3. [The Tor browser](https://www.torproject.org/download/).
+3. [The Tor browser](https://www.torproject.org/download/) (for testing).
 
 What to do:
 
