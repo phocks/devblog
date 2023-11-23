@@ -22,8 +22,8 @@ What you need:
 What to do:
 
 1. Follow the instructions at Tor Project: [Set up your Onion service](https://community.torproject.org/onion-services/setup/).
-2. OK that's pretty much it.
+2. OK that's pretty much it. Keep the server running and your `.onion` service will be routed through the Tor network.
 
-And one more thing...
+*And one more thing...*
 
 You can brute-force a vanity Onion address using [mkp224o](https://github.com/cathugger/mkp224o).
