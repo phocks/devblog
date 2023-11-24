@@ -27,13 +27,13 @@ What to do:
 Basically it's:
 
 ```bash
-# In Ubuntu Server
+# In Ubuntu Server as root
 
-sudo apt install tor
-sudo apt install nginx # Web server
-sudo vim /etc/tor/torrc # Uncomment HiddenServiceDir and HiddenServicePort
-sudo systemctl restart tor
-sudo cat /var/lib/tor/hidden_service/hostname # Your .onion address
+apt install tor
+apt install nginx # Web server
+vim /etc/tor/torrc # Uncomment HiddenServiceDir and HiddenServicePort
+systemctl restart tor
+cat /var/lib/tor/hidden_service/hostname # Your .onion address
 
 # Visit your .onion address in the Tor browser
 ```
