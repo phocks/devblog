@@ -7,13 +7,13 @@ draft = true
 tags = ["linux", "filesystems", "f2fs", "btrfs", "ssd", "storage"]
 +++
 
-It's a bit like jumping from one moving train to another.
+So you wanna jump from one moving train to another for fun?
 
-You could just do fresh install. But there's an easier way. No more mucking around getting everything set up the way you had it before and reinstalling all your old programs.
+You could just do a fresh install. But there's an easier way. No more mucking around getting everything set up the way you had it before and reinstalling all your old programs.
 
 After many failed attempts, this is what worked for me. Recording it here for future reference and in case it's useful for anyone else.
 
-The main issue was overwriting the new `/etc/fstab` with my old `fstab`.
+The main issue is making sure you don't overwrite the new `/etc/fstab` with your old one.
 
 Here's what you do.
 
@@ -24,6 +24,17 @@ Make a file-level backup on an external drive. I used [Timeshift](https://github
 [Reinstall Arch](/one-does-indeed-simply-install-arch-linux), and choose the filesystem you want to switch to.
 
 Boot into the new system and install Timeshift again.
+
+Make a backup copy of your new `fstab` first.
+
+```
+sudo cp /etc/fstab /etc/fstab.bak
+```
+
+Then do a restore from within Timeshift.
+
+
+
 
 <!-- 
 
