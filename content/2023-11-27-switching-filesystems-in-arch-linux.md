@@ -25,15 +25,23 @@ Make a file-level backup on an external drive. I used [Timeshift](https://github
 
 Boot into the new system and install Timeshift again.
 
-Make a backup copy of your new `fstab` first.
+Make a copy of your new `fstab` first.
 
 ```
 sudo cp /etc/fstab /etc/fstab.bak
 ```
 
-Then do a restore from within Timeshift.
+Then do a restore from within Timeshift and reboot.
 
+It won't work first time. You'll need to restore the new `fstab` from the copy you made earlier.
 
+```
+sudo cp /etc/fstab.bak /etc/fstab
+```
+
+Then reboot again.
+
+You're done.
 
 
 <!-- 
