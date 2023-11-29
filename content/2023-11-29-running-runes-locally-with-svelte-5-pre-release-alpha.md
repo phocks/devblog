@@ -45,6 +45,8 @@ Otherwise, link to your locally compiled version of Svelte:
 "svelte": "file:../svelte/packages/svelte"
 ```
 
+And then `npm install` all your `node_modules`.
+
 In Svelte 5 there's [a new way](https://svelte-5-preview.vercel.app/docs/breaking-changes#components-are-no-longer-classes) of mounting the app. So you'll have to edit `main.js` to look a bit like this:
 
 ```typescript
