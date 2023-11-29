@@ -1,5 +1,5 @@
 +++
-title = "Running runes locally with Svelte 5 pre-release alpha"
+title = "Running Runes locally with Svelte 5 pre-release alpha"
 date = 2023-11-29
 draft = false
 
@@ -7,7 +7,7 @@ draft = false
 tags = ["svelte", "runes", "javascript", "webdev"]
 +++
 
-I noticed Svelte published some v5 pre-releases. Previously you could only try out [Svelte runes](https://svelte.dev/blog/runes) by using the [online playground](https://svelte-5-preview.vercel.app). Now you can run them locally.
+I noticed Svelte published some v5 pre-releases. Previously you could only try out [Svelte Runes](https://svelte.dev/blog/runes) by using the [online playground](https://svelte-5-preview.vercel.app). Now you can run them locally.
 
 Here's how. You'll need:
 
