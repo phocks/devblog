@@ -9,7 +9,7 @@ tags = ["rust", "tutorial", "getting started", "hello world"]
 
 You can't fight nature.
 
-We're learning Rust OK? For real this time. Let's evolve!
+We're learning Rust OK? Evolution time. Let's gooooo!
 
 First up, [install Rust](https://www.rust-lang.org/tools/install).
 
