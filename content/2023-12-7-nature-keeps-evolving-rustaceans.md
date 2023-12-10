@@ -4,7 +4,7 @@ date = 2023-12-08
 draft = false
 
 [taxonomies]
-tags = ["rust", "tutorial", "getting started", "hello world"]
+tags = ["rust", "tutorial", "getting started", "hello world", "rustacean"]
 +++
 
 You can't fight nature.
