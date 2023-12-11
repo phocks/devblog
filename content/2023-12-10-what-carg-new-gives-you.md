@@ -7,7 +7,7 @@ draft = false
 tags = ["rust", "tutorial", "getting started", "hello world", "rustacean"]
 +++
 
-Last time we used `cargo new` to generate a new Rust app. Let's take a look inside.
+[Last time] we used `cargo new` to generate a new Rust app. Let's take a look inside.
 
 Run `tree` to print the directory structure.
 
@@ -58,7 +58,7 @@ If Rust finds a `src/lib.rs` file it will build a "library" instead that can be 
 
 To print "Hello, world!" to the console we use the `println!` macro, which is built-in to Rust. Macros are kinda like functions that expand into other functions at compile time. They have a `!` at the end. We'll get to macros later.
 
-That's just about it. For now let's edit the code. We can make the computer say whatever we want!
+That's just about it. For now, let's edit the code. We can make the computer say whatever we want!
 
 ```rust
 println!("Crab party time! 🦀🦀🦀🦀🦀🦀🦀🦀🦀");
@@ -67,3 +67,6 @@ println!("Crab party time! 🦀🦀🦀🦀🦀🦀🦀🦀🦀");
 Do another `cargo run` and do a little dance.
 
 That's it. Until next time!
+
+[Last time]: /2023-12-7-nature-keeps-evolving-rustaceans/
+[TOML]: https://toml.io
