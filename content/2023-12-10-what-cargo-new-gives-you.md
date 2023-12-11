@@ -68,6 +68,6 @@ Do another `cargo run` and give us a little happy dance.
 
 Nice. Until next time!
 
-[Last time]: /2023-12-7-nature-keeps-evolving-rustaceans/
+[Last time]: /2023-12-07-nature-keeps-evolving-rustaceans/
 [TOML]: https://toml.io
 [which edition of Rust]:(https://doc.rust-lang.org/stable/edition-guide/)
