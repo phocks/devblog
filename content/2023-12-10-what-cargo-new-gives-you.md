@@ -70,4 +70,4 @@ Nice. Until next time!
 
 [Last time]: /2023-12-7-nature-keeps-evolving-rustaceans/
 [TOML]: https://toml.io
-[which edition of Rust](https://doc.rust-lang.org/stable/edition-guide/)
+[which edition of Rust]:(https://doc.rust-lang.org/stable/edition-guide/)
