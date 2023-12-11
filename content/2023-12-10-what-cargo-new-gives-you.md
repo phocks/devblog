@@ -40,7 +40,7 @@ edition = "2021"
 
 `Cargo.toml` is our project's manifest, where we keep track of stuff about the project in [TOML] format and also any dependencies we want to use. Currently there's none!
 
-Name and version are pretty self-explanatory. The `edition` key is for specifying [which edition of Rust] we want to use ie. latest stable edition, 2021.
+Name and version are pretty self-explanatory. The `edition` key is for specifying [which edition of Rust] we want to use *ie. latest stable edition, 2021*.
 
 The `src/main.rs` file is our entry point.
 
@@ -54,11 +54,11 @@ fn main() {
 
 When compiling, Rust will look for the `src/main.rs` file with a `main` function inside. Functions in Rust are defined with the `fn` keyword.
 
-If Rust finds a `src/lib.rs` file it will build a "library" that can be used as a dependency inside another app instead of a standalone binary app. We'll get to that later.
+If Rust finds a `src/lib.rs` file it will build a "library", which can be used as a dependency inside another app instead of a standalone binary app. (We can also have both apparently. But we'll get to that later.)
 
-To print "Hello, world!" to the console we use the `println!` macro, which is built-in to Rust. Macros are kinda like functions that expand into other functions at compile time. They have a `!` at the end. For now you just need to know that `println!()` prints stuff to the console.
+To print "Hello, world!" to the console we use the `println!` macro, which is built-in to Rust. Macros are kinda like functions that expand into other functions at compile time. They have a `!` at the end. For now, you just need to know that `println!()` prints stuff to the console.
 
-Aaaaaand that's just about it. For now, let's edit some code. We can make the computer say whatever we want!
+Aaaaaand that's just about it. Let's edit some code. We can make the computer say whatever we want!
 
 ```rust
 println!("Crab party time! 🦀🦀🦀🦀🦀🦀🦀🦀🦀");
