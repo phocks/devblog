@@ -1,1 +1,3 @@
 # devblog
+
+A blog.
