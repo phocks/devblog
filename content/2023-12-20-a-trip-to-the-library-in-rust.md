@@ -62,6 +62,6 @@ To do this simply run `cargo install --path .` in the root of your project. This
 
 In my case, I called the app `rando` so now whenever I want a random string of text printed to the console I can just run `rando` and hey presto I get that random string of text.
 
-OK fun's over. To uninstall the app just run `cargo uninstall rando`.
+To uninstall the app just run `cargo uninstall rando`.
 
 That's it for today. Happy coding!
