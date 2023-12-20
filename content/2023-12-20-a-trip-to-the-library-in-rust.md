@@ -1,5 +1,5 @@
 +++
-title = "Off to the library"
+title = "A trip to the library in Rust"
 date = 2023-12-20
 draft = false
 
