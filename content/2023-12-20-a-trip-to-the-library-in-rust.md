@@ -45,7 +45,7 @@ fn main() {
 }
 ```
 
-Alternatively, we can use the `use` keyword to bring the macro into scope. THen we don't have to use the fully qualified name with the double colon syntax `::` every time we want to use it.
+Alternatively, [we can use](https://doc.rust-lang.org/std/keyword.use.html) the `use` keyword to bring the macro into scope. THen we don't have to use the fully qualified name with the double colon syntax `::` every time we want to use it.
 
 ```rust
 use nanoid::nanoid;
