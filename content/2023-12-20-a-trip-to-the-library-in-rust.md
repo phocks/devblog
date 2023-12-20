@@ -4,7 +4,7 @@ date = 2023-12-20
 draft = false
 
 [taxonomies]
-tags = ["rust", "tutorial"]
+tags = ["rust", "tutorial", "crates", "libraries", "nanoid", "cargo"]
 +++
 
 Why write code you don't have to?
