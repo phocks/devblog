@@ -39,7 +39,7 @@ mount -t f2fs /dev/sda1 old/
 Make a backup of the new `fstab` file.
 
 ```bash
-cp new/etc/fstab new/etc/fstab.bak
+cp new/@/etc/fstab new/@/etc/fstab.bak
 ```
 
 Now we're going to copy the old Timeshift backup files to the new system.
@@ -60,7 +60,7 @@ If I remember correctly, I think I had to use the `--ignore-times` option for th
 In the end, you'll want to restore the `fstab` backup file.
 
 ```bash
-cp new/etc/fstab.bak new/etc/fstab
+cp new/@/etc/fstab.bak new/@/etc/fstab
 ```
 
 Then reboot. And hopefully you now have a working system.
