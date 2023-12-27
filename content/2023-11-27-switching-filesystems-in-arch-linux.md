@@ -68,3 +68,9 @@ Then reboot. And hopefully you now have a working system.
 If not, restore from your Rescuezilla backup and try, try again.
 
 Good luck!
+
+---
+
+UPDATE-2023-12-27
+
+I tried the process again and didn't seem to need `--ignore-times` this time. Also because Arch maps the `@log/` subvolume to `/var/log` I removed the contents of `@/var/log/` after I rsynced it over.
