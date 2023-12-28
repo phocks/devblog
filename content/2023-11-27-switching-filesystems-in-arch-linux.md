@@ -27,6 +27,8 @@ Make sure the new system boots.
 
 Then we're going to boot into the [System Rescue CD](https://www.system-rescue.org/) and mount the new system drive and the old Timeshift backup.
 
+Use `lsblk` to get your device names and replace them in the code below eg. `nvme0n1p2` and `sda1`.
+
 ```bash
 cd /mnt
 mkdir new old
