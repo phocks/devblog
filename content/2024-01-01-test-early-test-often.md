@@ -7,9 +7,9 @@ draft = true
 tags = ["rust", "testing", "tests", "debugging"]
 +++
 
-It's tempting to say "I'll learn how to write tests later" or "I'll just test it in production" and I've fallen into that trap many times. So let's tackle testing up front!
+It's tempting to say "I'll learn how to write tests later" or "I'll just test it in production". I've fallen into that trap many a time. So let's tackle testing up front!
 
-I've gone ahead and read [Chapter 11 of The Rust Book](https://doc.rust-lang.org/book/ch11-00-testing.html), all about writing tests, and basically, it all boils down to this. Tests are functions annotated with `#[test]`. If the function panics, the test fails. If it doesn't panic, the test passes. That's it.
+Basically, tests are functions annotated with `#[test]`. If the function panics, the test fails. If it doesn't panic, the test passes. That's it. We can use `assert!` to check if something is true.
 
 Here's a test that passes:
 
@@ -17,6 +17,33 @@ Here's a test that passes:
 #[test]
 fn it_works() {
     assert!(true);
+}
+```
+
+And here's a test that fails:
+
+```rust
+#[test]
+fn it_works() {
+    assert!(false);
+}
+```
+
+We can also use `assert_eq!` to check if two things are equal:
+
+```rust
+#[test]
+fn it_works() {
+    assert_eq!(1, 1);
+}
+```
+
+And we can use `assert_ne!` to check if two things are not equal:
+
+```rust
+#[test]
+fn it_works() {
+    assert_ne!(1, 2);
 }
 ```
 
