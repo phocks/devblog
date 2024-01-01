@@ -58,10 +58,14 @@ fn main() {
 
 That's our app anyway. Run it with `cargo run` and we'll get a random string of text printed to the console. But it might be fun to actually install it on our system so we can run it any time we want.
 
-To do this simply run `cargo install --path .` in the root of your project. This will install the app in `~/.cargo/bin`, which should have been added to your PATH when you installed Rust. You can now run it from anywhere on your system.
+To do this simply run `cargo install --path .` in the root of your project. This will install the app in `~/.cargo/bin`, which should have been added to your [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) when you installed Rust. You can now run it from anywhere on your system.
 
 In my case, I called the app `rando` so now whenever I want a random string of text printed to the console I can just run `rando` and hey presto I get that random string of text.
 
 To uninstall the app just run `cargo uninstall rando`.
 
 That's it for today. Happy coding!
+
+---
+
+Learn more about [crates and packages etc in the Rust book](https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html).
