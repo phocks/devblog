@@ -54,3 +54,20 @@ fn it_works() {
     assert_ne!(1, 2);
 }
 ```
+
+We can put these tests anywhere and `cargo test` will run them all. It's common however to put all your tests inside a tests module at the bottom of the file.
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(1, 1);
+    }
+
+    #[test]
+    fn it_works2() {
+        assert_eq!(2, 2);
+    }
+}
+```
