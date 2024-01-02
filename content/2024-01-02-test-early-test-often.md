@@ -1,5 +1,5 @@
 +++
-title = "Test early test often, or: writing tests in Rust is easy and fun!"
+title = "Test early test often: writing tests in Rust is super easy and (kinda) fun!"
 date = 2024-01-02
 draft = false
 
@@ -76,7 +76,7 @@ Why would we want to do this?
 
 Well, putting tests in a module like this allows us to encapsulate code and any helper functions or libraries we might need for our tests and make sure it doesn't end up in our final binary.
 
-For simple test functions that don't bring in other code, it's not strictly necessary.
+For simple test functions that don't bring in other code, it's not strictly necessary. You could even put the test inline right after the function you're testing.
 
 Here are some tests in action.
 
@@ -89,6 +89,15 @@ fn add(a: i32, b: i32) -> i32 {
 
 fn minus(a: i32, b: i32) -> i32 {
     a - b
+}
+
+fn multiply(a: i32, b: i32) -> i32 {
+    a * b
+}
+
+#[test]
+fn it_multiplies() {
+    assert_eq!(multiply(2, 2), 4);
 }
 
 fn main() {
@@ -116,7 +125,7 @@ mod tests {
     }
 }
 ```
-Well, there you go. Super easy ... kinda fun!
+Well, there you go. Now you can write tests to make sure a function actually does what you want it to do. Super easy and ... kinda fun!
 
 There's a little bit more to testing in Rust and you can read about it in the [Rust Book](https://doc.rust-lang.org/book/ch11-00-testing.html). Here's a breakdown of other stuff to think about.
 
@@ -124,10 +133,10 @@ There's a little bit more to testing in Rust and you can read about it in the [R
 - `#[ignore]` - put this under `#[test]` to ignore the test unless you run `cargo test -- --ignored` (useful for tests that take a long time to run)
 - Integration tests - put tests in `tests/` directory and they will be run as separate binaries (useful for testing the public API of `lib.rs` crates)
 - Custom failure messages - use `assert!(1 == 2, "1 does not equal 2")` to provide a custom failure message. ie. additional arguments to `assert!` will be passed to `format!` and used as the failure message.
-- use Result<(), String> - instead of panicking, you can use `Result<(), String>` as the return type for your test function and the test will "pass" if the result is `Ok(())` and "fail" if the result is `Err(String)`.
+- use `Result<(), String>` - instead of panicking, you can use `Result<(), String>` as the return type for your test function and the test will "pass" if the result is `Ok(())` and "fail" if the result is `Err(String)`.
 - use `cargo test -- --nocapture` to see the output of `println!` if your tests pass
 - choose which tests to run with `cargo test it_works` or `cargo test it_works2`
 
-That's it for now. Good luck out there evolving Rustaceans! Go write some tests!
+That's it for now. Good luck out there you beautiful evolving Rustaceans! Go write some amazing tests!
 
 🦀🦀🦀🦀🦀🦀🦀
