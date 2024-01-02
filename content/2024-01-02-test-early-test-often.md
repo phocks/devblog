@@ -76,7 +76,7 @@ Why would we want to do this?
 
 Well, putting tests in a module like this allows us to encapsulate code and any helper functions or libraries we might need for our tests and make sure they don't end up in our final binary.
 
-For simple test functions that don't bring in other code, it's not strictly necessary. You could even put the test inline right after the function you're testing.
+For simple test functions that don't bring in other code, it's not strictly necessary. You could even put the tests inline right after the functions you're testing.
 
 Here are some tests in action.
 
@@ -127,7 +127,7 @@ mod tests {
 ```
 Well, there you go. Now you can write tests to make sure a function actually does what you want it to do. Super easy and ... kinda fun!
 
-There's a little bit more to testing in Rust and you can read about it in the [Rust Book](https://doc.rust-lang.org/book/ch11-00-testing.html). Here's a breakdown of other stuff to think about.
+There's a little bit more to testing in Rust and you can read about it in the [Rust Book](https://doc.rust-lang.org/book/ch11-00-testing.html). Here's a breakdown of some other stuff to think about.
 
 - `#[should_panic]` - put this under `#[test]` to make sure the test panics (useful for testing error handling).
 - `#[ignore]` - put this under `#[test]` to ignore the test unless you run `cargo test -- --ignored` (useful for tests that take a long time to run).
