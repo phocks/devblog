@@ -106,6 +106,9 @@ fn main() {
 
     let minus_result = minus(2, 1);
     println!("result: {}", minus_result);
+
+    let multiply_result = multiply(2, 2);
+    println!("result: {}", multiply_result);
 }
 
 #[cfg(test)]
