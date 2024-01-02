@@ -55,7 +55,7 @@ fn it_works() {
 }
 ```
 
-We can put these tests anywhere and `cargo test` will run them all. It's common however to put all your tests inside a **tests** module at the bottom of the file.
+We can put these tests anywhere and `cargo test` will run them all. It's common however to put all your tests inside a **tests** module at the bottom of the file. Annotate this module with `#[cfg(test)]`.
 
 ```rust
 #[cfg(test)]
