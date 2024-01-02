@@ -131,9 +131,9 @@ There's a little bit more to testing in Rust and you can read about it in the [R
 
 - `#[should_panic]` - put this under `#[test]` to make sure the test panics (useful for testing error handling).
 - `#[ignore]` - put this under `#[test]` to ignore the test unless you run `cargo test -- --ignored` (useful for tests that take a long time to run).
-- Integration tests - put tests in `tests/` directory if you're making a library and test how it integrates with other code.
+- Integration tests - put tests as separate files in the `tests/` directory if you're making a library and test how it integrates with other code.
 - Custom failure messages - use `assert!(1 == 2, "1 does not equal 2")` to provide a custom failure message. ie. additional arguments to `assert!` will be passed to `format!` and used as the failure message.
-- use `Result<(), String>` - instead of panicking, you can use `Result<(), String>` as the return type for your test function and the test will **pass** if the result is `Ok(())` and **fail** if the result is `Err(String)`.
+- `Result<(), String>` - instead of panicking, you can use `Result<(), String>` as the return type for your test function and the test will **pass** if the result is `Ok(())` and **fail** if the result is `Err(String)`.
 - use `cargo test -- --nocapture` to see the output of `println!` if your tests pass.
 - choose which tests to run with `cargo test it_works` or `cargo test it_works2`.
 
