@@ -74,7 +74,7 @@ mod tests {
 
 Why would we want to do this?
 
-Well, putting tests in a module like this allows us to encapsulate code and any helper functions or libraries we might need for our tests and make sure it doesn't end up in our final binary.
+Well, putting tests in a module like this allows us to encapsulate code and any helper functions or libraries we might need for our tests and make sure they don't end up in our final binary.
 
 For simple test functions that don't bring in other code, it's not strictly necessary. You could even put the test inline right after the function you're testing.
 
