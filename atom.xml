@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Josh&#x27;s Dev Blog</title>
+    <link href="https://josh.is-cool.dev/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://josh.is-cool.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-01-02T00:00:00+00:00</updated>
+    <id>https://josh.is-cool.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Test early test often: writing tests in Rust is super easy and (kinda) fun!</title>
+        <published>2024-01-02T00:00:00+00:00</published>
+        <updated>2024-01-02T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/test-early-test-often/" type="text/html"/>
+        <id>https://josh.is-cool.dev/test-early-test-often/</id>
+        
+        <content type="html">&lt;p&gt;It&#x27;s extremely tempting to simply not write tests.&lt;&#x2F;p&gt;
+&lt;p&gt;You could forever keep saying &lt;em&gt;&amp;quot;I&#x27;ll learn how to write tests later&amp;quot;&lt;&#x2F;em&gt; or &lt;em&gt;&amp;quot;Any errors will just show up in production and I&#x27;ll just catch them there&amp;quot;&lt;&#x2F;em&gt; ... aaaaand I&#x27;ve fallen into that trap many times.&lt;&#x2F;p&gt;
+&lt;p&gt;This time let&#x27;s tackle testing in Rust head-on, up front!&lt;&#x2F;p&gt;
+&lt;p&gt;Tests are super simple. Tests make your code better, and they make you a better coder.&lt;&#x2F;p&gt;
+&lt;p&gt;Simply put, tests in Rust are functions annotated with &lt;code&gt;#[test]&lt;&#x2F;code&gt; which are run using &lt;code&gt;cargo test&lt;&#x2F;code&gt;. If the function panics, the test fails. If it doesn&#x27;t panic, the test passes. That&#x27;s it.&lt;&#x2F;p&gt;
+&lt;p&gt;We can use &lt;code&gt;assert!&lt;&#x2F;code&gt; to check if something is true (it will cause the function to panic if the expression is false).&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s a test that passes.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_works&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    assert!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And here&#x27;s a test that fails.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_works&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    assert!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can also use &lt;code&gt;assert_eq!&lt;&#x2F;code&gt; to check if two things are equal.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_works&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    assert_eq!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And we can use &lt;code&gt;assert_ne!&lt;&#x2F;code&gt; to check if two things are not equal.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_works&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    assert_ne!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can put these tests anywhere and &lt;code&gt;cargo test&lt;&#x2F;code&gt; will run them all. It&#x27;s common however to put all your tests inside a &lt;strong&gt;tests&lt;&#x2F;strong&gt; module at the bottom of the file. Annotate this module with &lt;code&gt;#[cfg(test)]&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cfg&lt;&#x2F;span&gt;&lt;span&gt;(test)]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;mod &lt;&#x2F;span&gt;&lt;span&gt;tests {
+&lt;&#x2F;span&gt;&lt;span&gt;    #[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_works&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        assert_eq!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    #[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_works2&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        assert_eq!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Why would we want to do this?&lt;&#x2F;p&gt;
+&lt;p&gt;Well, putting tests in a module like this allows us to encapsulate code and any helper functions or libraries we might need for our tests and make sure they don&#x27;t end up in our final binary.&lt;&#x2F;p&gt;
+&lt;p&gt;For simple test functions that don&#x27;t bring in other code, it&#x27;s not strictly necessary. You could even put the tests inline right after the functions you&#x27;re testing.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are some tests in action.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;&#x2F;&#x2F; src&#x2F;main.rs
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span&gt; b
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;minus&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; b
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;multiply&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; b
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_multiplies&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    assert_eq!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;multiply&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; add_result &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;result: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, add_result);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; minus_result &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;minus&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;result: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, minus_result);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; multiply_result &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;multiply&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;result: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, multiply_result);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cfg&lt;&#x2F;span&gt;&lt;span&gt;(test)]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;mod &lt;&#x2F;span&gt;&lt;span&gt;tests {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;&#x2F;&#x2F; &amp;quot;super&amp;quot; brings parent functions into scope
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;&#x2F;&#x2F; eg. add and minus so we can test them
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;use super&lt;&#x2F;span&gt;&lt;span&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    #[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_adds&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        assert_eq!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;add&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    #[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;it_subtracts&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        assert_eq!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;minus&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Well, there you go. Now you can write tests to make sure a function actually does what you want it to do. Super easy and ... kinda fun!&lt;&#x2F;p&gt;
+&lt;p&gt;There&#x27;s a little bit more to testing in Rust and you can read about it in the &lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;book&#x2F;ch11-00-testing.html&quot;&gt;Rust Book&lt;&#x2F;a&gt;. Here&#x27;s a breakdown of some other stuff to think about.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;#[should_panic]&lt;&#x2F;code&gt; - put this under &lt;code&gt;#[test]&lt;&#x2F;code&gt; if you actually want the test to panic (useful for testing error handling).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;#[ignore]&lt;&#x2F;code&gt; - put this under &lt;code&gt;#[test]&lt;&#x2F;code&gt; to ignore the test unless you run &lt;code&gt;cargo test -- --ignored&lt;&#x2F;code&gt; (useful for tests that take a long time to run).&lt;&#x2F;li&gt;
+&lt;li&gt;Integration tests - put tests as separate files in the &lt;code&gt;tests&#x2F;&lt;&#x2F;code&gt; directory if you&#x27;re making a library and want to test how it integrates with other code.&lt;&#x2F;li&gt;
+&lt;li&gt;Custom failure messages - use &lt;code&gt;assert!(1 == 2, &amp;quot;1 does not equal 2&amp;quot;)&lt;&#x2F;code&gt; to provide a custom failure message. ie. additional arguments to &lt;code&gt;assert!&lt;&#x2F;code&gt; will be passed to &lt;code&gt;format!&lt;&#x2F;code&gt; and used as the failure message.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Result&amp;lt;(), String&amp;gt;&lt;&#x2F;code&gt; - instead of panicking, you can use &lt;code&gt;Result&amp;lt;(), String&amp;gt;&lt;&#x2F;code&gt; as the return type for your test function and the test will &lt;strong&gt;pass&lt;&#x2F;strong&gt; if the result is &lt;code&gt;Ok(())&lt;&#x2F;code&gt; and &lt;strong&gt;fail&lt;&#x2F;strong&gt; if the result is &lt;code&gt;Err(String)&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;use &lt;code&gt;cargo test -- --nocapture&lt;&#x2F;code&gt; to see the output of &lt;code&gt;println!&lt;&#x2F;code&gt; if your tests pass.&lt;&#x2F;li&gt;
+&lt;li&gt;choose which tests to run with &lt;code&gt;cargo test it_works&lt;&#x2F;code&gt; or &lt;code&gt;cargo test it_works2&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That&#x27;s it for now. Good luck out there you beautiful evolving Rustaceans! Go write some amazing tests!&lt;&#x2F;p&gt;
+&lt;p&gt;🦀🦀🦀🦀🦀🦀🦀&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A trip to the library in Rust</title>
+        <published>2023-12-20T00:00:00+00:00</published>
+        <updated>2023-12-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/a-trip-to-the-library-in-rust/" type="text/html"/>
+        <id>https://josh.is-cool.dev/a-trip-to-the-library-in-rust/</id>
+        
+        <content type="html">&lt;p&gt;Why write code you don&#x27;t have to?&lt;&#x2F;p&gt;
+&lt;p&gt;Chances are someone&#x27;s already written it and put a crate up on &lt;a href=&quot;https:&#x2F;&#x2F;crates.io&quot;&gt;crates.io&lt;&#x2F;a&gt;. A &amp;quot;crate&amp;quot; in Rust is just another name for a library or package, code that you can use in your own project.&lt;&#x2F;p&gt;
+&lt;p&gt;The other day I wanted a randomly generated string of text so I could manually append it to a CSS class name to make (pretty) sure it was unique. Let&#x27;s write an extremely simple commandline application that does this!&lt;&#x2F;p&gt;
+&lt;p&gt;We already know how to print stuff to the console, so all we need is a random string generator library. There&#x27;s a crate I&#x27;ve used before called &lt;a href=&quot;https:&#x2F;&#x2F;crates.io&#x2F;crates&#x2F;nanoid&quot;&gt;nanoid&lt;&#x2F;a&gt;, which might do the trick. &lt;&#x2F;p&gt;
+&lt;p&gt;Use your existing Hello World project or create a new one with &lt;code&gt;cargo new&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span&gt; new rando &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# or whatever you want to call it
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We add the crate using the &lt;code&gt;cargo add&lt;&#x2F;code&gt; command.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span&gt; add nanoid
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will add the latest version of nanoid to your &lt;code&gt;Cargo.toml&lt;&#x2F;code&gt; file.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[dependencies]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;nanoid &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;0.4.0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can now use the &lt;code&gt;nanoid&lt;&#x2F;code&gt; crate directly in our code, using &lt;code&gt;::&lt;&#x2F;code&gt; to access the &lt;code&gt;nanoid!&lt;&#x2F;code&gt; macro inside the crate.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;&#x2F;&#x2F; main.rs
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;nanoid::nanoid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;!&lt;&#x2F;span&gt;&lt;span&gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, id);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Alternatively, &lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;std&#x2F;keyword.use.html&quot;&gt;we can use&lt;&#x2F;a&gt; the &lt;code&gt;use&lt;&#x2F;code&gt; keyword to bring the macro into scope. THen we don&#x27;t have to use the fully qualified name with the double colon syntax &lt;code&gt;::&lt;&#x2F;code&gt; every time we want to use it.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span&gt;nanoid::nanoid;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;nanoid!();
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, id);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That&#x27;s our app anyway. Run it with &lt;code&gt;cargo run&lt;&#x2F;code&gt; and we&#x27;ll get a random string of text printed to the console. But it might be fun to actually install it on our system so we can run it any time we want.&lt;&#x2F;p&gt;
+&lt;p&gt;To do this simply run &lt;code&gt;cargo install --path .&lt;&#x2F;code&gt; in the root of your project. This will install the app in &lt;code&gt;~&#x2F;.cargo&#x2F;bin&lt;&#x2F;code&gt;, which should have been added to your &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;PATH_(variable)&quot;&gt;PATH&lt;&#x2F;a&gt; when you installed Rust. You can now run it from anywhere on your system.&lt;&#x2F;p&gt;
+&lt;p&gt;In my case, I called the app &lt;code&gt;rando&lt;&#x2F;code&gt; so now whenever I want a random string of text printed to the console I can just run &lt;code&gt;rando&lt;&#x2F;code&gt; and hey presto I get that random string of text.&lt;&#x2F;p&gt;
+&lt;p&gt;To uninstall the app just run &lt;code&gt;cargo uninstall rando&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s it for today. Happy coding!&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Learn more about &lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;book&#x2F;ch07-00-managing-growing-projects-with-packages-crates-and-modules.html&quot;&gt;crates and packages etc in the Rust book&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>What cargo new gives you</title>
+        <published>2023-12-10T00:00:00+00:00</published>
+        <updated>2023-12-10T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/what-cargo-new-gives-you/" type="text/html"/>
+        <id>https://josh.is-cool.dev/what-cargo-new-gives-you/</id>
+        
+        <content type="html">&lt;p&gt;&lt;a href=&quot;&#x2F;nature-keeps-evolving-rustaceans&#x2F;&quot;&gt;Last time&lt;&#x2F;a&gt; we used &lt;code&gt;cargo new&lt;&#x2F;code&gt; to generate a new Rust app. Let&#x27;s take a look inside.&lt;&#x2F;p&gt;
+&lt;p&gt;Run &lt;code&gt;tree&lt;&#x2F;code&gt; to print the directory structure.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; Cargo.lock
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; Cargo.toml
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; src
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; main.rs
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There&#x27;s also a hidden dotfile &lt;code&gt;.gitignore&lt;&#x2F;code&gt; and the &lt;code&gt;.git&lt;&#x2F;code&gt; folder, but don&#x27;t worry about those for now.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;code&gt;Cargo.lock&lt;&#x2F;code&gt; file is generated by Cargo by &lt;code&gt;cargo run&lt;&#x2F;code&gt; and it&#x27;s for dependency tracking and that&#x27;s Cargo&#x27;s problem.&lt;&#x2F;p&gt;
+&lt;p&gt;The two important files are &lt;code&gt;Cargo.toml&lt;&#x2F;code&gt; and &lt;code&gt;src&#x2F;main.rs&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# Cargo.toml
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[package]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;name &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;hello&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;version &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;0.1.0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;edition &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;2021&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# See more keys and their definitions at https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;cargo&#x2F;reference&#x2F;manifest.html
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[dependencies]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;Cargo.toml&lt;&#x2F;code&gt; is our project&#x27;s manifest, where we keep track of stuff about the project in &lt;a href=&quot;https:&#x2F;&#x2F;toml.io&quot;&gt;TOML&lt;&#x2F;a&gt; format and also any dependencies we want to use. Currently there&#x27;s none!&lt;&#x2F;p&gt;
+&lt;p&gt;Name and version are pretty self-explanatory. The &lt;code&gt;edition&lt;&#x2F;code&gt; key is for specifying &lt;a href=&quot;https:&#x2F;&#x2F;josh.is-cool.dev&#x2F;what-cargo-new-gives-you&#x2F;(https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;stable&#x2F;edition-guide&#x2F;)&quot;&gt;which edition of Rust&lt;&#x2F;a&gt; we want to use &lt;em&gt;ie. latest stable edition, 2021&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;code&gt;src&#x2F;main.rs&lt;&#x2F;code&gt; file is our entry point.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;&#x2F;&#x2F; src&#x2F;main.rs
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;Hello, world!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When compiling, Rust will look for the &lt;code&gt;src&#x2F;main.rs&lt;&#x2F;code&gt; file with a &lt;code&gt;main&lt;&#x2F;code&gt; function inside. Functions in Rust are defined with the &lt;code&gt;fn&lt;&#x2F;code&gt; keyword.&lt;&#x2F;p&gt;
+&lt;p&gt;If Rust finds a &lt;code&gt;src&#x2F;lib.rs&lt;&#x2F;code&gt; file it will build a &amp;quot;library&amp;quot;, which can be used as a dependency inside another app instead of a standalone binary app. (We can also have both apparently. But we&#x27;ll get to that later.)&lt;&#x2F;p&gt;
+&lt;p&gt;To print &amp;quot;Hello, world!&amp;quot; to the console we use the &lt;code&gt;println!&lt;&#x2F;code&gt; macro, which is built-in to Rust. Macros are kinda like functions that expand into other functions at compile time. They have a &lt;code&gt;!&lt;&#x2F;code&gt; at the end. For now, you just need to know that &lt;code&gt;println!()&lt;&#x2F;code&gt; prints stuff to the console.&lt;&#x2F;p&gt;
+&lt;p&gt;Aaaaaand that&#x27;s just about it. Let&#x27;s edit some code. We can make the computer say whatever we want!&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;Crab party time! 🦀🦀🦀🦀🦀🦀🦀🦀🦀&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Do another &lt;code&gt;cargo run&lt;&#x2F;code&gt; and give us a little happy dance.&lt;&#x2F;p&gt;
+&lt;p&gt;Nice. Until next time!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Nature keeps evolving Rustaceans</title>
+        <published>2023-12-08T00:00:00+00:00</published>
+        <updated>2023-12-08T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/nature-keeps-evolving-rustaceans/" type="text/html"/>
+        <id>https://josh.is-cool.dev/nature-keeps-evolving-rustaceans/</id>
+        
+        <content type="html">&lt;p&gt;You can&#x27;t fight nature.&lt;&#x2F;p&gt;
+&lt;p&gt;We&#x27;re learning Rust OK? Evolution time. Let&#x27;s gooooo!&lt;&#x2F;p&gt;
+&lt;p&gt;First up, &lt;a href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;tools&#x2F;install&quot;&gt;install Rust&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;curl&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; --proto &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;=https&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; --tlsv1&lt;&#x2F;span&gt;&lt;span&gt;.2&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; -sSf&lt;&#x2F;span&gt;&lt;span&gt; https:&#x2F;&#x2F;sh.rustup.rs &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;sh
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That will give you &lt;code&gt;rustc&lt;&#x2F;code&gt; and &lt;code&gt;cargo&lt;&#x2F;code&gt; and &lt;code&gt;rustup&lt;&#x2F;code&gt; and other stuff.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s make a new project and scuttle into the directory.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span&gt; new hello
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span&gt; hello
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Run the project.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cargo&lt;&#x2F;span&gt;&lt;span&gt; run
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You just ran your first Hello World program in Rust.&lt;&#x2F;p&gt;
+&lt;p&gt;Crab party time! 🦀🦀🦀🦀🦀🦀🦀🦀🦀&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Running Runes locally with Svelte 5 pre-release alpha</title>
+        <published>2023-11-29T00:00:00+00:00</published>
+        <updated>2023-11-29T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/running-runes-locally-with-svelte-5-pre-release-alpha/" type="text/html"/>
+        <id>https://josh.is-cool.dev/running-runes-locally-with-svelte-5-pre-release-alpha/</id>
+        
+        <content type="html">&lt;p&gt;I noticed Svelte published some v5 pre-releases. Previously you could only try out &lt;a href=&quot;https:&#x2F;&#x2F;svelte.dev&#x2F;blog&#x2F;runes&quot;&gt;Svelte Runes&lt;&#x2F;a&gt; by using the &lt;a href=&quot;https:&#x2F;&#x2F;svelte-5-preview.vercel.app&quot;&gt;online playground&lt;&#x2F;a&gt;. Now you can run them locally.&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s how. You&#x27;ll need:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nodejs.org&quot;&gt;Node.js&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;pnpm.io&quot;&gt;pnpm&lt;&#x2F;a&gt; - Svelte uses it, but &lt;code&gt;npm&lt;&#x2F;code&gt; should work too.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Download one of the version 5 pre-releases from the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sveltejs&#x2F;svelte&#x2F;releases&quot;&gt;Svelte releases page&lt;&#x2F;a&gt; and extract it. Or you could just clone &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sveltejs&#x2F;svelte&quot;&gt;the repo&lt;&#x2F;a&gt; to get the bleeding edge version.&lt;&#x2F;p&gt;
+&lt;p&gt;Then move into the dir and do a &lt;code&gt;pnpm install&lt;&#x2F;code&gt; to install the dependencies.&lt;&#x2F;p&gt;
+&lt;p&gt;Then run &lt;code&gt;pnpm run build&lt;&#x2F;code&gt; to compile everything.&lt;&#x2F;p&gt;
+&lt;p&gt;^^^ You know what, scrap that, silly me, I just realised that they are actually publishing these pre-releases &lt;a href=&quot;https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;svelte?activeTab=versions&quot;&gt;to npm&lt;&#x2F;a&gt;. So you can simply link your &lt;code&gt;svelte&lt;&#x2F;code&gt; dev dependency to the latest pre-release version.&lt;&#x2F;p&gt;
+&lt;p&gt;Well then. Instead of linking in &lt;code&gt;package.json&lt;&#x2F;code&gt; to the version we just compiled, we can just link to the one on npm.&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, I&#x27;ll press on regardless. It&#x27;s up to you if you want to compile it locally or not.&lt;&#x2F;p&gt;
+&lt;p&gt;Create a new Svelte project in a separate directory.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;npm&lt;&#x2F;span&gt;&lt;span&gt; create vite@latest &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# Select svelte option
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In &lt;code&gt;package.json&lt;&#x2F;code&gt; find the &lt;code&gt;svelte&lt;&#x2F;code&gt; dev dependency and change the version.&lt;&#x2F;p&gt;
+&lt;p&gt;To use the npm version:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;svelte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;5.0.0-next.15&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Otherwise, link to your locally compiled version of Svelte:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;svelte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;file:..&#x2F;svelte&#x2F;packages&#x2F;svelte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And then &lt;code&gt;npm install&lt;&#x2F;code&gt; all your &lt;code&gt;node_modules&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In Svelte 5 there&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;svelte-5-preview.vercel.app&#x2F;docs&#x2F;breaking-changes#components-are-no-longer-classes&quot;&gt;a new way&lt;&#x2F;a&gt; of mounting the app. So you&#x27;ll have to edit &lt;code&gt;main.ts&lt;&#x2F;code&gt; to look a bit like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;typescript&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-typescript &quot;&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;.&#x2F;app.css&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;App &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;.&#x2F;App.svelte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;createRoot &lt;&#x2F;span&gt;&lt;span&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;svelte&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;target &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;document.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;getElementById&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;app&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;target&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;throw new &lt;&#x2F;span&gt;&lt;span&gt;Error(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;Failed to find #app&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;app &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;createRoot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;App&lt;&#x2F;span&gt;&lt;span&gt;, { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;target &lt;&#x2F;span&gt;&lt;span&gt;});
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;export default &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;app&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then you can run &lt;code&gt;npm run dev&lt;&#x2F;code&gt; and you should see the app running.&lt;&#x2F;p&gt;
+&lt;p&gt;Change &lt;code&gt;Counter.svelte&lt;&#x2F;code&gt; to use runes, and away you go.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;typescript&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-typescript &quot;&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;script lang&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;ts&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;count&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;number &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;$state&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;onclick &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;count &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;+= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdb082;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  };
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;button &lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;onclick&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;count is &lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;count&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;button&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Have run writing your next Svelte app with runes!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Switching filesystems in Arch Linux</title>
+        <published>2023-11-27T00:00:00+00:00</published>
+        <updated>2023-11-27T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/switching-filesystems-in-arch-linux/" type="text/html"/>
+        <id>https://josh.is-cool.dev/switching-filesystems-in-arch-linux/</id>
+        
+        <content type="html">&lt;p&gt;So you wanna jump from one moving train to another for fun?&lt;&#x2F;p&gt;
+&lt;p&gt;You could just do a fresh install. Or you could try this. Basically we&#x27;re going to reinstall your base system, then restore all your old files over the top. This means you can avoid reinstalling all your old programs and settings etc.&lt;&#x2F;p&gt;
+&lt;p&gt;After many failed attempts, this is what worked for me. Recording it here for future reference and in case it&#x27;s useful for anyone else. (In my case I was going from f2fs to btrfs btw.)&lt;&#x2F;p&gt;
+&lt;p&gt;The main issue is making sure you don&#x27;t overwrite the new &lt;code&gt;&#x2F;etc&#x2F;fstab&lt;&#x2F;code&gt; with your old one, otherwise you&#x27;ll end up with a system that won&#x27;t boot because it will be looking for your old filesystems.&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s what you do.&lt;&#x2F;p&gt;
+&lt;p&gt;Make a full system backup with something like &lt;a href=&quot;https:&#x2F;&#x2F;rescuezilla.com&#x2F;&quot;&gt;Rescuezilla&lt;&#x2F;a&gt; for &lt;del&gt;if&lt;&#x2F;del&gt; when you screw up your system and need to restore it.&lt;&#x2F;p&gt;
+&lt;p&gt;Make a backup on an external drive of all your files. I used &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;linuxmint&#x2F;timeshift&quot;&gt;Timeshift&lt;&#x2F;a&gt; with the RSYNC option.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;&#x2F;one-does-indeed-simply-install-arch-linux&quot;&gt;Reinstall Arch&lt;&#x2F;a&gt; on your main drive, and choose the filesystem you want to switch to.&lt;&#x2F;p&gt;
+&lt;p&gt;Make sure the new system boots.&lt;&#x2F;p&gt;
+&lt;p&gt;Then we&#x27;re going to boot into the &lt;a href=&quot;https:&#x2F;&#x2F;www.system-rescue.org&#x2F;&quot;&gt;System Rescue CD&lt;&#x2F;a&gt; and mount the new system drive and the old Timeshift backup.&lt;&#x2F;p&gt;
+&lt;p&gt;Use &lt;code&gt;lsblk&lt;&#x2F;code&gt; to get your device names and replace them in the code below eg. &lt;code&gt;nvme0n1p2&lt;&#x2F;code&gt; and &lt;code&gt;sda1&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6699cc;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;mnt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;mkdir&lt;&#x2F;span&gt;&lt;span&gt; new old
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;mount&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span&gt; btrfs &#x2F;dev&#x2F;nvme0n1p2 new&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;mount&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span&gt; f2fs &#x2F;dev&#x2F;sda1 old&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;(Replace filesystems and drive names with your own.)&lt;&#x2F;p&gt;
+&lt;p&gt;Make a backup of the new &lt;code&gt;fstab&lt;&#x2F;code&gt; file.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cp&lt;&#x2F;span&gt;&lt;span&gt; new&#x2F;@&#x2F;etc&#x2F;fstab new&#x2F;@&#x2F;etc&#x2F;fstab.bak
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we&#x27;re going to copy the old Timeshift backup files to the new system.&lt;&#x2F;p&gt;
+&lt;p&gt;I did this one directory at a time, just to be sure, starting with &lt;code&gt;&#x2F;home&lt;&#x2F;code&gt;, then rebooting, then repeating the process with &lt;code&gt;&#x2F;usr&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;var&lt;&#x2F;code&gt;, and &lt;code&gt;&#x2F;root&lt;&#x2F;code&gt; and the others and finally &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For example:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;rsync&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; -av&lt;&#x2F;span&gt;&lt;span&gt; old&#x2F;timeshift&#x2F;2021-11-27-000000&#x2F;localhost&#x2F;home&#x2F; &#x2F;new&#x2F;@home&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;rsync&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fc9354;&quot;&gt; -av&lt;&#x2F;span&gt;&lt;span&gt; old&#x2F;timeshift&#x2F;2021-11-27-000000&#x2F;localhost&#x2F;usr&#x2F; &#x2F;new&#x2F;@&#x2F;usr&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Replace the directory names with your own. (btrfs is a bit strange as it uses @ to denote subvolumes.)&lt;&#x2F;p&gt;
+&lt;p&gt;If I remember correctly, I think I had to use the &lt;code&gt;--ignore-times&lt;&#x2F;code&gt; option for the &lt;code&gt;&#x2F;etc&lt;&#x2F;code&gt; directory. This forces files to be overwritten, even if they&#x27;re older. There was a little guesswork involved in this process and I want to go back over it sometime.&lt;&#x2F;p&gt;
+&lt;p&gt;In the end, you&#x27;ll want to restore the &lt;code&gt;fstab&lt;&#x2F;code&gt; backup file.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cp&lt;&#x2F;span&gt;&lt;span&gt; new&#x2F;@&#x2F;etc&#x2F;fstab.bak new&#x2F;@&#x2F;etc&#x2F;fstab
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then reboot. And hopefully you now have a working system.&lt;&#x2F;p&gt;
+&lt;p&gt;If not, restore from your Rescuezilla backup and try, try again.&lt;&#x2F;p&gt;
+&lt;p&gt;Good luck!&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;UPDATE-2023-12-27&lt;&#x2F;p&gt;
+&lt;p&gt;I tried the process again and didn&#x27;t seem to need &lt;code&gt;--ignore-times&lt;&#x2F;code&gt; this time. Also because Arch maps the &lt;code&gt;@log&#x2F;&lt;&#x2F;code&gt; subvolume to &lt;code&gt;&#x2F;var&#x2F;log&lt;&#x2F;code&gt; I removed the contents of &lt;code&gt;@&#x2F;var&#x2F;log&#x2F;&lt;&#x2F;code&gt; after I rsynced it over.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Dark web for dummies</title>
+        <published>2023-11-23T00:00:00+00:00</published>
+        <updated>2023-11-23T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/dark-web-for-dummies/" type="text/html"/>
+        <id>https://josh.is-cool.dev/dark-web-for-dummies/</id>
+        
+        <content type="html">&lt;p&gt;Get a censor-proof completely anonymous web service on the dark web in 15 minutes or your money back!&lt;&#x2F;p&gt;
+&lt;p&gt;Your very own &lt;code&gt;.onion&lt;&#x2F;code&gt; address.&lt;&#x2F;p&gt;
+&lt;p&gt;Why would you want this? Well, the &lt;a href=&quot;https:&#x2F;&#x2F;open.nytimes.com&#x2F;https-open-nytimes-com-the-new-york-times-as-a-tor-onion-service-e0d0b67b7482&quot;&gt;New York Times has one&lt;&#x2F;a&gt;, (good for getting around that pesky NYTimes paywall). Also handy if you want to publish information that is vulnerable to censorship.&lt;&#x2F;p&gt;
+&lt;p&gt;What you need:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;An Internet connection.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ubuntu.com&#x2F;download&#x2F;server&quot;&gt;A Linux server&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.torproject.org&#x2F;download&#x2F;&quot;&gt;The Tor browser&lt;&#x2F;a&gt; (for testing).&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;What to do:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Follow the instructions at Tor Project: &lt;a href=&quot;https:&#x2F;&#x2F;community.torproject.org&#x2F;onion-services&#x2F;setup&#x2F;&quot;&gt;Set up your Onion service&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;OK that&#x27;s pretty much it. Keep the server running and your &lt;code&gt;.onion&lt;&#x2F;code&gt; service will be routed through the Tor network.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Basically it&#x27;s:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# In Ubuntu Server as root
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;apt&lt;&#x2F;span&gt;&lt;span&gt; install tor
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;apt&lt;&#x2F;span&gt;&lt;span&gt; install nginx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# Web server
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;vim&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;etc&#x2F;tor&#x2F;torrc &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# Uncomment HiddenServiceDir and HiddenServicePort
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span&gt; restart tor
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;var&#x2F;lib&#x2F;tor&#x2F;hidden_service&#x2F;hostname &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# Your .onion address
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# Visit your .onion address in the Tor browser
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;em&gt;And one more thing...&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;You can brute-force a vanity Onion address using &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;cathugger&#x2F;mkp224o&quot;&gt;mkp224o&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>WiFi and Bluetooth can coexist peacefully on 2.4 Ghz</title>
+        <published>2023-11-21T00:00:00+00:00</published>
+        <updated>2023-11-21T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/wifi-and-bluetooth-can-coexist/" type="text/html"/>
+        <id>https://josh.is-cool.dev/wifi-and-bluetooth-can-coexist/</id>
+        
+        <content type="html">&lt;p&gt;I wonder who decided it might be a good idea to put Bluetooth and WiFi on the same 2.4 gigahertz spectrum?&lt;&#x2F;p&gt;
+&lt;p&gt;It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards my internet connection would inexplicably slow to a crawl whenever I connected. Disconnect, and it would be fine again. Connect, and again, virtually nothing — especially if sound was playing through the headset.&lt;&#x2F;p&gt;
+&lt;p&gt;The easy solution was to connect on the 5 Ghz band. Done. It worked. No interference. And that could have been that. But it was still bugging me. I still wanted to know why. I still wanted to fix it.&lt;&#x2F;p&gt;
+&lt;p&gt;(2.4 Ghz gets better range than 5 Ghz because it&#x27;s a lower frequency so sometimes it actually gives me a more stable connection from further away.)&lt;&#x2F;p&gt;
+&lt;p&gt;I found a few possible solutions. I tried changing the WiFi channel on my router, and that helped a little bit, but not quite enough.&lt;&#x2F;p&gt;
+&lt;p&gt;In the Arch Wiki they have a small section about &lt;a href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;Bluetooth#Intel_combined_WiFi_and_Bluetooth_cards&quot;&gt;Intel combined WiFi and Bluetooth cards&lt;&#x2F;a&gt; and playing with the coexistence setting and I thought I was onto something. &lt;&#x2F;p&gt;
+&lt;p&gt;They suggested adding the following to &lt;code&gt;&#x2F;etc&#x2F;modprobe.d&#x2F;iwlwifi.conf&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;&lt;code&gt;&lt;span&gt;options iwlwifi bt_coex_active=0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But nope. Nothing. No difference.&lt;&#x2F;p&gt;
+&lt;p&gt;After some searching, &lt;a href=&quot;https:&#x2F;&#x2F;bbs.archlinux.org&#x2F;viewtopic.php?pid=1991801#p1991801&quot;&gt;a post in the Arch Forums&lt;&#x2F;a&gt; put me on the right track.&lt;&#x2F;p&gt;
+&lt;p&gt;In the end, adding this to &lt;code&gt;&#x2F;etc&#x2F;modprobe.d&#x2F;iwlwifi.conf&lt;&#x2F;code&gt; fixed it for me:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;&lt;code&gt;&lt;span&gt;options iwlmvm power_scheme=1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Reboot and you&#x27;re all good.&lt;&#x2F;p&gt;
+&lt;p&gt;Seems to be the same fix &lt;a href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;Network_configuration&#x2F;Wireless#Cause_#6&quot;&gt;as described here&lt;&#x2F;a&gt;, but for a different symptom.&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, hope this helps someone else. Happy hacking!&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;ps.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mastodon.social&#x2F;@jimmo&#x2F;111451012551649253&quot;&gt;Jim Mussared&lt;&#x2F;a&gt; put me on to this page about &lt;a href=&quot;https:&#x2F;&#x2F;wireless.wiki.kernel.org&#x2F;en&#x2F;users&#x2F;drivers&#x2F;iwlwifi#about_platform_noise&quot;&gt;iwlwifi and platform noise&lt;&#x2F;a&gt; which gives a bit more information about why this works.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>One does indeed simply install Arch Linux</title>
+        <published>2023-11-19T00:00:00+00:00</published>
+        <updated>2023-11-19T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/one-does-indeed-simply-install-arch-linux/" type="text/html"/>
+        <id>https://josh.is-cool.dev/one-does-indeed-simply-install-arch-linux/</id>
+        
+        <content type="html">&lt;p&gt;A &lt;a href=&quot;https:&#x2F;&#x2F;phocks.eu.org&#x2F;@josh&#x2F;111407197317293518&quot;&gt;poll I ran&lt;&#x2F;a&gt; recently forced me, against my will, to attempt an install of Arch Linux again.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;...Multiple hours of frustration later...&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s how to install Arch the easy way.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download and make a bootable USB of the &lt;a href=&quot;https:&#x2F;&#x2F;archlinux.org&#x2F;download&#x2F;&quot;&gt;Arch Linux ISO&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;DON&#x27;T FOLLOW THE INSTALL GUIDE.&lt;&#x2F;li&gt;
+&lt;li&gt;Boot into the USB and run &lt;code&gt;iwctl&lt;&#x2F;code&gt; and follow &lt;a href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;Iwd#iwctl&quot;&gt;these instructions&lt;&#x2F;a&gt; to connect — basically &lt;code&gt;device list&lt;&#x2F;code&gt;, &lt;code&gt;station &amp;lt;device&amp;gt; scan&lt;&#x2F;code&gt;, &lt;code&gt;station &amp;lt;device&amp;gt; get-networks&lt;&#x2F;code&gt;, &lt;code&gt;station &amp;lt;device&amp;gt; connect &amp;lt;SSID&amp;gt;&lt;&#x2F;code&gt; — you can tab-complete devices and SSIDs.&lt;&#x2F;li&gt;
+&lt;li&gt;(OR simply plug in an ethernet cable.)&lt;&#x2F;li&gt;
+&lt;li&gt;Run &lt;code&gt;archinstall&lt;&#x2F;code&gt; and follow the prompts.&lt;&#x2F;li&gt;
+&lt;li&gt;Hit &amp;quot;Install&amp;quot; then run &lt;code&gt;reboot&lt;&#x2F;code&gt; when it&#x27;s done.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;That&#x27;s it. You&#x27;re done. You have a working Arch Linux install.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, it won&#x27;t actually do much just yet, but it&#x27;s a start. Here&#x27;s a good place to continue your journey: &lt;a href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&quot;&gt;https:&#x2F;&#x2F;wiki.archlinux.org&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Good luck out there!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A static site with Zola</title>
+        <published>2023-11-13T00:00:00+00:00</published>
+        <updated>2023-11-13T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/a-static-site-with-zola/" type="text/html"/>
+        <id>https://josh.is-cool.dev/a-static-site-with-zola/</id>
+        
+        <content type="html">&lt;p&gt;There are a few static site generators out there, like &lt;a href=&quot;https:&#x2F;&#x2F;jekyllrb.com&quot;&gt;Jekyll&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;gohugo.io&quot;&gt;Hugo&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.gatsbyjs.org&quot;&gt;Gatsby&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;www.11ty.dev&#x2F;&quot;&gt;11ty&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;getpelican.com&quot;&gt;Pelican&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hexo.io&quot;&gt;Hexo&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;getnikola.com&quot;&gt;Nikola&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;metalsmith.io&quot;&gt;Metalsmith&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;middlemanapp.com&quot;&gt;Middleman&lt;&#x2F;a&gt;, etc. I chose &lt;a href=&quot;https:&#x2F;&#x2F;getzola.org&quot;&gt;Zola&lt;&#x2F;a&gt; to power this blog because it&#x27;s simple, super speedy, easy to customise, and written in &lt;a href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&quot;&gt;Rust&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Much of the &lt;del&gt;frustration&lt;&#x2F;del&gt; fun in running your own blog is the setup, so here&#x27;s probably the quickest and dirtiest guide to getting a blog up and running with Zola and hosting it with &lt;a href=&quot;https:&#x2F;&#x2F;surge.sh&quot;&gt;Surge&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Prerequisites:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;A computer.&lt;&#x2F;li&gt;
+&lt;li&gt;Some command-line knowledge.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;First, install Zola by running &lt;code&gt;brew install zola&lt;&#x2F;code&gt; (if you have Homebrew installed) or by following the &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;getting-started&#x2F;installation&#x2F;&quot;&gt;Zola install instructions here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;After installing Zola, create a new site with &lt;code&gt;zola init myblog&lt;&#x2F;code&gt;, answer the install questions (we&#x27;re using Surge so pick a base &lt;abbr title=&quot;Uniform Resource Locator&quot;&gt;URL&lt;&#x2F;abbr&gt; like: &lt;code&gt;https:&#x2F;&#x2F;&amp;lt;subdomain&amp;gt;.surge.sh&lt;&#x2F;code&gt;, this can be changed later), and then &lt;code&gt;cd myblog&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Then &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;themes&#x2F;&quot;&gt;choose a theme here&lt;&#x2F;a&gt; and follow the install instructions. Mostly it&#x27;s something like &lt;code&gt;git init&lt;&#x2F;code&gt; and then &lt;code&gt;git submodule add &amp;lt;theme url&amp;gt; themes&#x2F;&amp;lt;theme name&amp;gt;&lt;&#x2F;code&gt;. For example:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span&gt; init &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# if you haven&amp;#39;t already
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span&gt; submodule add https:&#x2F;&#x2F;github.com&#x2F;pawroman&#x2F;zola-theme-terminimal.git themes&#x2F;terminimal
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then add &lt;code&gt;theme = &amp;quot;terminimal&amp;quot;&lt;&#x2F;code&gt; (or your theme name) to your &lt;code&gt;config.toml&lt;&#x2F;code&gt; file and change any other relevant settings.&lt;&#x2F;p&gt;
+&lt;p&gt;Create a Markdown &lt;code&gt;.md&lt;&#x2F;code&gt; post in the &lt;code&gt;content&lt;&#x2F;code&gt; directory like this. For example, &lt;code&gt;content&#x2F;2023-11-12-hello-world.md&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span&gt;+++
+&lt;&#x2F;span&gt;&lt;span&gt;title = &amp;quot;Hello, World!&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;date = 2023-11-13
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[taxonomies]
+&lt;&#x2F;span&gt;&lt;span&gt;tags = [&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span&gt;+++
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Hello, World!
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To preview locally run &lt;code&gt;zola serve&lt;&#x2F;code&gt; and build your static site with &lt;code&gt;zola build&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;To deploy, make sure &lt;a href=&quot;https:&#x2F;&#x2F;surge.sh&#x2F;help&#x2F;getting-started-with-surge&quot;&gt;Surge&lt;&#x2F;a&gt; is installed with &lt;code&gt;npm install --global surge&lt;&#x2F;code&gt; (assuming you have a recent version of &lt;a href=&quot;https:&#x2F;&#x2F;nodejs.org&quot;&gt;Node.js&lt;&#x2F;a&gt;) and then push your &lt;code&gt;public&lt;&#x2F;code&gt; dir up using:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#e9fdac;&quot;&gt;surge&lt;&#x2F;span&gt;&lt;span&gt; public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;subdomain&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff5e5e;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;.surge.sh &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d6d6d;&quot;&gt;# replace &amp;lt;subdomain&amp;gt; with your subdomain
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;NOTE: Set your &lt;code&gt;base_url&lt;&#x2F;code&gt; to in your &lt;code&gt;config.toml&lt;&#x2F;code&gt; file, eg. &lt;code&gt;base_url = &amp;quot;https:&#x2F;&#x2F;&amp;lt;subdomain&amp;gt;.surge.sh&amp;quot;&lt;&#x2F;code&gt; before you deploy.&lt;&#x2F;p&gt;
+&lt;p&gt;You could also use &lt;a href=&quot;https:&#x2F;&#x2F;www.netlify.com&quot;&gt;Netlify&lt;&#x2F;a&gt; or &lt;a href=&quot;https:&#x2F;&#x2F;pages.github.com&quot;&gt;Github Pages&lt;&#x2F;a&gt; or &lt;a href=&quot;https:&#x2F;&#x2F;pages.cloudflare.com&#x2F;&quot;&gt;Cloudflare&lt;&#x2F;a&gt; or whatever you want, but that&#x27;s a topic for another day.&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, that&#x27;s it. Enjoy your static site!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>An initial test post</title>
+        <published>2023-11-12T00:00:00+00:00</published>
+        <updated>2023-11-12T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://josh.is-cool.dev/an-initial-test-post/" type="text/html"/>
+        <id>https://josh.is-cool.dev/an-initial-test-post/</id>
+        
+        <content type="html">&lt;p&gt;Hello! No time to write a proper post right now, but I wanted to make sure that the blog was working. I&#x27;ll be back soon with something good. I promise.&lt;&#x2F;p&gt;
+&lt;p&gt;In the meantime. Here&#x27;s some &lt;a href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&quot;&gt;Rust&lt;&#x2F;a&gt; code:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#191919;color:#f8f8f2;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;font-style:italic;color:#fbdfb5;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8cdaff;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fbe3bf;&quot;&gt;Hello, world!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Thanks for reading!&lt;&#x2F;p&gt;
+&lt;p&gt;Josh.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

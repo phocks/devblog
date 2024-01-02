@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+        <link rel="stylesheet" href="https://josh.is-cool.dev/color/background_auto.css">
+    
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+            
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://josh.is-cool.dev/atom.xml">
+    
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png">
+<meta property="og:image:type" content="image/png">
+<style>
+  abbr {
+    cursor: help;
+  }
+</style>
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/one-does-indeed-simply-install-arch-linux/">One does indeed simply install Arch Linux</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-11-19
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/arch/">#arch</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/instructions/">#instructions</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/linux/">#linux</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/thinkpad/">#thinkpad</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>A <a href="https://phocks.eu.org/@josh/111407197317293518">poll I ran</a> recently forced me, against my will, to attempt an install of Arch Linux again.</p>
+<p><em>...Multiple hours of frustration later...</em></p>
+<p>Here's how to install Arch the easy way.</p>
+<ol>
+<li>Download and make a bootable USB of the <a href="https://archlinux.org/download/">Arch Linux ISO</a>.</li>
+<li>DON'T FOLLOW THE INSTALL GUIDE.</li>
+<li>Boot into the USB and run <code>iwctl</code> and follow <a href="https://wiki.archlinux.org/title/Iwd#iwctl">these instructions</a> to connect — basically <code>device list</code>, <code>station &lt;device&gt; scan</code>, <code>station &lt;device&gt; get-networks</code>, <code>station &lt;device&gt; connect &lt;SSID&gt;</code> — you can tab-complete devices and SSIDs.</li>
+<li>(OR simply plug in an ethernet cable.)</li>
+<li>Run <code>archinstall</code> and follow the prompts.</li>
+<li>Hit &quot;Install&quot; then run <code>reboot</code> when it's done.</li>
+</ol>
+<p>That's it. You're done. You have a working Arch Linux install.</p>
+<p>Of course, it won't actually do much just yet, but it's a start. Here's a good place to continue your journey: <a href="https://wiki.archlinux.org">https://wiki.archlinux.org</a>.</p>
+<p>Good luck out there!</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/a-static-site-with-zola/">A static site with Zola</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-11-13
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/blog/">#blog</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/rust/">#rust</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/setup/">#setup</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/zola/">#zola</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>There are a few static site generators out there, like <a href="https://jekyllrb.com">Jekyll</a>, <a href="https://gohugo.io">Hugo</a>, <a href="https://www.gatsbyjs.org">Gatsby</a>, <a href="https://www.11ty.dev/">11ty</a>, <a href="https://getpelican.com">Pelican</a>, <a href="https://hexo.io">Hexo</a>, <a href="https://getnikola.com">Nikola</a>, <a href="https://metalsmith.io">Metalsmith</a>, <a href="https://middlemanapp.com">Middleman</a>, etc. I chose <a href="https://getzola.org">Zola</a> to power this blog because it's simple, super speedy, easy to customise, and written in <a href="https://www.rust-lang.org">Rust</a>.</p>
+<p>Much of the <del>frustration</del> fun in running your own blog is the setup, so here's probably the quickest and dirtiest guide to getting a blog up and running with Zola and hosting it with <a href="https://surge.sh">Surge</a>.</p>
+<p>Prerequisites:</p>
+<ol>
+<li>A computer.</li>
+<li>Some command-line knowledge.</li>
+</ol>
+<p>First, install Zola by running <code>brew install zola</code> (if you have Homebrew installed) or by following the <a href="https://www.getzola.org/documentation/getting-started/installation/">Zola install instructions here</a>.</p>
+<p>After installing Zola, create a new site with <code>zola init myblog</code>, answer the install questions (we're using Surge so pick a base <abbr title="Uniform Resource Locator">URL</abbr> like: <code>https://&lt;subdomain&gt;.surge.sh</code>, this can be changed later), and then <code>cd myblog</code>.</p>
+<p>Then <a href="https://www.getzola.org/themes/">choose a theme here</a> and follow the install instructions. Mostly it's something like <code>git init</code> and then <code>git submodule add &lt;theme url&gt; themes/&lt;theme name&gt;</code>. For example:</p>
+<pre data-lang="bash" style="background-color:#191919;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#e9fdac;">git</span><span> init </span><span style="color:#6d6d6d;"># if you haven&#39;t already
+</span><span style="color:#e9fdac;">git</span><span> submodule add https://github.com/pawroman/zola-theme-terminimal.git themes/terminimal
+</span></code></pre>
+<p>Then add <code>theme = &quot;terminimal&quot;</code> (or your theme name) to your <code>config.toml</code> file and change any other relevant settings.</p>
+<p>Create a Markdown <code>.md</code> post in the <code>content</code> directory like this. For example, <code>content/2023-11-12-hello-world.md</code>:</p>
+<pre data-lang="markdown" style="background-color:#191919;color:#f8f8f2;" class="language-markdown "><code class="language-markdown" data-lang="markdown"><span>+++
+</span><span>title = &quot;Hello, World!&quot;
+</span><span>date = 2023-11-13
+</span><span>
+</span><span>[taxonomies]
+</span><span>tags = [&quot;hello&quot;, &quot;world&quot;]
+</span><span>+++
+</span><span>
+</span><span>Hello, World!
+</span></code></pre>
+<p>To preview locally run <code>zola serve</code> and build your static site with <code>zola build</code></p>
+<p>To deploy, make sure <a href="https://surge.sh/help/getting-started-with-surge">Surge</a> is installed with <code>npm install --global surge</code> (assuming you have a recent version of <a href="https://nodejs.org">Node.js</a>) and then push your <code>public</code> dir up using:</p>
+<pre data-lang="bash" style="background-color:#191919;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#e9fdac;">surge</span><span> public </span><span style="color:#ff5e5e;">&lt;</span><span>subdomain</span><span style="color:#ff5e5e;">&gt;</span><span>.surge.sh </span><span style="color:#6d6d6d;"># replace &lt;subdomain&gt; with your subdomain
+</span></code></pre>
+<p>NOTE: Set your <code>base_url</code> to in your <code>config.toml</code> file, eg. <code>base_url = &quot;https://&lt;subdomain&gt;.surge.sh&quot;</code> before you deploy.</p>
+<p>You could also use <a href="https://www.netlify.com">Netlify</a> or <a href="https://pages.github.com">Github Pages</a> or <a href="https://pages.cloudflare.com/">Cloudflare</a> or whatever you want, but that's a topic for another day.</p>
+<p>Anyway, that's it. Enjoy your static site!</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/4/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/6/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2024
+ Joshua Byrd</span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
