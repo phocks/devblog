@@ -9,8 +9,6 @@ Find me in the Fediverse:
 
 * [@phocks@bne.social](https://bne.social/@phocks)
 * [@josh@phocks.eu.org](https://phocks.eu.org/@josh)
-* [@bitslag@bits.lag.tf](https://bits.lag.tf/@bitslag)
-* [@phocks@mastodon.social](https://mastodon.social/@phocks)
 
 And in other places:
 
