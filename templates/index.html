@@ -12,11 +12,15 @@
   }
 </style>
 <style>
-  abbr[title]:after {
-    content: " (" attr(title) ")";
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
   }
 
-  @media screen and (min-width: 1025px) {
+
+
+  /* @media screen and (min-width: 1025px) {
     abbr[title] {
       border-bottom: 1px dashed #ADADAD;
       cursor: help;
@@ -25,6 +29,6 @@
     abbr[title]:after {
       content: "";
     }
-  }
+  } */
 </style>
 {% endblock %}
