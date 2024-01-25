@@ -48,7 +48,7 @@ Good new though. Oracle has now added <abbr title="Advanced RISC Machines">ARM</
 
 Oracle gives you up to 200GB of block storage, which you can spread across all your servers. I have had some issues with running low on disk space and having to set up scripts to compress media etc (see below), so I'd probably recommend using 100GB for your Mastodon instance as a minimum. Unfortunately, Mastodon uses a lot of space for storing accounts and media etc. You can hook up [object storage](https://docs.joinmastodon.org/admin/optional/object-storage/) later if you want, but it's not necessary for starters.
 
-OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP</abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
+OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP</abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/user/run-your-own/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
 
 If everything went well, you should now have a working Mastodon instance. Log in start posting!
 
@@ -102,3 +102,11 @@ find -name '*.png' -print0 | xargs -0 pngquant --ext=.png --force --speed 10 --q
 ```
 
 Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh@phocks.eu.org](https://phocks.eu.org/@josh) if you have any questions or need any help, or if you just wanna say hi 👋
+
+---
+
+pps.
+
+I forgot to mention, the only other thing that you kinda might need during the install is an <abbr title="Simple Mail Transfer Protocol">SMTP</abbr> service for sending emails for sign-ups. I'm pretty sure it's not 100% necessary for a single-user instance, because the installation will set up an admin account for you and you can also use the Mastodon cli tools to create accounts without email confirmation.
+
+But if you want to be able to send emails, you can use [Mailgun](https://www.mailgun.com) for free. You can also try [SendGrid](https://sendgrid.com), but I believe they require you to verify your identity with a credit card.
