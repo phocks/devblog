@@ -12,32 +12,18 @@
   }
 </style>
 <style>
-  @media screen and (min-width: 0px) {
-    abbr[data-title] {
-      position: relative;
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-      /* ensure consistent styling across browsers */
-      text-decoration: underline dotted;
+  @media screen and (min-width: 1025px) {
+    abbr[title] {
+      border-bottom: 1px dashed #ADADAD;
+      cursor: help;
     }
 
-    abbr[data-title]:hover::after,
-    abbr[data-title]:focus::after {
-      content: attr(data-title);
-
-      /* position tooltip like the native one */
-      position: absolute;
-      left: 0;
-      bottom: -30px;
-      width: auto;
-      white-space: nowrap;
-
-      /* style tooltip */
-      background-color: #1e1e1e;
-      color: #fff;
-      border-radius: 3px;
-      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
-      font-size: 14px;
-      padding: 3px 5px;
+    abbr[title]:after {
+      content: "";
     }
   }
 </style>
