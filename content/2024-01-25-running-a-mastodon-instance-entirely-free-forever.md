@@ -117,6 +117,4 @@ Happy days!
 
 ppps.
 
-Thanks to [@futzle](https://old.mermaid.town/@futzle) for pointing out that if you don't want Nazis and trolls posting the worst stuff on the Internet at you (I found out the hard way), you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called [FediNuke](https://seirdy.one/pb/FediNuke.txt). You can import the text file in admin settings under **Moderation -> Federation**.
-
-<iframe src="https://old.mermaid.town/@futzle/111816078208038636/embed" width="400" allowfullscreen="allowfullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"></iframe>
+Thanks to [@futzle](https://old.mermaid.town/@futzle/111816078208038636) for pointing out that if you don't want Nazis and trolls posting the worst stuff on the Internet at you (I found out the hard way), you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called [FediNuke](https://seirdy.one/pb/FediNuke.txt). You can import the text file in admin settings under **Moderation -> Federation**.
