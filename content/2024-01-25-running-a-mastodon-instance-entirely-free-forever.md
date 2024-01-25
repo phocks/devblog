@@ -44,7 +44,7 @@ But Oracle has now added <abbr title="Advanced RISC Machines">ARM</abbr> servers
 
 Oracle gives you up to 200GB of block storage, which you can spread across all your servers. I have had some issues with running low on disk space and having to set up scripts to compress media etc (see below), so I'd probably recommend using 100GB for your Mastodon instance as a minimum. Unfortunately, Mastodon uses a lot of space for storing accounts and media etc. You can hook up [object storage](https://docs.joinmastodon.org/admin/optional/object-storage/) later if you want, but it's not necessary for starters.
 
-OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP<abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
+OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP</abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
 
 If everything went well, you should now have a working Mastodon instance. Log in and create start posting!
 
