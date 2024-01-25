@@ -7,32 +7,32 @@ draft = true
 tags = ["social", "hosting", "domains", "mastodon", "fediverse"]
 +++
 
-My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org) for a while now, over a year at least. I've paid zero dollars all up to keep it running. Here's how.
+My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write something up about this, so here we go.
 
-But first ... why? For the fun of mucking around with servers and software. And for the freedom to post whatever you want on your own platform and no one (except maybe peer pressure or law of the land) can force you to take it down.
+Firstly though, why would you even want to run your own Mastodon instance? Well, for the fun of mucking around with servers and software, perhaps? Maybe for the freedom to post whatever you want on your own platform and no dumb billionaire can force you to take it down? Who knows? Anyway.
 
-Basically, you need 2 things.
+To run a Mastodon instance you need 2 things.
 
 1. A domain.
 2. A server.
 
-Getting an actual <abbr title="Top-level domain">TLD</abbr> for free is more art than science these days, especially since [Freenom](https://www.freenom.com) shut down new registrations. Here are some places to try.
+Getting an actual <abbr title="Top-level domain">TLD</abbr> for free is more art than science these days, especially since [Freenom](https://www.freenom.com) shut down new registrations. Here are some other places to try.
 
 1. [nic.eu.org](https://nic.eu.org) - They make you [jump through a few hoops](https://forum.infinityfree.com/t/how-to-get-a-free-eu-org-domain/88508), plus it can take up to a month or two (or forever) to get approved.
 2. [nic.ua](https://nic.ua/en/domains/.pp.ua) - 1-year registrations only, but you can renew manually for free each year.
 
 _(If you know of any other places to get free TLDs, please let me know.)_
 
-You can, of course, use a subdomain too. Subdomains are easier to get for free. Try here.
+You can use a subdomain too. Subdomains are easier to get for free. Try some of these places or do a search.
 
 1. [afraid.org](https://freedns.afraid.org)
 2. [GitHub free-subdomain topic](https://github.com/topics/free-subdomain)
 3. [noip.com](https://www.noip.com)
 4. [duckdns.org](https://www.duckdns.org)
 
-Or else if you already have a domain, you can create a subdomain like `mastodon.yourdomain.com` or `fedi.yourdomain.com` or whatever you like and point it to your server.
+Or else if you already have a domain, you can create a subdomain like `mastodon.yourdomain.com` or `fedi.yourdomain.com` or whatever you like.
 
-But first, you need a server.
+Now you need a server to point your domain to.
 
 You could use any old computer that you have lying around the house, or you could sign up for the [free tier on the Oracle Cloud](https://www.oracle.com/cloud/free/). This is what I'm using currently.
 
@@ -42,24 +42,24 @@ But Oracle has now added <abbr title="Advanced RISC Machines">ARM</abbr> servers
 
 Oracle gives you up to 200GB of block storage, which you can spread across all your servers. I have had some issues with running low on disk space and having to set up scripts to compress media etc, so I'd probably recommend using 100GB for your Mastodon instance as a minimum. Unfortunately, Mastodon uses a lot of space storing accounts and media etc. You can hook up [object storage](https://docs.joinmastodon.org/admin/optional/object-storage/) later if you wanna, but it's not necessary for starters.
 
-OK, so now you have your domain and you have it pointed to the IP address of your server. Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
+OK, so now you have your domain and you have it pointed to the IP address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
 
-If everything went well, you should now have a working Mastodon instance.
+If everything went well, you should now have a working Mastodon instance. Log in and create start posting!
 
 Here are some scripts that I run [on cron](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-jobhttps://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job) every few hours, mostly to help keep disk usage down.
 
 This first one runs `tootctl` to prune old accounts and media etc. This may not be necessary these days as I believe Mastodon has some built-in pruning now. But I've been running this for a while and it seems to work.
 
 ```bash
-#!/usr/bin/env bash               
+#!/usr/bin/env bash
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export RAILS_ENV=production
 
-# Added from https://ricard.dev/improving-mastodons-disk-usage/                                                      
+# Added from https://ricard.dev/improving-mastodons-disk-usage/
 /home/mastodon/live/bin/tootctl accounts prune
-#/home/mastodon/live/bin/tootctl media remove --remove-headers --include-follows --days 1                             
+#/home/mastodon/live/bin/tootctl media remove --remove-headers --include-follows --days 1
 /home/mastodon/live/bin/tootctl media remove --prune-profiles --days 1
 /home/mastodon/live/bin/tootctl cache clear
 /home/mastodon/live/bin/tootctl statuses remove --days=1
