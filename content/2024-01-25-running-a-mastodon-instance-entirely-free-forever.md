@@ -121,4 +121,4 @@ Thanks to [@futzle](https://old.mermaid.town/@futzle/111816078208038636) for poi
 
 ---
 
-If you found this useful, please consider [buying me a coffee](https://ko-fi.com/phocks). Thanks! ☕
+If you found this useful, please consider [buying me a coffee](https://ko-fi.com/phocks), as unfortunately coffee isn't free 🥲☕

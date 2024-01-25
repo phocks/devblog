@@ -20,4 +20,4 @@ The code for this blog can be found on [GitHub](https://github.com/phocks/devblo
 
 ---
 
-If you found anything on this site useful, you could always [buy me a coffee](https://ko-fi.com/phocks), as unfortunately coffee isn't free :( ☕
+If you found anything on this site useful, you could always [buy me a coffee](https://ko-fi.com/phocks). ☕
