@@ -38,6 +38,8 @@ You could use any old computer that you have lying around the house, or you coul
 
 Google Cloud also offers [a free server](https://cloud.google.com/free/docs/free-cloud-features#compute), but they only give you 30GB storage and Mastodon will chew through this pretty quick. But you could try [GoToSocial](https://gotosocial.org/) instead, which is more lightweight.
 
+_(If anyone knows any other free forever tier <abbr title="Virtual Private Server">VPS</abbr>s please let us know.)_
+
 I wrote up a [little guide](https://phocks.github.io/how-to-get-2x-oracle-cloud-servers-free-forever.html) a while ago about how to get 2x Oracle Cloud servers free forever. These are x86 servers with 1GB RAM each. 1GB is a bit small for a Mastodon instance, but I can confirm that it does run if you [enable some swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04). You could even try splitting the database and the web server between the two separate servers, if you're feeling adventurous.
 
 But Oracle has now added <abbr title="Advanced RISC Machines">ARM</abbr> servers to their free tier. These are the [Ampere A1 Compute](https://www.oracle.com/cloud/compute/arm/) servers. You can create from 1 up to 4 servers with 24GB of RAM spread between them, which is more than enough for a Mastodon instance. And they're free forever too. I am running mine on a 2-thread ARM CPU with 12GB RAM and 50GB block storage.
