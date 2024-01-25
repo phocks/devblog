@@ -117,4 +117,8 @@ Happy days!
 
 ppps.
 
-Thanks to [@futzle](https://old.mermaid.town/@futzle/111816078208038636) for pointing out that if you don't want literal Nazis and 4chan-like trolls posting the worst stuff on the Internet at you (I found out the hard way), you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called [FediNuke](https://seirdy.one/pb/FediNuke.txt). You can import the text file in admin settings under **Moderation -> Federation**.
+Thanks to [@futzle](https://old.mermaid.town/@futzle/111816078208038636) for pointing out that if you don't want literal Nazis and 4chan-like trolls posting the worst stuff on the Internet at you (I found out the hard way), you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called [FediNuke](https://seirdy.one/posts/2023/05/02/fediverse-blocklists/). You can import the text file in admin settings under **Moderation -> Federation**.
+
+---
+
+If you found this guide useful, please consider [buying me a coffee](https://ko-fi.com/phocks). Thanks! ☕
