@@ -17,3 +17,7 @@ And in other places:
 * [email me](https://keys.mailvelope.com/pks/lookup?op=get&search=byrd.joshua@proton.me) (PGP encryption welcome).
 
 The code for this blog can be found on [GitHub](https://github.com/phocks/devblog).
+
+---
+
+If you found anything on this site useful, you could always [buy me a coffee](https://ko-fi.com/phocks). ☕
