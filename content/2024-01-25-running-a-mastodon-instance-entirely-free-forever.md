@@ -21,7 +21,7 @@ To run a Mastodon instance you need 2 things.
 Getting an actual <abbr title="Top-level domain">TLD</abbr> for free is more art than science these days, especially since [Freenom](https://www.freenom.com) shut down new registrations. Here are some other places to try.
 
 1. [nic.eu.org](https://nic.eu.org) - They make you [jump through a few hoops](https://forum.infinityfree.com/t/how-to-get-a-free-eu-org-domain/88508), plus it can take up to a month or two (or forever) to get approved.
-2. [nic.ua](https://nic.ua/en/domains/.pp.ua) - 1-year registrations only, but you can renew manually for free each year.
+2. [nic.ua](https://nic.ua/en/domains/.pp.ua) - pp.ua domain. 1-year registrations only, but you can renew manually for free each year.
 
 _(If you know of any other places to get free TLDs, please [let me know](/about).)_
 
