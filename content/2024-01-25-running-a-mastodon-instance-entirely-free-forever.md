@@ -107,6 +107,8 @@ Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh@phocks.eu.org]
 
 pps.
 
-I forgot to mention, the only other thing that you kinda might need during the install is an <abbr title="Simple Mail Transfer Protocol">SMTP</abbr> service for sending emails for sign-ups. I'm pretty sure it's not 100% necessary for a single-user instance, because the installation will set up an admin account for you and you can also use the Mastodon cli tools to create accounts without email confirmation.
+I forgot to mention, the only other thing that you kinda might need during the install is an <abbr title="Simple Mail Transfer Protocol">SMTP</abbr> service for sending emails for sign-ups. I'm pretty sure it's not 100% necessary for a single-user instance, because the installation will set up an admin account for you and you can also use the [Mastodon cli](https://docs.joinmastodon.org/admin/tootctl/) tools to create accounts without email confirmation.
 
 But if you want to be able to send emails, you can use [Mailgun](https://www.mailgun.com) for free. You can also try [SendGrid](https://sendgrid.com), but I believe they require you to verify your identity with a credit card.
+
+Happy days!
