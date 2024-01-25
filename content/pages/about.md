@@ -12,7 +12,7 @@ Find me in the Fediverse:
 
 And in other places:
 
-* [Session](https://getsession.org/) Id: 0591ea3a5f77fea842f72eb94c88e71ef8778a6007bf3b920f8ebd2f477f66f20c or phocks (Session ONS).
+* [Session](https://getsession.org/) Id: 0591ea3a5f77fea842f72eb94c88e71ef8778a6007bf3b920f8ebd2f477f66f20c or "phocks" (Session ONS).
 * I'm on Signal too, but don't wanna give my phone number out.
 * [email me](https://keys.mailvelope.com/pks/lookup?op=get&search=byrd.joshua@proton.me) (PGP encryption welcome).
 
