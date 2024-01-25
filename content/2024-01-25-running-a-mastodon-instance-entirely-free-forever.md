@@ -7,7 +7,7 @@ draft = false
 tags = ["social", "hosting", "domains", "mastodon", "fediverse"]
 +++
 
-My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is. Enjoy!
+My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org/about) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is. Enjoy!
 
 Firstly though, why would anyone even want to run their own Mastodon instance? Well, for the fun of mucking around with servers and software, perhaps? Maybe for the freedom to post whatever you want on your own platform and no dumb billionaire can suspend you or force you to take it down? Who knows? Anyway...
 
