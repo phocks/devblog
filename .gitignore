@@ -1,2 +1,3 @@
 # Zola build dir
 /public
+.DS_Store
