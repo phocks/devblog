@@ -101,7 +101,7 @@ find -name '*.png' -print0 | xargs -0 pngquant --ext=.png --force --speed 10 --q
 #find -name '*.gif' -print0 | xargs -0 gifsicle -O3 --colors=64 --use-col=web --lossy=100 --batch
 ```
 
-Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh@phocks.eu.org](https://phocks.eu.org/@josh) if you have any questions or need any help, or if you just wanna say hi 👋
+Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh](https://phocks.eu.org/@josh) if you have any questions or need any help, or if you just wanna say hi 👋
 
 ---
 
@@ -112,3 +112,11 @@ I forgot to mention, the only other thing that you kinda might need during the i
 But if you want to be able to send emails, you can use [Mailgun](https://www.mailgun.com) for free. You can also try [SendGrid](https://sendgrid.com), but I believe they require you to verify your identity with a credit card.
 
 Happy days!
+
+---
+
+ppps.
+
+Thanks to [@futzle](https://old.mermaid.town/@futzle) for pointing out that if you don't want Nazis and trolls posting the worst stuff on the Internet at you, you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called [FediNuke](https://seirdy.one/pb/FediNuke.txt). You can import the text file in admin settings under Moderation -> Federation.
+
+<iframe src="https://old.mermaid.town/@futzle/111816078208038636/embed" width="400" allowfullscreen="allowfullscreen" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"></iframe>
