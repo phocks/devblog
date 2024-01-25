@@ -7,21 +7,21 @@ draft = false
 tags = ["social", "hosting", "domains", "mastodon", "fediverse"]
 +++
 
-My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about this, so here it is. Enjoy!
+My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is. Enjoy!
 
-Firstly though, why would you even want to run your own Mastodon instance? Well, for the fun of mucking around with servers and software, perhaps? Maybe for the freedom to post whatever you want on your own platform and no dumb billionaire can suspend you or force you to take it down? Who knows? Anyway...
+Firstly though, why would anyone even want to run their own Mastodon instance? Well, for the fun of mucking around with servers and software, perhaps? Maybe for the freedom to post whatever you want on your own platform and no dumb billionaire can suspend you or force you to take it down? Who knows? Anyway...
 
 To run a Mastodon instance you need 2 things.
 
 1. A domain, or subdomain.
-2. A server, 2GB RAM minimum. 50GB disk space minimum.
+2. A server, 2<abbr title="gigabytes">GB</abbr> <abbr title="Random Access Memory">RAM</abbr> minimum. 50GB disk space minimum.
 
 Getting an actual <abbr title="Top-level domain">TLD</abbr> for free is more art than science these days, especially since [Freenom](https://www.freenom.com) shut down new registrations. Here are some other places to try.
 
 1. [nic.eu.org](https://nic.eu.org) - They make you [jump through a few hoops](https://forum.infinityfree.com/t/how-to-get-a-free-eu-org-domain/88508), plus it can take up to a month or two (or forever) to get approved.
 2. [nic.ua](https://nic.ua/en/domains/.pp.ua) - 1-year registrations only, but you can renew manually for free each year.
 
-_(If you know of any other places to get free TLDs, please let me know.)_
+_(If you know of any other places to get free TLDs, please [let me know](/about).)_
 
 You can use a subdomain too. Subdomains are easier to get for free. Try some of these places or [do a search](https://duckduckgo.com/?q=register+a+free+subdomain+with+dns&t=ffab&ia=web) online.
 
@@ -36,13 +36,15 @@ Now you need a server to point your domain to.
 
 You could use any old computer that you have lying around the house, or you could sign up for the [free tier on the Oracle Cloud](https://www.oracle.com/cloud/free/). This is what I'm using currently.
 
-I wrote up a [little guide](https://phocks.github.io/how-to-get-2x-oracle-cloud-servers-free-forever.html) a while ago about how to get 2x Oracle Cloud servers free forever. These are x86 servers with 1GB <abbr title="Random Access Memory">RAM</abbr> each. 1GB is a bit small for a Mastodon instance, but I can confirm that it does run if you [enable some swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04). You could even try splitting the database and the web server between the two separate servers, if you're feeling adventurous.
+Google Cloud also offers [a free server](https://cloud.google.com/free/docs/free-cloud-features#compute), but they only give you 30GB storage and Mastodon will chew through this pretty quick. But you could try [GoToSocial](https://gotosocial.org/) instead, which is more lightweight.
 
-But Oracle has now added <abbr title="Advanced RISC Machines">ARM</abbr> servers to their free tier. These are the [Ampere A1 Compute](https://www.oracle.com/cloud/compute/arm/) servers. You can create from 1 to 4 servers with 24GB of RAM spread between them, which is more than enough for a Mastodon instance. And they're free forever too. I am running mine on a 2-thread ARM CPU with 12GB RAM and 50GB block storage.
+I wrote up a [little guide](https://phocks.github.io/how-to-get-2x-oracle-cloud-servers-free-forever.html) a while ago about how to get 2x Oracle Cloud servers free forever. These are x86 servers with 1GB RAM each. 1GB is a bit small for a Mastodon instance, but I can confirm that it does run if you [enable some swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04). You could even try splitting the database and the web server between the two separate servers, if you're feeling adventurous.
 
-Oracle gives you up to 200GB of block storage, which you can spread across all your servers. I have had some issues with running low on disk space and having to set up scripts to compress media etc, so I'd probably recommend using 100GB for your Mastodon instance as a minimum. Unfortunately, Mastodon uses a lot of space storing accounts and media etc. You can hook up [object storage](https://docs.joinmastodon.org/admin/optional/object-storage/) later if you wanna, but it's not necessary for starters.
+But Oracle has now added <abbr title="Advanced RISC Machines">ARM</abbr> servers to their free tier. These are the [Ampere A1 Compute](https://www.oracle.com/cloud/compute/arm/) servers. You can create from 1 up to 4 servers with 24GB of RAM spread between them, which is more than enough for a Mastodon instance. And they're free forever too. I am running mine on a 2-thread ARM CPU with 12GB RAM and 50GB block storage.
 
-OK, so now you have your domain and you have it pointed to the IP address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
+Oracle gives you up to 200GB of block storage, which you can spread across all your servers. I have had some issues with running low on disk space and having to set up scripts to compress media etc (see below), so I'd probably recommend using 100GB for your Mastodon instance as a minimum. Unfortunately, Mastodon uses a lot of space for storing accounts and media etc. You can hook up [object storage](https://docs.joinmastodon.org/admin/optional/object-storage/) later if you want, but it's not necessary for starters.
+
+OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP<abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/admin/prerequisites/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
 
 If everything went well, you should now have a working Mastodon instance. Log in and create start posting!
 
@@ -95,4 +97,4 @@ find -name '*.png' -print0 | xargs -0 pngquant --ext=.png --force --speed 10 --q
 #find -name '*.gif' -print0 | xargs -0 gifsicle -O3 --colors=64 --use-col=web --lossy=100 --batch
 ```
 
-Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh@phocks.eu.org](https://phocks.eu.org/@josh) if you have any questions or need any help.
+Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh@phocks.eu.org](https://phocks.eu.org/@josh) if you have any questions or need any help, or if you just wanna say hi 👋
