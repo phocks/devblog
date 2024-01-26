@@ -25,7 +25,11 @@ taxonomies = [{ name = "tags" }]
 # Code highlighting
 [markdown]
 highlight_code = true
-highlight_theme = "1337"
+# highlight_theme = "1337"
+highlight_themes_css = [
+  { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
+  { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
+]
 
 [extra]
 
