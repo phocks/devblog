@@ -1,29 +1,28 @@
 :root {
-  @media (prefers-color-scheme: dark) {
-    --accent: #00CC00; 
+  --accent: rgb(24, 192, 128);
+  --accent-alpha-70: rgba(24, 192, 128, .7);
+  --accent-alpha-20: rgba(24, 192, 128, .2);
+
+  --background: white;
+  --color: #201030;
+  --border-color: rgba(0, 0, 16, .125);
+
+  div.logo {
+    color: white;
+  }
+
+  &.dark {
+    --accent: #00CC00;
     --accent-alpha-70: #88FF88;
     --accent-alpha-20: #006600;
-  
+
     --background: #0C0C0C;
     --color: #f0f0f0e8;
     --border-color: hsl(120, 100%, 20%);
-    
+
     div.logo {
       color: black;
     }
-  
-  }
-  @media (prefers-color-scheme: light) {
-    --accent: rgb(24, 192, 128);
-    --accent-alpha-70: rgba(24, 192, 128,.7);
-    --accent-alpha-20: rgba(24, 192, 128,.2);
 
-    --background: white;
-    --color: #201030;
-    --border-color: rgba(0,0,16,.125);
-    
-    div.logo {
-      color: white;
-    }
   }
 }
