@@ -68,7 +68,6 @@ menu_items = [
   { name = "tags", url = "$BASE_URL/tags" },
   { name = "rss", url = "$BASE_URL/atom.xml" },
 
-
   # set newtab to true to make the link open in new tab
   # { name = "github", url = "https://github.com/pawroman/zola-theme-terminimal", newtab = true },
 ]
