@@ -32,13 +32,13 @@ You can also use a subdomain. Subdomains are easier to get for free. Try some of
 3. [noip.com](https://www.noip.com)
 4. [duckdns.org](https://www.duckdns.org)
 
-Or else if you already own a domain name, you can create a subdomain like `mastodon.yourdomain.com` or `fedi.yourdomain.com` or whatever you like.
+Or else, if you already own a domain name, you can create a subdomain like `mastodon.yourdomain.com` or `fedi.yourdomain.com` or whatever you like.
 
 Now you need a server to point your domain to.
 
 You could use any old computer that you have lying around the house, or you could sign up for the [free tier on the Oracle Cloud](https://www.oracle.com/cloud/free/). This is what I'm using currently.
 
-Google Cloud also offers [a free server](https://cloud.google.com/free/docs/free-cloud-features#compute), but they only give you 30GB storage and 1GB of outbound traffic and Mastodon will chew through this pretty quick. But you could try [GoToSocial](https://gotosocial.org/) instead, which is a bit more lightweight.
+Google Cloud also offers [a free server](https://cloud.google.com/free/docs/free-cloud-features#compute), but they only give you 30GB storage and 1GB of outbound traffic and Mastodon will chew through this pretty quick. But you could try [GoToSocial](https://gotosocial.org/), [Pleroma](https://pleroma.social/), or [Akkoma](https://akkoma.social/) instead, which are a bit more lightweight.
 
 _(If anyone knows any other free-forever tier <abbr title="Virtual Private Server">VPS</abbr>s please [let me know](/about) too.)_
 
@@ -50,7 +50,7 @@ Oracle gives you up to 200GB of block storage, which you can spread across all y
 
 OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP</abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the [official guide](https://docs.joinmastodon.org/user/run-your-own/) to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.
 
-If everything went well, you should now have a working Mastodon instance. Log in start posting!
+If everything went well, you should now have a working Mastodon instance. Log in and start posting!
 
 ---
 
