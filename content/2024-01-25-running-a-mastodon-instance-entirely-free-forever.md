@@ -18,12 +18,12 @@ To run a Mastodon instance you need 2 things.
 1. A domain, or subdomain.
 2. A server, 2<abbr title="gigabytes">GB</abbr> <abbr title="Random Access Memory">RAM</abbr> minimum. 50GB disk space minimum.
 
-Getting an actual <abbr title="Top-level domain">TLD</abbr> for free is more art than science these days, especially since [Freenom](https://www.freenom.com) shut down new registrations. Here are some other places to try.
+Getting a domain for free is more art than science these days, especially since [Freenom](https://www.freenom.com) shut down new registrations. Here are some other places to try.
 
 1. [nic.eu.org](https://nic.eu.org) - They make you [jump through a few hoops](https://forum.infinityfree.com/t/how-to-get-a-free-eu-org-domain/88508), plus it can take up to a month or two (or forever) to get approved.
 2. [nic.ua](https://nic.ua/en/domains/.pp.ua) - pp.ua domain. 1-year registrations only, but you can renew manually for free each year.
 
-_(If you know of any other places to get free TLDs, please [let me know](/about).)_
+_(If you know of any other places to get free domains, please [let me know](/about).)_
 
 You can also use a subdomain. Subdomains are easier to get for free. Try some of these places or [do a search](https://duckduckgo.com/?q=register+a+free+subdomain+with+dns&t=ffab&ia=web) online.
 
