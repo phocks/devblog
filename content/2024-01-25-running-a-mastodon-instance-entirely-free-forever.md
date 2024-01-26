@@ -111,6 +111,8 @@ I forgot to mention, the only other thing that you kinda might need during the i
 
 But if you want to be able to send emails, you can use [Mailgun](https://www.mailgun.com) for free. You can also try [SendGrid](https://sendgrid.com), but I believe they require you to verify your identity with a credit card.
 
+You can also try setting up [SMTP through Gmail](https://kinsta.com/blog/gmail-smtp-server/), as suggested by [KuJoe](https://mindly.social/@KuJoe/111819333521765387).
+
 Happy days!
 
 ---
