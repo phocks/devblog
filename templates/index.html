@@ -22,4 +22,17 @@
 <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
 {% endblock %}
 
-{% block extra_body %} {% endblock %}
+{% block extra_body %}
+<script type="module">
+  import init, { add } from './pkg/wasm.js';
+
+  async function run() {
+    await init();
+
+    const result = add(420, 69);
+    console.log(result);
+  }
+
+  run();
+</script>
+{% endblock %}
