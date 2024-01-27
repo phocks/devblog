@@ -1,12 +1,14 @@
-{% extends "terminimal/templates/index.html" %}
-{% block extra_head %}
+{% extends "terminimal/templates/index.html" %} {% block extra_head %}
 <link rel="me" href="https://bne.social/@phocks" />
 <link rel="me" href="https://phocks.eu.org/@josh" />
 <meta name="description" content="The dev blog of Joshua Byrd" />
 <meta name="keywords" content="hacking, programming, ranting" />
-<meta property="og:image" content="/favicon.png">
-<meta property="og:image:type" content="image/png">
-<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta
+  name="google-site-verification"
+  content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4"
+/>
 <style>
   abbr {
     cursor: help;
@@ -18,21 +20,19 @@
     }
   }
 </style>
-<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
-<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
-{% endblock %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/syntax-theme-dark.css"
+  media="(prefers-color-scheme: dark)"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/syntax-theme-light.css"
+  media="(prefers-color-scheme: light)"
+/>
 
-{% block extra_body %}
-<script type="module">
-  import init, { add } from '/pkg/wasm.js';
-
-  async function run() {
-    await init();
-
-    const result = add(420, 69);
-    console.log(result);
-  }
-
-  run();
-</script>
+<!-- Load JavaScript (but only to load WASM) -->
+<script type="module" defer async src="/index.js"></script>
 {% endblock %}
