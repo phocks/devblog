@@ -1,11 +1,8 @@
 mod utils;
 
+use utils::set_panic_hook;
+use rand::Rng;
 use wasm_bindgen::prelude::*;
-
-#[wasm_bindgen]
-pub fn add(a: i32, b: i32) -> i32 {
-    a + b
-}
 
 #[wasm_bindgen]
 extern "C" {
@@ -17,8 +14,23 @@ macro_rules! console_log {
     ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
 }
 
-#[wasm_bindgen]
-pub fn hello_world() {
-    utils::set_panic_hook();
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+fn hello_world() {
     console_log!("Hello {}, from WebAssembly!", "world");
+}
+
+fn generate_random_number() -> i32 {
+    let mut rng = rand::thread_rng();
+    rng.gen_range(0..100_000)
+}
+
+#[wasm_bindgen]
+pub fn main() {
+    set_panic_hook();
+    hello_world();
+    console_log!("2 + 2 = {}", add(2, 2));
+    console_log!("Your lucky number is: {}", generate_random_number());
 }

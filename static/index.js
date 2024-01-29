@@ -1,8 +1,8 @@
-import init, { hello_world } from "./pkg/wasm.js";
+import init, { main } from "./pkg/wasm.js";
 
 async function run() {
   await init();
-  hello_world();
+  main();
 }
 
 run();
