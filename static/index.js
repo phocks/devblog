@@ -1,8 +1,17 @@
 import init, { hello_world } from "./pkg/wasm.js";
 
-async function run() {
+function supportsServiceWorkers() {
+  return "serviceWorker" in navigator;
+}
+
+async function main() {
+  supportsServiceWorkers() &&
+    navigator.serviceWorker.register("/service_worker.js");
+
+  // Some WebAssembly tests
   await init();
   hello_world();
 }
 
-run();
+// Run the main thread
+main();
