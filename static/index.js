@@ -4,7 +4,7 @@ function supportsServiceWorkers() {
   return "serviceWorker" in navigator;
 }
 
-async function main() {
+async function run() {
   supportsServiceWorkers() &&
     navigator.serviceWorker.register("/service_worker.js");
 
@@ -14,4 +14,4 @@ async function main() {
 }
 
 // Run the main thread
-main();
+run();
