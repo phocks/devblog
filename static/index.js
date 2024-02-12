@@ -1,4 +1,4 @@
-import init, { hello_world } from "./pkg/wasm.js";
+import init, { main } from "./pkg/wasm.js";
 
 function supportsServiceWorkers() {
   return "serviceWorker" in navigator;
@@ -10,7 +10,7 @@ async function main() {
 
   // Some WebAssembly tests
   await init();
-  hello_world();
+  main();
 }
 
 // Run the main thread

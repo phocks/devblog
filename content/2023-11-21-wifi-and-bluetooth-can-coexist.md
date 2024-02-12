@@ -11,7 +11,7 @@ I wonder who decided it might be a good idea to put Bluetooth and WiFi on the sa
 
 It was relatively easy to enable Bluetooth and connect my wireless headphones in Arch Linux. I noticed however that afterwards my internet connection would inexplicably slow to a crawl whenever I connected. Disconnect, and it would be fine again. Connect, and again, virtually nothing — especially if sound was playing through the headset.
 
-The easy solution was to connect on the 5 Ghz band. Done. It worked. No interference. And that could have been that. But it was still bugging me. I still wanted to know why. I still wanted to fix it.
+The easy solution was to connect my WiFi on the 5 Ghz band. Done. It worked. No interference. And that could have been that. But it was still bugging me. I still wanted to know why. I still wanted to fix it.
 
 (2.4 Ghz gets better range than 5 Ghz because it's a lower frequency so sometimes it actually gives me a more stable connection from further away.)
 
