@@ -8,6 +8,10 @@ self.addEventListener("activate", event => {
   console.log("Service worker activated");
 });
 
+self.addEventListener('fetch', (event) => {
+  // Handle fetch events
+});
+
 // Listen for online and offline events
 self.addEventListener('online', () => {
   console.log('Connection is now online.');
