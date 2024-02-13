@@ -4,7 +4,7 @@ date = 2023-11-23
 draft = false
 
 [taxonomies]
-tags = ["dark web", "tor", "privacy", "security", "instructions"]
+tags = ["Dark Web", "Tor", "Privacy", "Security", "Instructions"]
 +++
 
 Get a censor-proof completely anonymous web service on the dark web in 15 minutes or your money back!

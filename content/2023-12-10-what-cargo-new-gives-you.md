@@ -4,7 +4,7 @@ date = 2023-12-10
 draft = false
 
 [taxonomies]
-tags = ["rust", "tutorial", "getting started", "hello world", "rustacean"]
+tags = ["Rust", "Tutorial", "Getting Started", "Hello World", "Rustacean"]
 +++
 
 [Last time] we used `cargo new` to generate a new Rust app. Let's take a look inside.

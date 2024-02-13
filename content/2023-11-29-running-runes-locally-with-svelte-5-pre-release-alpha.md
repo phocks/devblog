@@ -4,7 +4,7 @@ date = 2023-11-29
 draft = false
 
 [taxonomies]
-tags = ["svelte", "runes", "javascript", "webdev"]
+tags = ["Svelte", "Runes", "JavaScript", "WebDev"]
 +++
 
 I noticed Svelte published some v5 pre-releases. Previously you could only try out [Svelte Runes](https://svelte.dev/blog/runes) by using the [online playground](https://svelte-5-preview.vercel.app). Now you can run them locally.

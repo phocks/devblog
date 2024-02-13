@@ -4,7 +4,7 @@ date = 2024-01-02
 draft = false
 
 [taxonomies]
-tags = ["rust", "testing", "tests", "debugging", "handling errors"]
+tags = ["Rust", "Testing", "Tests", "Debugging", "Handling Errors"]
 +++
 
 It's extremely tempting to simply not write tests.

@@ -4,7 +4,7 @@ date = 2023-11-13
 draft = false
 
 [taxonomies]
-tags = ["setup", "zola", "rust", "blog"]
+tags = ["Setup", "Zola", "Rust", "Blog"]
 +++
 
 There are a few static site generators out there, like [Jekyll](https://jekyllrb.com), [Hugo](https://gohugo.io), [Gatsby](https://www.gatsbyjs.org), [11ty](https://www.11ty.dev/), [Pelican](https://getpelican.com), [Hexo](https://hexo.io), [Nikola](https://getnikola.com), [Metalsmith](https://metalsmith.io), [Middleman](https://middlemanapp.com), etc. I chose [Zola](https://getzola.org) to power this blog because it's simple, super speedy, easy to customise, and written in [Rust](https://www.rust-lang.org).
