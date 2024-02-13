@@ -1,10 +1,10 @@
 +++
-title = "Running a Mastodon instance entirely free forever"
+title = "In browser Wasm we trust"
 date = 2024-01-25
 draft = true
 
 [taxonomies]
-tags = ["social", "hosting", "domains", "mastodon", "fediverse"]
+tags = ["WebAssembly", "WASM"]
 +++
 
-RUST!
+Rust compiles to machine code.

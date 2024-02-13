@@ -1,16 +1,16 @@
-import init, { main as mainWasm } from "./pkg/wasm.js";
+import init, { main } from "./pkg/wasm.js";
 
 function supportsServiceWorkers() {
   return "serviceWorker" in navigator;
 }
 
-async function main() {
+async function run() {
   supportsServiceWorkers() &&
     navigator.serviceWorker.register("/service_worker.js");
 
   // Some WebAssembly tests
   await init();
-  mainWasm();
+  main();
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -21,4 +21,4 @@ async function main() {
 }
 
 // Run the main thread
-main();
+run();
