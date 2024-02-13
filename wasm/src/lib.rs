@@ -3,6 +3,7 @@ mod utils;
 use utils::set_panic_hook;
 use rand::Rng;
 use wasm_bindgen::prelude::*;
+use names::Generator;
 
 #[wasm_bindgen]
 extern "C" {
@@ -27,10 +28,16 @@ fn generate_random_number() -> i32 {
     rng.gen_range(0..100_000)
 }
 
+fn generate_name() -> String {
+    let mut generator = Generator::default();
+    generator.next().unwrap()
+}
+
 #[wasm_bindgen]
 pub fn main() {
     set_panic_hook();
     hello_world();
     console_log!("2 + 2 = {}", add(2, 2));
     console_log!("Your lucky number is: {}", generate_random_number());
+    console_log!("Your random name is: {}", generate_name());
 }

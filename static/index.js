@@ -4,11 +4,17 @@ function supportsServiceWorkers() {
   return "serviceWorker" in navigator;
 }
 
-async function run() {
-  supportsServiceWorkers() &&
-    navigator.serviceWorker.register("/service_worker.js");
+/** @param {string} seriveWorkerPath */
+function registerServiceWorker(seriveWorkerPath) {
+  if (!supportsServiceWorkers()) return;
+  navigator.serviceWorker.register(seriveWorkerPath);
+}
 
-  // Some WebAssembly tests
+async function run() {
+  // Register the service worker
+  registerServiceWorker("/service_worker.js");
+
+  // Initialise and run WebAssembly
   await init();
   main();
 
