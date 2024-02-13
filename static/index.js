@@ -11,6 +11,13 @@ async function main() {
   // Some WebAssembly tests
   await init();
   mainWasm();
+
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // A test fetch
+  const response = await fetch("/favicon.png");
+  const blob = await response.blob();
+  console.log(blob);
 }
 
 // Run the main thread
