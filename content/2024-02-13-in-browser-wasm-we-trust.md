@@ -13,5 +13,8 @@ Until recently, if you wanted to add interactivity to a web page, or run a bunch
 
 Good times! Here's how to do it.
 
-Firstly, [install wasm-pack](https://rustwasm.github.io/wasm-pack/installer/).
+Firstly, [install wasm-pack](https://rustwasm.github.io/wasm-pack/installer/), a tool that helps build Rust code for the web.
+
+Then, create a new Rust project with `wasm-pack new my-wasm-library`. This will install a bunch of stuff and then create a basic Rust project 
+
 
