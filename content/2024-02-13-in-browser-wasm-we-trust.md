@@ -54,16 +54,44 @@ pub fn fibonacci(n: u32) -> u32 {
 }
 ```
 
-This is a simple recursive function to calculate the nth Fibonacci number. Now we can hook this up and call this function from our page.
+This function calculates the nth Fibonacci number. Now we can hook it up and call this function from our page. But first, we need to compile it into WebAssembly.
+
+Run `wasm-pack build` in the root of your project. This will create a `pkg` directory with a `wasm.js` file and a `wasm_bg.wasm` file. The `wasm.js` file is a JavaScript wrapper around the WebAssembly module.
+
+We'll need an `index.js` file at the root of our project.
+
 
 ```javascript
-import init, { fibonacci } from "./pkg/wasm.js";
+import init, { fibonacci } from "./pkg/test.js";
 
-let result = fibonacci(32);
+async function run() {
+  await init();
 
-console.log(result); // 2178309
+  let result = fibonacci(32);
+
+  console.log(result); // 2178309
+}
+
+run();
 ```
 
+And an `index.html` to load our script.
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello world!</title>
+  </head>
+  <body>
+    <script type="module" defer async src="./index.js"></script>
+  </body>
+</html>
+```
+
+Now serve your root directory with miniserve or another static file server and open your browser. You should see the result of the `fibonacci` function in the console.
 
 
