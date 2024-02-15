@@ -33,7 +33,7 @@ async function run() {
 
   let duration = performance.now() - start;
 
-  console.log("Time elapsed in (JavaScript) fibonacci() is:", duration, "ms");
+  console.log("Time elapsed in (JavaScript) fibonacci() is:", `${duration}ms`);
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
