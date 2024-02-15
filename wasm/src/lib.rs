@@ -1,9 +1,12 @@
 mod utils;
 
-use utils::set_panic_hook;
-use rand::Rng;
-use wasm_bindgen::prelude::*;
 use names::Generator;
+use rand::Rng;
+use utils::set_panic_hook;
+use wasm_bindgen::prelude::*;
+use wasm_timer::Instant;
+
+// JavaScript functions brought to Rust
 
 #[wasm_bindgen]
 extern "C" {
@@ -14,6 +17,14 @@ extern "C" {
 macro_rules! console_log {
     ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
 }
+
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(js_namespace = Date)]
+    fn now() -> f64;
+}
+
+// --------------------------------
 
 fn add(a: i32, b: i32) -> i32 {
     a + b
@@ -41,7 +52,6 @@ fn fibonacci(n: u32) -> u32 {
     }
 }
 
-
 #[wasm_bindgen]
 pub fn main() {
     set_panic_hook();
@@ -49,4 +59,14 @@ pub fn main() {
     console_log!("2 + 2 = {}", add(2, 2));
     console_log!("Your lucky number is: {}", generate_random_number());
     console_log!("Your random name is: {}", generate_name());
+
+    let start = Instant::now();
+
+    let number = 32;
+
+    console_log!("Fibonacci of {} is: {}", number, fibonacci(number));
+
+    let duration = start.elapsed();
+
+    console_log!("Time elapsed in (Rust) fibonacci() is: {:?}", duration);
 }
