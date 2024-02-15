@@ -64,6 +64,7 @@ We'll need an `index.js` file at the root of our project to import our Wasm modu
 
 ```javascript
 import init, { fibonacci } from "./pkg/my_wasm_project.js";
+
 async function run() {
   await init();
   let result = fibonacci(32);
@@ -91,7 +92,7 @@ And an `index.html` to load our script.
 </html>
 ```
 
-Now serve your root directory with [miniserve](https://github.com/svenstaro/miniserve) or your favourite [local static file server](https://github.com/vercel/serve) and open `index.html` in your [browser](https://www.mozilla.org/firefox). You should see the result of the `fibonacci` function in [the console](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html).
+Now serve your root directory with [miniserve](https://github.com/svenstaro/miniserve) (or your favourite [local static file server](https://github.com/vercel/serve)) and open `index.html` in your [browser](https://www.mozilla.org/firefox). You should see the result of the `fibonacci` function in [the console](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html).
 
 _The 32nd Fibonacci number is 2178309 btw._
 
