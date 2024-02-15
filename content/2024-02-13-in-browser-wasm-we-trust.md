@@ -91,6 +91,6 @@ And an `index.html` to load our script.
 </html>
 ```
 
-Now serve your root directory with miniserve or another static file server and open your browser. You should see the result of the `fibonacci` function in the console.
+Now serve your root directory with [miniserve](https://github.com/svenstaro/miniserve) or another static file server and open `index.html` in your browser. You should see the result of the `fibonacci` function in the console.
 
 
