@@ -17,13 +17,23 @@ Firstly, [install wasm-pack](https://rustwasm.github.io/wasm-pack/installer/). I
 
 Then, create a new Rust project with `wasm-pack new my-wasm-library`. This will install a bunch of stuff like [web-sys](https://rustwasm.github.io/wasm-bindgen/web-sys/index.html) etc and then create a basic Rust library.
 
-In `src/lib.rs` we annotate any functions we want to call from our page with `#[wasm_bindgen]`, like this.
+We only need to worry about `src/lib.rs` for now.
 
 ```rust 
+mod utils;
+
+use wasm_bindgen::prelude::*;
+
 #[wasm_bindgen]
-pub fn main() {
-  // Stuff to do
+extern "C" {
+    fn alert(s: &str);
 }
+
+#[wasm_bindgen]
+pub fn greet() {
+    alert("Hello, my-wasm-test!");
+}
+
 ```
 
 
