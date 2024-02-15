@@ -26,22 +26,21 @@ async function run() {
   await init();
   main();
 
+  let start = performance.now();
+  let number = 32;
+
+  console.log(`Fibonacci of ${number} is:`, fibonacci(number));
+
+  let duration = performance.now() - start;
+
+  console.log("Time elapsed in (JavaScript) fibonacci() is:", duration, "ms");
+
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   // A test fetch
   const response = await fetch("/favicon.png");
   const blob = await response.blob();
   console.log(blob);
-
-  let start = performance.now();
-
-  let number = 32;
-
-  console.log(`Fibonacci of ${number} is: `, fibonacci(number));
-
-  let duration = performance.now() - start;
-
-  console.log("Time elapsed in (JavaScript) fibonacci() is:", duration, "ms");
 }
 
 // Run the main thread
