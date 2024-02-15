@@ -26,15 +26,15 @@ async function run() {
   await init();
   main();
 
-  let start = performance.now();
   let number = 32;
-
-  console.log(`Fibonacci of ${number} is:`, fibonacci(number));
-
+  let start = performance.now();
+  let calculationResult = fibonacci(number);
   let duration = performance.now() - start;
 
+  console.log(`Fibonacci of ${number} is:`, calculationResult);
   console.log("Time elapsed in (JavaScript) fibonacci() is:", `${duration}ms`);
 
+  // Fake a delay
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   // A test fetch

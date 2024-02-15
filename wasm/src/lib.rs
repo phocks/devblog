@@ -60,13 +60,13 @@ pub fn main() {
     console_log!("Your lucky number is: {}", generate_random_number());
     console_log!("Your random name is: {}", generate_name());
 
-    let start = Instant::now();
+   
 
     let number = 32;
-
-    console_log!("Fibonacci of {} is: {}", number, fibonacci(number));
-
+    let start = Instant::now();
+    let calculation_result = fibonacci(number);
     let duration = start.elapsed();
 
+    console_log!("Fibonacci of {} is: {}", number, calculation_result);
     console_log!("Time elapsed in (Rust) fibonacci() is: {:?}", duration);
 }
