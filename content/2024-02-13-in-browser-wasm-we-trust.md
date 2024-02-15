@@ -33,7 +33,6 @@ extern "C" {
 pub fn greet() {
     alert("Hello, my-wasm-test!");
 }
-
 ```
 
 

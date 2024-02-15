@@ -60,8 +60,6 @@ pub fn main() {
     console_log!("Your lucky number is: {}", generate_random_number());
     console_log!("Your random name is: {}", generate_name());
 
-   
-
     let number = 32;
     let start = Instant::now();
     let calculation_result = fibonacci(number);
