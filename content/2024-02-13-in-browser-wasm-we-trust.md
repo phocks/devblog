@@ -9,12 +9,22 @@ tags = ["WebAssembly", "Wasm", "Rust", "WebDev"]
 
 Rust compiles to machine code, which runs as an executable file on your computer. You can also compile it to WebAssembly (or Wasm for short) and run it in any browser.
 
-Until recently, if you wanted to add interactivity to a web page, or run a bunch of calculations in-browser, you'd use JavaScript. Now that Wasm is supported in all modern browsers, we can use Rust (or a bunch of other languages too) and run much closer to the metal.
+Until recently, if you wanted to add interactivity to a web page, or do a bunch of calculations in-browser, you'd use JavaScript. Now that Wasm is supported in all modern browsers, we can use Rust (or another compatible language) and run much closer to the metal.
 
 Good times! Here's how to do it.
 
-Firstly, [install wasm-pack](https://rustwasm.github.io/wasm-pack/installer/), a tool that helps build Rust code for the web.
+Firstly, [install wasm-pack](https://rustwasm.github.io/wasm-pack/installer/). It's a tool that helps build Rust code for the web.
 
-Then, create a new Rust project with `wasm-pack new my-wasm-library`. This will install a bunch of stuff and then create a basic Rust project 
+Then, create a new Rust project with `wasm-pack new my-wasm-library`. This will install a bunch of stuff like [web-sys](https://rustwasm.github.io/wasm-bindgen/web-sys/index.html) etc and then create a basic Rust library.
+
+In `src/lib.rs` we annotate any functions we want to call from our page with `#[wasm_bindgen]`, like this.
+
+```rust 
+#[wasm_bindgen]
+pub fn main() {
+  // Stuff to do
+}
+```
+
 
 
