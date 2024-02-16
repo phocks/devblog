@@ -65,13 +65,9 @@ We'll need an `index.js` file at the root of our project to import our Wasm modu
 ```javascript
 import init, { fibonacci } from "./pkg/my_wasm_project.js";
 
-async function run() {
-  await init();
-  let result = fibonacci(32);
-  console.log(result); // 2178309
-}
-
-run();
+await init();
+let result = fibonacci(32);
+console.log(result); // 2178309
 ```
 
 And an `index.html` to load our script.
