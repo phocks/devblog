@@ -37,7 +37,7 @@ pub fn greet() {
 
 The `extern "C"` block pulls the `alert` function in from JavaScript and we "export" the `greet` function using `pub` so we can call it from JavaScript.
 
-Those `#[wasm_bindgen]` annotations are what bind our Rust code to JavaScript. They show the compiler where the Wasm module should interface with JavaScript.
+Those `#[wasm_bindgen]` annotations are what bind our Rust code to JavaScript. They tell the compiler where the Wasm module should interface with JavaScript.
 
 The `alert` function ... shows an alert box on the page. Cool. Let's do something a bit more interesting!
 
