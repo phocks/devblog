@@ -4,7 +4,7 @@ date = 2024-01-25
 draft = false
 
 [taxonomies]
-tags = ["social", "hosting", "domains", "mastodon", "fediverse"]
+tags = ["Social", "Hosting", "Domains", "Mastodon", "Fediverse"]
 +++
 
 My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org/about) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is.

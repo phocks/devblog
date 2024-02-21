@@ -4,7 +4,7 @@ date = 2023-11-27
 draft = false
 
 [taxonomies]
-tags = ["linux", "filesystems", "f2fs", "btrfs", "ssd", "storage"]
+tags = ["Linux", "Filesystems", "F2FS", "Btrfs", "SSD", "Storage"]
 +++
 
 So you wanna jump from one moving train to another for fun?

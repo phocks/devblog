@@ -4,7 +4,7 @@ date = 2023-11-21
 draft = false
 
 [taxonomies]
-tags = ["wifi", "bluetooth", "arch", "linux", "instructions"]
+tags = ["WiFi", "Bluetooth", "Arch", "Linux", "Instructions"]
 +++
 
 I wonder who decided it might be a good idea to put Bluetooth and WiFi on the same 2.4 gigahertz spectrum?

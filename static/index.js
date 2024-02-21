@@ -1,24 +1,38 @@
-import init, { main as mainWasm } from "./pkg/wasm.js";
+import init, { main } from "./pkg/wasm.js";
 
 function supportsServiceWorkers() {
   return "serviceWorker" in navigator;
 }
 
-async function main() {
-  supportsServiceWorkers() &&
-    navigator.serviceWorker.register("/service_worker.js");
-
-  // Some WebAssembly tests
-  await init();
-  mainWasm();
-
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  // A test fetch
-  const response = await fetch("/favicon.png");
-  const blob = await response.blob();
-  console.log(blob);
+/** @param {string} seriveWorkerPath */
+function registerServiceWorker(seriveWorkerPath) {
+  if (!supportsServiceWorkers()) return;
+  navigator.serviceWorker.register(seriveWorkerPath);
 }
 
-// Run the main thread
+function fibonacci(n) {
+  return n < 1 ? 0 : n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// Register the service worker
+registerServiceWorker("/service_worker.js");
+
+// Initialise and run WebAssembly
+await init();
 main();
+
+let number = 32;
+let start = performance.now();
+let calculationResult = fibonacci(number);
+let duration = performance.now() - start;
+
+console.log(`Fibonacci of ${number} is:`, calculationResult);
+console.log("Time elapsed in (JavaScript) fibonacci() is:", `${duration}ms`);
+
+// Fake a delay
+await new Promise((resolve) => setTimeout(resolve, 2000));
+
+// A test fetch
+const response = await fetch("/favicon.png");
+const blob = await response.blob();
+console.log(blob);
