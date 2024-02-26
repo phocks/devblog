@@ -42,8 +42,8 @@ Using instructions from [this Reddit post](https://www.reddit.com/r/Amd/comments
 1. Download [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases) and put it in `/efi/boot` on your USB drive.
 2. Delete `bootx64.efi` and rename `modGRUBShell.efi` to `bootx64.efi`. (They may actually do the same thing, but I'm not sure. Better safe than sorry.)
 3. Boot from the USB drive and you'll get a GRUB screen and a command prompt.
-4. Type `setup_var_cv QFan 0x3a` and press enter. You should see `offset 0x3a is: 0x3c` which means the PCH Fan Middle Temperature is set to **60 degrees**. If it doesn't say this, go back to the Reddit post and do *"Phase 1: Getting the correct variable offset for your BIOS"*.
-5. Type `setup_var_cv QFan 0x3a 0x01 0x50` and press enter. This sets the fan curve to 80 degrees, which means it will wait until the chipset is **80 degrees** before it starts ramping up the fan speed.
+4. Type `setup_var_cv QFan 0x3a` and press enter. You should see `offset 0x3a is: 0x3c` which means the PCH Fan Middle Temperature is set to 60 degrees. If it doesn't say this, go back to the Reddit post and do *"Phase 1: Getting the correct variable offset for your BIOS"*.
+5. Type `setup_var_cv QFan 0x3a 0x01 0x50` and press enter. This sets the fan curve to 80 degrees, which means it will wait until the chipset is 80 degrees before it starts ramping up the fan speed.
 6. Reboot and you should be golden.
 
 Note: Use [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor) to get the real chipset temperature and fan speed.
