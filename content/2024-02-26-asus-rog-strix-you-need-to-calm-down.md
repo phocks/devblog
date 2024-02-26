@@ -15,7 +15,7 @@ I recently flashed the latest BIOS on my motherboard. It all went fine, but then
 
 I'd fixed it before, so now I'm just writing it up for next time, or for anyone else who's having the same issue. I make no guarantees that you won't brick your motherboard, but I've done this twice now and it's been fine.
 
-Step 1: Enable ASPM.
+Step 1: Enable [ASPM](https://en.wikipedia.org/wiki/Active_State_Power_Management).
 
 Using information from [this Reddit post](https://www.reddit.com/r/FormD/comments/ktt4wr/dropping_your_strix_x570i_board_chipset_temp/), follow the steps below:
 
