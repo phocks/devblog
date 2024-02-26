@@ -1,5 +1,5 @@
 +++
-title = "ASUS ROG Strix x570-i Gaming motherboard chipset fan you need to calm down"
+title = "ASUS ROG Strix X570-i Gaming motherboard chipset fan you need to calm down"
 date = 2024-02-26
 draft = false
 
@@ -7,7 +7,7 @@ draft = false
 tags = ["Hardware", "Motherboard", "ASUS", "Tech"]
 +++
 
-_TL;DR If you have an ASUS ROG Strix x570-i Gaming motherboard (or similar) and are having issues with a constant high-pitched fan noise, try [the instructions here](https://www.reddit.com/r/FormD/comments/ktt4wr/dropping_your_strix_x570i_board_chipset_temp/) to enable ASPM and then [these instructions](https://www.reddit.com/r/Amd/comments/nu59wl/modifying_pch_fan_curve_on_nonmodded_asus_x570/) to alter the fan curve._
+_TL;DR If you have an ASUS ROG Strix X570-i Gaming motherboard (or similar) and are having issues with a constant high-pitched fan noise, try [the instructions here](https://www.reddit.com/r/FormD/comments/ktt4wr/dropping_your_strix_x570i_board_chipset_temp/) to enable ASPM and then [these instructions](https://www.reddit.com/r/Amd/comments/nu59wl/modifying_pch_fan_curve_on_nonmodded_asus_x570/) to alter the fan curve._
 
 A very niche post, but here it is.
 
