@@ -11,7 +11,7 @@ _TL;DR If you have an ASUS ROG Strix x570-i Gaming motherboard (or similar) and 
 
 A very niche post, but here it is.
 
-I recently flashed the latest BIOS on my motherboard. It all went fine, but then, that sound was back again. I'd completely wiped it from my memory, the huge saga that I went through when I first got the board. The chipset runs real hot, and the fan runs real loud. 
+I recently flashed the latest BIOS on my motherboard. It all went fine, but then the sound was back again. I'd completely wiped it from my memory, the huge saga that I went through when I first got the board. The chipset runs real hot, and the fan runs real loud. 
 
 I'd fixed it before, so now I'm just writing it up for next time, or for anyone else who's having the same issue. I make no guarantees that you won't brick your motherboard, but I've done this twice now and it's been fine.
 
