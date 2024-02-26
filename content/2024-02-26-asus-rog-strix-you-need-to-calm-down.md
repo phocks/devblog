@@ -39,7 +39,7 @@ Step 2: Tweak the fan curve.
 
 Using instructions from [this Reddit post](https://www.reddit.com/r/Amd/comments/nu59wl/modifying_pch_fan_curve_on_nonmodded_asus_x570/), follow these steps:
 
-1. Download [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases] and put it in `/efi/boot` on your USB drive.
+1. Download [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases) and put it in `/efi/boot` on your USB drive.
 2. Delete `bootx64.efi` and rename `modGRUBShell.efi` to `bootx64.efi`. (They may actually do the same thing, but I'm not sure. Better safe than sorry.)
 3. Boot from the USB drive and you'll get a GRUB screen and a command prompt.
 4. Type `setup_var_cv QFan 0x3a` and press enter. You should see `offset 0x3a is: 0x3c` which means the PCH Fan Middle Temperature is set to **60 degrees**. If it doesn't say this, go back to the Reddit post and do *"Phase 1: Getting the correct variable offset for your BIOS"*.
