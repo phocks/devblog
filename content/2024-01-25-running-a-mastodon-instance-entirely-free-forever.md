@@ -7,7 +7,11 @@ draft = false
 tags = ["Social", "Hosting", "Domains", "Mastodon", "Fediverse"]
 +++
 
-UPDATE 2024-03-03: I no longer recommend using [Oracle's free-tier](https://www.oracle.com/cloud/free/) services as they locked me out of my account without warning, with no way to contact a human for support. The steps below still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (but it probably won't have enough storage), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/) and go from there. Good luck and remember to always back up your data!
+*UPDATE 2024-03-03: I no longer recommend using [Oracle's free-tier](https://www.oracle.com/cloud/free/) services as they locked me out of my account without warning, with no way to contact a human for support.*
+
+The steps below still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (but it probably won't have enough storage), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/) and go from there.
+
+Good luck and remember to always back up your data!
 
 ---
 
