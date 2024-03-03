@@ -9,7 +9,7 @@ tags = ["Social", "Hosting", "Domains", "Mastodon", "Fediverse"]
 
 *UPDATE 2024-03-03: I no longer recommend using [Oracle's free-tier](https://www.oracle.com/cloud/free/) services as they locked me out of my account without warning, with no way to contact a human for support.*
 
-The steps below still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (though it probably won't have enough storage — maybe try [GoToSocial](https://gotosocial.org/), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/) and go from there.
+The steps below still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (though it probably won't have enough storage — maybe try [GoToSocial](https://gotosocial.org/), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/).
 
 Good luck!
 
