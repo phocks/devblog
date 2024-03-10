@@ -5,6 +5,7 @@ use rand::Rng;
 use utils::set_panic_hook;
 use wasm_bindgen::prelude::*;
 use wasm_timer::Instant;
+use web_sys::window;
 
 // JavaScript functions brought to Rust
 
@@ -53,6 +54,24 @@ fn fibonacci(n: u32) -> u32 {
 }
 
 #[wasm_bindgen]
+pub fn store_in_local_storage(key: &str, value: &str) -> Result<(), JsValue> {
+    let window = window().expect("should have a Window");
+    let local_storage = window.local_storage()?.expect("should have localStorage");
+
+    local_storage.set_item(key, value)
+}
+
+#[wasm_bindgen]
+pub fn get_from_local_storage(key: &str) -> Result<Option<String>, JsValue> {
+    let window = web_sys::window().expect("no global `window` exists");
+    let storage = window.local_storage().unwrap().expect("storage not enabled");
+
+    let value = storage.get_item(key)?;
+
+    Ok(value)
+}
+
+#[wasm_bindgen]
 pub fn main() {
     set_panic_hook();
     hello_world();
@@ -67,4 +86,9 @@ pub fn main() {
 
     console_log!("Fibonacci of {} is: {}", number, calculation_result);
     console_log!("Time elapsed in (Rust) fibonacci() is: {:?}", duration);
+
+    // Store and retrieve from local storage
+    store_in_local_storage("name", "Joshua").unwrap();
+    let name = get_from_local_storage("name").unwrap().unwrap();
+    console_log!("Name retrieved from local storage: {}", name);
 }
