@@ -64,7 +64,10 @@ pub fn store_in_local_storage(key: &str, value: &str) -> Result<(), JsValue> {
 #[wasm_bindgen]
 pub fn get_from_local_storage(key: &str) -> Result<Option<String>, JsValue> {
     let window = web_sys::window().expect("no global `window` exists");
-    let storage = window.local_storage().unwrap().expect("storage not enabled");
+    let storage = window
+        .local_storage()
+        .unwrap()
+        .expect("storage not enabled");
 
     let value = storage.get_item(key)?;
 
@@ -91,4 +94,15 @@ pub fn main() {
     store_in_local_storage("name", "Joshua").unwrap();
     let name = get_from_local_storage("name").unwrap().unwrap();
     console_log!("Name retrieved from local storage: {}", name);
+
+    // Page hit counter
+    let hit_count_str = get_from_local_storage("hitcount").unwrap_or(None);
+    let mut hit_count = match hit_count_str {
+        Some(s) => s.parse::<i32>().unwrap_or(0),
+        None => 0,
+    };
+
+    hit_count += 1;
+    store_in_local_storage("hitcount", &hit_count.to_string()).unwrap();
+    console_log!("Hitcount stored in local storage: {}", hit_count);
 }
