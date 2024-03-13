@@ -57,7 +57,7 @@ author = "Joshua Byrd"
 
 # Copyright text in HTML format. If specified,
 # entirely replaces default copyright and author.
-copyright_html = '<span>© 2023-2024 Joshua Byrd :: hitcount: <span id="hit-count"></span>'
+copyright_html = '<span>&copy; 2024 Joshua Byrd :: hitcount: <span id="hit-count"></span>'
 
 # menu is enabled by adding menu_items (optional)
 menu_items = [
