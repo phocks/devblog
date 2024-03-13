@@ -84,9 +84,9 @@ pub fn main() {
 
     // Page hit counter
 
-    let hit_count_str = get_from_local_storage("hitcount").unwrap_or(None);
-    let mut hit_count = match hit_count_str {
-        Some(s) => s.parse::<i32>().unwrap_or(0),
+    let hit_count_str: Option<String> = get_from_local_storage("hitcount").unwrap_or(None);
+    let mut hit_count: u32 = match hit_count_str {
+        Some(s) => s.parse::<u32>().unwrap_or(0),
         None => 0,
     };
 
