@@ -78,26 +78,12 @@ pub fn get_from_local_storage(key: &str) -> Result<Option<String>, JsValue> {
 
 #[wasm_bindgen]
 pub fn main() {
+    // Better panics
+    
     set_panic_hook();
-    hello_world();
-    console_log!("2 + 2 = {}", add(2, 2));
-    console_log!("Your lucky number is: {}", generate_random_number());
-    console_log!("Your random name is: {}", generate_name());
-
-    let number = 32;
-    let start = Instant::now();
-    let calculation_result = fibonacci(number);
-    let duration = start.elapsed();
-
-    console_log!("Fibonacci of {} is: {}", number, calculation_result);
-    console_log!("Time elapsed in (Rust) fibonacci() is: {:?}", duration);
-
-    // Store and retrieve from local storage
-    store_in_local_storage("name", "Joshua").unwrap();
-    let name = get_from_local_storage("name").unwrap().unwrap();
-    console_log!("Name retrieved from local storage: {}", name);
 
     // Page hit counter
+
     let hit_count_str = get_from_local_storage("hitcount").unwrap_or(None);
     let mut hit_count = match hit_count_str {
         Some(s) => s.parse::<i32>().unwrap_or(0),
@@ -120,4 +106,25 @@ pub fn main() {
         .dyn_into::<HtmlElement>()
         .expect("should be an HtmlElement");
     html_element.set_inner_text(&hit_count_str);
+
+
+    // Other console only operations
+
+    hello_world();
+    console_log!("2 + 2 = {}", add(2, 2));
+    console_log!("Your lucky number is: {}", generate_random_number());
+    console_log!("Your random name is: {}", generate_name());
+
+    let number = 32;
+    let start = Instant::now();
+    let calculation_result = fibonacci(number);
+    let duration = start.elapsed();
+
+    console_log!("Fibonacci of {} is: {}", number, calculation_result);
+    console_log!("Time elapsed in (Rust) fibonacci() is: {:?}", duration);
+
+    // Store and retrieve from local storage
+    store_in_local_storage("name", "Joshua").unwrap();
+    let name = get_from_local_storage("name").unwrap().unwrap();
+    console_log!("Name retrieved from local storage: {}", name);
 }
