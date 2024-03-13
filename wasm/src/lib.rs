@@ -4,8 +4,10 @@ use names::Generator;
 use rand::Rng;
 use utils::set_panic_hook;
 use wasm_bindgen::prelude::*;
+use wasm_bindgen::JsCast;
 use wasm_timer::Instant;
 use web_sys::window;
+use web_sys::HtmlElement;
 
 // JavaScript functions brought to Rust
 
@@ -105,4 +107,17 @@ pub fn main() {
     hit_count += 1;
     store_in_local_storage("hitcount", &hit_count.to_string()).unwrap();
     console_log!("Hitcount stored in local storage: {}", hit_count);
+
+    let hit_count_str = hit_count.to_string();
+
+    let window = web_sys::window().expect("no global `window` exists");
+    let document = window.document().expect("should have a document on window");
+    let element = document
+        .get_element_by_id("hit-count")
+        .expect("should have an element with the given id");
+
+    let html_element = element
+        .dyn_into::<HtmlElement>()
+        .expect("should be an HtmlElement");
+    html_element.set_inner_text(&hit_count_str);
 }
