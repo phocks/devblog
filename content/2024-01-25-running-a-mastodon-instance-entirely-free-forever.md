@@ -7,15 +7,8 @@ draft = false
 tags = ["Social", "Hosting", "Domains", "Mastodon", "Fediverse"]
 +++
 
-*UPDATE 2024-03-03: I no longer recommend using [Oracle's free-tier](https://www.oracle.com/cloud/free/) services as they locked me out of my account without warning, with no way to contact a human for support.*
 
-The steps below still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (though it probably won't have enough storage — maybe try [GoToSocial](https://gotosocial.org/)), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/).
-
-Good luck!
-
----
-
-My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org/about) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is.
+My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org/about) (update: now at [ms.phocks.org](https://ms.phocks.org) ... see updates below for explanation) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is.
 
 If you're comfortable logging into a Linux server via <abbr title="Secure Shell">SSH</abbr> and running commands you shouldn't have any major troubles setting it up, but it will take a few hours of work. Enjoy!
 
@@ -128,6 +121,14 @@ Happy days!
 ppps.
 
 Thanks to [@futzle](https://old.mermaid.town/@futzle/111816078208038636) for pointing out that if you don't want literal Nazis and 4chan-like trolls posting the worst stuff on the Internet at you (I found out the hard way), you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called [FediNuke](https://seirdy.one/posts/2023/05/02/fediverse-blocklists/). You can import the text file in admin settings under **Moderation -> Federation**.
+
+---
+
+*UPDATE 2024-03-03: Unfortunately [Oracle's free-tier](https://www.oracle.com/cloud/free/) services locked me out of my account without warning, with no way to contact a human for support :(*
+
+The steps above will still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (though it probably won't have enough storage — maybe try [GoToSocial](https://gotosocial.org/)), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/).
+
+Good luck!
 
 ---
 
