@@ -7,8 +7,9 @@ Hi, I'm Josh and this is my dev blog.
 
 Find me in the Fediverse:
 
-* [@phocks@bne.social](https://bne.social/@phocks)
-* [@josh@phocks.org](https://ms.phocks.org/@josh)
+* [@phocks@bne.social](https://bne.social/@phocks) - Brisbane Mastodon instance
+* [@josh@phocks.org](https://ms.phocks.org/@josh) - Self-hosted Mastodon instance
+* [@jb@go.phocks.org](https://go.phocks.org/@jb) - GoToSocial instance
 
 And in other places:
 
