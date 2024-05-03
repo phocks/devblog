@@ -19,9 +19,9 @@ Step 1: Enable [ASPM](https://en.wikipedia.org/wiki/Active_State_Power_Managemen
 
 Using information from [this Reddit post](https://www.reddit.com/r/FormD/comments/ktt4wr/dropping_your_strix_x570i_board_chipset_temp/), follow the steps below:
 
-1. Download this boot file: [bootx64.efi.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5eab4fa-30c5-4442-8921-6575c9348ab7/bootx64.efi.zip)
+1. Download this boot file: [bootx64.efi](https://drive.google.com/drive/folders/1F7h1Ga0DXgppT2YPwON7sZUgnao789kv)
 2. FAT32 format a USB drive and create a folder `/efi/boot`.
-3. Unzip the file and put it in the `boot` folder.
+3. Put the file in the `boot` folder.
 4. Restart your PC and boot from the USB drive from your BIOS.
 5. You will get a GRUB screen and a command prompt.
 6. Type `setup_var 170 37` and press enter.
