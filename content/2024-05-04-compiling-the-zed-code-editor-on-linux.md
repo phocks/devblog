@@ -47,11 +47,12 @@ We need `WAYLAND_DISPLAY=''` to run it in X11 mode so we can resize and move the
 
 Well, that's about it. To update it just run a `git pull` to fetch the latest code in `main` and do the compile again and re-copy the resulting binary.
 
-Enjoy!
+Enjoy! And remember Zed is still in early development. If you want a more fully featured code editor use [Visual Studio Code][Code].
 
 [Zed]: https://zed.dev/
 [Atom]: https://en.wikipedia.org/wiki/Atom_(text_editor)
 [Rust]: https://www.rust-lang.org/
+[Code]: https://code.visualstudio.com/
 [Linux instructions]: https://github.com/zed-industries/zed/blob/main/docs/src/developing_zed__building_zed_linux.md
 [Zed GitHub]: https://github.com/zed-industries/zed
 [PATH]: https://wiki.archlinux.org/title/Environment_variables#Per_user
