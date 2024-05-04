@@ -11,7 +11,7 @@ Hello World! Comin' to ya from my ThinkPad running Arch Linux with KDE Plasma 6.
 
 There are no binaries available for Linux yet, but don't worry, for extra fun we can compile the code ourselves!
 
-Just [clone the repo][Zed GitHub]. Then follow [the instructions here][Linux instructions]. Basically it's a [Rust][] app, so you just need to clone the app, do a bit of setup and then run `cargo build --release` and go make a cup of tea (it will take a while).
+Just [clone the repo][Zed GitHub], then follow [the instructions here][Linux instructions]. Basically it's a [Rust][] app, so you just need clone the code, do a bit of setup, and then run `cargo build --release` and go make a cup of tea (it will take a while).
 
 The `Zed` executable will be in `target/release`. Copy it to a directory in your homedir or something.
 
