@@ -33,7 +33,7 @@ Add it to your commandline with a bash script in a directory available to your e
 ```bash
 #!/usr/bin/env bash
 
-# Pass any arguments to the Zed app
+# Run the Zed app and pass arguments
 WAYLAND_DISPLAY='' /home/phocks/Apps/Zed/Zed "$@" &
 
 # Wait for the Zed app to start
