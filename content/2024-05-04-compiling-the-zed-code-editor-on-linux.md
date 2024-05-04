@@ -7,7 +7,7 @@ draft = false
 tags = ["Linux", "IDE", "Editors", "Compiling"]
 +++
 
-Hello World! Comin' to ya from my ThinkPad running Arch Linux with KDE Plasma 6. I'm typing this sentence into [Zed][] right now, a new code editor from the devs who brought us [Atom][] back in the day.
+Hello World! Coming to ya from my ThinkPad running Arch Linux with KDE Plasma 6. I'm typing this sentence into [Zed][] right now, a new code editor from the devs who brought us [Atom][] back in the day.
 
 There are no binaries available for Linux yet, but don't worry, for extra fun we can compile the code ourselves!
 
