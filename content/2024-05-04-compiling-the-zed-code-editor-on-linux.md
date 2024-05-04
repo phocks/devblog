@@ -55,7 +55,7 @@ _And remember Zed is still in early development. If you want a more fully featur
 [Atom]: https://en.wikipedia.org/wiki/Atom_(text_editor)
 [Rust]: https://www.rust-lang.org/
 [Code]: https://code.visualstudio.com/
-[Linux instructions]: https://github.com/zed-industries/zed/blob/main/docs/src/developing_zed__building_zed_linux.md
+[Linux instructions]: https://github.com/zed-industries/zed/blob/main/docs/src/development/linux.md
 [Zed GitHub]: https://github.com/zed-industries/zed
 [PATH]: https://wiki.archlinux.org/title/Environment_variables#Per_user
 [Zed Wayland]: https://github.com/zed-industries/zed/issues/9205
