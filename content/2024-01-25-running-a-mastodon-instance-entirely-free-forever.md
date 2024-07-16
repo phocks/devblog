@@ -57,7 +57,7 @@ If everything went well, you should now have a working Mastodon instance. Log in
 
 ps.
 
-Here are some scripts that I run [on cron](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-jobhttps://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job) every few hours, mostly to help keep disk usage down.
+Here are some scripts that I run [on cron](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job) every few hours, mostly to help keep disk usage down.
 
 This first one runs `tootctl` to prune old accounts and media etc. This may not be necessary these days as I believe Mastodon has some built-in pruning now. But I've been running this for a while and it seems to work.
 

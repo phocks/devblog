@@ -9,7 +9,7 @@ compile_sass = true
 generate_feed = true
 
 # Use `rss.xml` for RSS feeds and `atom.xml` for ATOM.
-feed_filename = "atom.xml"
+feed_filenames = "atom.xml"
 
 # Optional: enable tags
 taxonomies = [
