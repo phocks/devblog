@@ -13,7 +13,7 @@ But until then, if you are running your own Mastodon instance, you can still do 
 
 I'll lay it out here, so it's handy for future me, or someone else.
 
-In `/etc/nginx/sites-enabled/mastodon` add the something like this:
+In `/etc/nginx/sites-enabled/mastodon` add something like this:
 
 ```conf
 location ^~ "/packs/media/icons/" {
