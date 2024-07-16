@@ -7,7 +7,7 @@ draft = false
 tags = ["Linux", "Arch", "ThinkPad", "Instructions"]
 +++
 
-A [poll I ran](https://phocks.eu.org/@josh/111407197317293518) recently forced me, against my will, to attempt an install of Arch Linux again.
+A poll I ran on Mastodon recently forced me, against my will, to attempt an install of Arch Linux again.
 
 *...Multiple hours of frustration later...*
 
