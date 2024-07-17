@@ -50,7 +50,7 @@ pub fn main() {
 
 Compile and run the code with `gleam run`.
 
-You should see a whole bunch of hellos from different numbers. They appear, at first glance, to be counting in order from 0 to 200,000, like this.
+You should see a whole bunch of hellos from different numbers. They appear, at first glance, to be counting in order from 0 to 200,000 like this.
 
 ```
 Hello from 44790
@@ -69,6 +69,6 @@ The cool thing is though, that each of these tasks is being run concurrently (if
 
 ... And if you scroll back up, you should see that some of the numbers are actually out of order. This is because sometimes — for whatever electronic reason I won't try to understand right now — one of the tasks makes it through your CPU faster than a previous one, thus overtaking it and printing its number out first.
 
-Pretty cool, hey? 
+Pretty cool, huh? 
 
-Looking forward to [exploring more](https://gleam.run/documentation/ "Gleam main documentation page"), and maybe using it for when I don't need to be quite as close to the metal as Rust gets me.
+Looking forward to [exploring more](https://gleam.run/documentation/ "Gleam main documentation page"), and maybe using Gleam for when I don't need to be quite as close to the metal as Rust gets me.
