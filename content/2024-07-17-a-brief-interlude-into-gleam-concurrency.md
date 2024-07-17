@@ -13,7 +13,7 @@ The other day I came across this little project called [Gleam](https://gleam.run
 
 I was intrigued, so I took a quick look into it.
 
-If you're intrigued too I recommend taking the [Gleam language tour](https://tour.gleam.run/ "The Gleam language tour"), or keep reading for a quick speedrun.
+If you're also intrigued I recommend taking the [Gleam language tour](https://tour.gleam.run/ "The Gleam language tour"), or keep reading for a quick speedrun.
 
 Gleam is easy to [install](https://gleam.run/getting-started/installing/ "Installation instruction for Gleam and Erlang etc.") via Homebrew or your system package manager.
 
@@ -25,7 +25,7 @@ Packages can be added with `gleam add`. Let's add [gleam_otp](https://hexdocs.pm
 gleam_otp = ">= 0.10.0 and < 1.0.0"
 ```
 
-I'm interested in Gleam's concurrency handling, so let's test it out. Add the following to `src/my_project.gleam` (an example from the Gleam homepage).
+I'm interested in Gleam's concurrency handling, so let's test it out. Add the following code to `src/my_project.gleam` (an example from the Gleam homepage).
 
 ```gleam
 import gleam/int
@@ -48,7 +48,7 @@ pub fn main() {
 }
 ```
 
-We run our app with `gleam run`.
+Compile and run the code with `gleam run`.
 
 You should see a whole bunch of hellos from different numbers. They appear, at first glance, to be counting in order from 0 to 200,000, like this.
 
