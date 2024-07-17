@@ -7,6 +7,8 @@ default_language = "en"
 # Zola theme
 theme = "terminimal"
 
+
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
@@ -30,6 +32,8 @@ highlight_themes_css = [
   { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
   { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
 ]
+# A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
+extra_syntaxes_and_themes = ["syntaxes"]
 
 [extra]
 
