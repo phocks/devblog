@@ -19,13 +19,13 @@ Gleam is easy to [install](https://gleam.run/getting-started/installing/ "Instal
 
 New projects can be made with `gleam new my_project`.
 
-Packages can be added with `gleam add`. Let's add gleam_otp with `gleam add gleam_otp`, which we'll use to spawn new tasks. It will now be an entry in your `gleam.toml` file, under `[dependencies]`
+Packages can be added with `gleam add`. Let's add [gleam_otp](https://hexdocs.pm/gleam_otp/ "Gleam Open Telecom Platform") with `gleam add gleam_otp`, which we'll use to spawn new tasks. It will now be an entry in your `gleam.toml` file, under `[dependencies]`
 
 ```
 gleam_otp = ">= 0.10.0 and < 1.0.0"
 ```
 
-I'm interested in Gleam's concurrency handling, so let's test it out. Add this to `src/my_project.gleam` (an example from the Gleam homepage).
+I'm interested in Gleam's concurrency handling, so let's test it out. Add the following to `src/my_project.gleam` (an example from the Gleam homepage).
 
 ```gleam
 import gleam/int
@@ -50,7 +50,7 @@ pub fn main() {
 
 We run our app with `gleam run`.
 
-You should see a whole bunch of hellos from different numbers. They appear, at first glance, to be counting from 0 to 200,000, like this.
+You should see a whole bunch of hellos from different numbers. They appear, at first glance, to be counting in order from 0 to 200,000, like this.
 
 ```
 Hello from 44790
@@ -65,9 +65,9 @@ Hello from 44798
 Hello from 44799
 ```
 
-The cool thing is though, that each of these tasks is being run concurrently (if you've got a multi-core processor that is ... I think).
+The cool thing is though, that each of these tasks is being run concurrently (if you've got a multi-core processor that is ... I think) ...
 
-If you scroll back up, you should see that some of the numbers aren't actually in order. This is because sometimes (for whatever reason I won't try to understand right now) one of the tasks makes it through your CPU faster than another one spawned before it, thus overtaking it and printing its number out first.
+... And if you scroll back up, you should see that some of the numbers are actually out of order. This is because sometimes — for whatever electronic reason I won't try to understand right now — one of the tasks makes it through your CPU faster than a previous one, thus overtaking it and printing its number out first.
 
 Pretty cool, hey? 
 
