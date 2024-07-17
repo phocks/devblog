@@ -32,6 +32,7 @@ highlight_themes_css = [
   { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
   { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
 ]
+
 # A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
 extra_syntaxes_and_themes = ["syntaxes"]
 
