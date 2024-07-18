@@ -11,21 +11,7 @@
     <title>{%- block title %}{{ config.title }}{% endblock title -%}</title>
     {{ head_macros::head(config=config) }}
 
-    {#- Rss / Atom Feed #}
-
-    {%- if config.generate_feeds %}
-        {%- for feed in config.feed_filenames %}
-
-            {%- if feed is containing('atom') %}
-                <link rel="alternate" type="application/atom+xml" title="{{ config.title }} Atom Feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}" />
-            {%- endif %}
-
-            {%- if feed is containing('rss') %}
-                <link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS Feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}" />
-            {%- endif %}
-
-        {%- endfor %}
-    {%- endif %}
+   
 
     {%- if config.extra.favicon %}
         <link rel="shortcut icon" type="{{ config.extra.favicon_mimetype | default(value="image/x-icon") | safe }}" href="{{ config.extra.favicon | safe }}">
