@@ -9,7 +9,6 @@ Find me in the Fediverse:
 
 * [@phocks@bne.social](https://bne.social/@phocks) - Brisbane Mastodon instance
 * [@josh@masto.byrd.ws](https://masto.byrd.ws/@josh) - Self-hosted Mastodon instance
-* [@jb@go.phocks.org](https://go.phocks.org/@jb) - GoToSocial instance
 
 And in other places:
 
