@@ -33,6 +33,14 @@ Here's how I solved it. Instead of a transition, I used a CSS animation, with `s
   animation-timing-function: steps(10);
 }
 ```
+
+Just add the `do-transition` class to the element you want to animate.
+
+```js
+const polygon = svg.querySelector('polygon');
+polygon.classList.add('do-transition');
+```
+
 Here's a little demo.
 
 <svg id="svg-interactive-21e12855-1b41-48d1-97c3-24a4f5f751c4" xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240' patternUnits="userSpaceOnUse">
@@ -67,3 +75,5 @@ Here's a little demo.
     animation-timing-function: steps(10);
   }
 </style>
+
+That's the basic idea anyway. Adjust the steps count until you find a good balance and if you have a lot of elements you can stagger the start times of the animations, so each is painting on screen at a different time.
