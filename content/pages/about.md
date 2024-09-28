@@ -16,6 +16,9 @@ And in other places:
 * [Session](https://getsession.org/) Id: 0591ea3a5f77fea842f72eb94c88e71ef8778a6007bf3b920f8ebd2f477f66f20c or phocks (Session ONS).
 * [email me](https://keys.mailvelope.com/pks/lookup?op=get&search=byrd.joshua@proton.me) (PGP encryption welcome).
 
+Send me an anonymous tip on [Hush Line](https://tips.hushline.app/to/phocks).
+
+
 The code for this blog can be found on [GitHub](https://github.com/phocks/devblog).
 
 ---
