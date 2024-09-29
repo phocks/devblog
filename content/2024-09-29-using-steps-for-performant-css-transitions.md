@@ -7,7 +7,7 @@ draft = false
 tags = ["JavaScript", "CSS", "Web Development"]
 +++
 
-I've use a lot of [CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) over the years. Shifting between values in a smooth fashion is pretty easy with a simple one-liner.
+I've used a lot of [CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) over the years. Shifting between values in a smooth fashion is pretty easy with a simple one-liner.
 
 ```css
 transition: background-color 2s;
