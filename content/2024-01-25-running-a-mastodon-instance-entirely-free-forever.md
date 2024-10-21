@@ -7,8 +7,7 @@ draft = false
 tags = ["Social", "Hosting", "Domains", "Mastodon", "Fediverse"]
 +++
 
-
-My single-user Mastodon instance has been ticking away at [phocks.eu.org](https://phocks.eu.org/about) for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is.
+My single-user Mastodon instance has been ticking away for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is.
 
 If you're comfortable logging into a Linux server via <abbr title="Secure Shell">SSH</abbr> and running commands you shouldn't have any major troubles setting it up, but it will take a few hours of work. Enjoy!
 
@@ -128,7 +127,9 @@ Thanks to [@futzle](https://old.mermaid.town/@futzle/111816078208038636) for poi
 
 The steps above will still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try [Google's free tier](https://cloud.google.com/free/docs/free-cloud-features#compute) (though it probably won't have enough storage — maybe try [GoToSocial](https://gotosocial.org/)), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on [LowEndBox](https://lowendbox.com/).
 
-Good luck!
+I'm now running [an instance](https://masto.byrd.ws) on my own hardware at home.
+
+Good luck out there!
 
 ---
 
