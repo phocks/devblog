@@ -101,7 +101,7 @@ find -name '*.png' -print0 | xargs -0 pngquant --ext=.png --force --speed 10 --q
 #find -name '*.gif' -print0 | xargs -0 gifsicle -O3 --colors=64 --use-col=web --lossy=100 --batch
 ```
 
-Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh](https://phocks.eu.org/@josh) if you have any questions or need any help, or if you just wanna say hi 👋
+Aaaaaaaand... there you have it. Contact me on Mastodon at [@josh](https://masto.byrd.ws/@josh) if you have any questions or need any help, or if you just wanna say hi 👋
 
 ---
 
