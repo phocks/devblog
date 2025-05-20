@@ -59,7 +59,7 @@ Here's the basic idea. First we have two SVGs.
 </div>
 ```
 
-Then we apply the CSS to layer the SVGs on top of each other and animate the top layer's opacity.
+Then we layer the SVGs on top of each other using CSS and animate the top layer's opacity.
 
 ```css
 .svg-fader-container {
