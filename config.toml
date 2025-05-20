@@ -58,7 +58,7 @@ author = "Joshua Byrd"
 
 # Copyright text in HTML format. If specified,
 # entirely replaces default copyright and author.
-copyright_html = '<span><a href="https://umami.phocks.org/share/LE5nfO82Ck9n1cIM/josh.is-cool.dev">Analytics</a> :: #<span id="hit-count"></span></span>'
+copyright_html = 'By Joshua Byrd :: Hit count #<span id="hit-count"></span></span>'
 
 # menu is enabled by adding menu_items (optional)
 menu_items = [
