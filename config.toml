@@ -1,13 +1,9 @@
 base_url = "https://josh.is-cool.dev"
-# base_url = "https://phocks.surge.sh"
-
 title = "Josh's Cool Dev Blog"
 default_language = "en"
 
 # Zola theme
 theme = "terminimal"
-
-
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
