@@ -7,4 +7,4 @@ draft = true
 tags = ["GPU", "Graphics", "Layers", "Transitions"]
 +++
 
-In my previous post (quite some months ago) I wrote about
+Previously [I wrote about](/using-steps-for-performant-css-transitions/) leveraging `steps()` in CSS animations to enhance SVG transitions performance by essentially "lowering the framerate" of the transition. This worked well, but ultimately it wasn't enough. In order to get silky smooth fading between two complex SVGs, here's what you need to do.
