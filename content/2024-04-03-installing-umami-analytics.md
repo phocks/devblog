@@ -13,4 +13,6 @@ I went the [self-hosted](https://umami.is/docs) route. Real easy install. Alread
 
 I pointed my [Caddy server](https://caddyserver.com) to the new container and bam, analytics. You can even make a public link. [Check it](https://umami.phocks.org/share/LE5nfO82Ck9n1cIM/josh.is-cool.dev). You should see yourself there.
 
+Update 2025: My container went down. Hopefully I can fix it!
+
 Anyways. Bye for now! Peace.
