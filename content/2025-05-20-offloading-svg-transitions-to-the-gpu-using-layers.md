@@ -7,7 +7,7 @@ draft = false
 tags = ["GPU", "Graphics", "Layers", "Transitions"]
 +++
 
-Previously [I wrote about](/using-steps-for-performant-css-transitions/) leveraging `steps()` in CSS animations to enhance SVG transitions performance by essentially "lowering the framerate" of the transition. This worked well, but ultimately it wasn't enough. In order to get the silky smooth fading between two complex SVGs, I needed to make sure work was being offloaded to the GPU.
+Previously [I wrote about](/using-steps-for-performant-css-transitions/) leveraging `steps()` in CSS animations to enhance SVG transitions performance by essentially "lowering the framerate" of the transition. This worked well, but ultimately it wasn't enough, because CSS `fill` isn't GPU accellerated. In order to get the silky smooth fading between two complex SVGs, I needed to make sure work was being offloaded to the GPU.
 
 In modern browsers (although some `filter` properties are now supported) basically only `opacity` and `transform` are GPU accelerated. So we can transition between multiple layers using `opacity`.
 
