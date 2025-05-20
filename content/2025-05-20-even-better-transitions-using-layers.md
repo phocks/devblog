@@ -1,7 +1,7 @@
 +++
 title = "Offloading SVG transitions to the GPU using layers"
 date = 2025-05-20
-draft = true
+draft = false
 
 [taxonomies]
 tags = ["GPU", "Graphics", "Layers", "Transitions"]
