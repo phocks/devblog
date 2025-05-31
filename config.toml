@@ -20,6 +20,11 @@ feed_filenames = ["rss.xml", "atom.xml"]
 # Optional: enable tags
 taxonomies = [{ name = "tags" }]
 
+# Author name: when specified, modifies the default
+# copyright text. Apart from author, it will
+# contain current year and a link to the theme.
+author = "Joshua Byrd"
+
 # Code highlighting
 [markdown]
 highlight_code = true
@@ -50,11 +55,6 @@ logo_text = "josh@thinkpad:~/src$"
 
 # The logo link - defaults to base_url.
 #logo_home_link = "/take/me/away!"
-
-# Author name: when specified, modifies the default
-# copyright text. Apart from author, it will
-# contain current year and a link to the theme.
-author = "Joshua Byrd"
 
 # Copyright text in HTML format. If specified,
 # entirely replaces default copyright and author.
