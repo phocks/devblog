@@ -25,7 +25,9 @@ export const count = $state({ value: 0 });
 
 The problem is there are [too many different ways](https://joyofcode.xyz/how-to-share-state-in-svelte-5) to share state across modules.
 
-Basically ... just use classes. They're fine, flexible, fun!
+Basically, after a bit of experimentation, I'd suggest ... just use classes.
+
+They're fine, flexible, fun!
 
 ```ts
 // counter.svelte.ts
@@ -37,6 +39,8 @@ class Counter {
 export const counter = new Counter();
 ```
 
-That's it! Maybe I'll expand on reasoning etc later, when I have more time.
+That's it! That's my recommendation.
+
+Maybe I'll expand on reasoning etc later, when I have more time.
 
 Peace out ✌️
