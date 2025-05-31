@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Svelte state sharing? Just use classes. They&#x27;re fine. | Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/svelte-state-sharing-just-use-classes-theyre-fine/">Svelte state sharing? Just use classes. They&#x27;re fine.</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-05-31
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/javascript/">#JavaScript</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/runes/">#Runes</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/svelte/">#Svelte</a></span>
+    
+
+        
+        <div class="post-content">
+            <p>Who here remembers <a href="https://svelte.dev/docs/svelte/stores">Stores</a> from Svelte 4?</p>
+<pre data-lang="ts" class="language-ts z-code"><code class="language-ts" data-lang="ts"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> counter.ts</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-alias z-ts">writable</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>svelte/store<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">count</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">writable</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">0</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>In Svelte 5, Stores <a href="https://svelte.dev/tutorial/svelte/stores">are out</a> and Runes are in. <a href="https://svelte.dev/tutorial/svelte/universal-reactivity">Universal reactivity</a> baby!</p>
+<pre data-lang="ts" class="language-ts z-code"><code class="language-ts" data-lang="ts"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> counter.svelte.ts</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">count</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$state</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">value</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-constant z-numeric z-decimal z-ts">0</span> </span><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>The problem is there are <a href="https://joyofcode.xyz/how-to-share-state-in-svelte-5">too many different ways</a> to share state across modules.</p>
+<p>Basically, after extensive experimentation, I'd suggest ... just use classes.</p>
+<p>They're fine, flexible, fun!</p>
+<pre data-lang="ts" class="language-ts z-code"><code class="language-ts" data-lang="ts"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> counter.svelte.ts</span>
+</span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-storage z-type z-class z-ts">class</span> <span class="z-entity z-name z-type z-class z-ts">Counter</span> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-field z-declaration z-ts">  <span class="z-meta z-definition z-property z-ts"><span class="z-variable z-object z-property z-ts">value</span></span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$state</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">0</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-field z-declaration z-ts">  <span class="z-meta z-definition z-property z-ts"><span class="z-variable z-object z-property z-ts">doubled</span></span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$derived</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span> <span class="z-keyword z-operator z-arithmetic z-ts">*</span> <span class="z-constant z-numeric z-decimal z-ts">2</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">counter</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-ts">Counter</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>That's it! That's my recommendation.</p>
+<p>Maybe I'll expand on reasoning etc later, when I have more time.</p>
+<p>Peace out ✌️</p>
+
+        </div>
+
+        
+        <div class="pagination">
+            <div class="pagination__title">
+                <span class="pagination__title-h">Would you like to know more?</span>
+                <hr />
+            </div>
+            <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/offloading-svg-transitions-to-the-gpu-using-layers/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Offloading SVG transitions to the GPU using layers</span>
+                        </a>
+                    </span>
+                
+                </div>
+        </div>
+    
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
