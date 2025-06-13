@@ -72,3 +72,9 @@ The cool thing is though, that each of these tasks is being run concurrently (if
 Pretty cool, huh? 
 
 Looking forward to [exploring more](https://gleam.run/documentation/ "Gleam main documentation page"), and maybe using Gleam for when I don't need to be quite as close to the metal as Rust gets me.
+
+---
+
+## UPDATE 2025-06-13
+
+Seems like `gleam_otp` [has released](https://github.com/gleam-lang/otp) a v1 which has removed support for `task` and they now use `actors`. I'll see if I can get my head around them and either do a new post or update this one.
