@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/using-steps-for-performant-css-transitions/">Using steps() for performant CSS transitions</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-09-29
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/css/">#CSS</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/javascript/">#JavaScript</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/web-development/">#Web Development</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>I've used a lot of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions">CSS transitions</a> over the years. Shifting between values in a smooth fashion is pretty easy with a simple one-liner.</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-selector z-css">transition: <span class="z-entity z-name z-tag z-custom z-css">background-color</span> 2s;
+</span></span></code></pre>
+<p>But what if you have a lot of transitions? What if you have too many transitions? Your browser tries to run them as fast as your monitor's refresh rate allows (60 times per second, or more). This can be pretty taxing.</p>
+<p>Recently I ran into this problem transitioning many elements of a large SVG with a bunch of complex shapes. With all the elements transitioning all at once, the page scrolling started to stutter quite noticeably.</p>
+<p>Here's how I solved it. Instead of a transition, I used <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a>, with <code>steps()</code> to effectively "bring down the frame rate" and stop the browser from doing too much work.</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-at-rule z-keyframe z-css"><span class="z-keyword z-control z-at-rule z-keyframe z-css"><span class="z-punctuation z-definition z-keyword z-css">@</span>keyframes</span> <span class="z-entity z-other z-animation-name z-css">color-change</span> </span><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span><span class="z-source z-css">  <span class="z-constant z-numeric z-integer z-decimal z-css">100<span class="z-keyword z-other z-unit z-css">%</span></span> <span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">fill</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-meta z-function-call z-css"><span class="z-support z-function z-color z-css">rgb</span><span class="z-meta z-group z-css"><span class="z-punctuation z-definition z-group z-begin z-css">(</span><span class="z-constant z-numeric z-integer z-decimal z-css">12</span><span class="z-punctuation z-separator z-sequence z-css">,</span> <span class="z-constant z-numeric z-integer z-decimal z-css">169</span><span class="z-punctuation z-separator z-sequence z-css">,</span> <span class="z-constant z-numeric z-integer z-decimal z-css">210</span></span><span class="z-meta z-group z-css"><span class="z-punctuation z-definition z-group z-end z-css">)</span></span></span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span>  <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">
+</span><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>do-transition</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">animation-name</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">color</span>-change</span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">animation-duration</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">5<span class="z-keyword z-other z-unit z-css">s</span></span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">animation-iteration-count</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">infinite</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">animation-timing-function</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-meta z-function-call z-css"><span class="z-support z-function z-timing z-css">steps</span><span class="z-meta z-group z-css"><span class="z-punctuation z-definition z-group z-begin z-css">(</span><span class="z-constant z-numeric z-integer z-decimal z-css">10</span></span><span class="z-meta z-group z-css"><span class="z-punctuation z-definition z-group z-end z-css">)</span></span></span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span></code></pre>
+<p>Or you can use the shorthand.</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>do-transition</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">animation</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">color</span>-change <span class="z-constant z-numeric z-integer z-decimal z-css">5<span class="z-keyword z-other z-unit z-css">s</span></span> <span class="z-support z-constant z-property-value z-css">infinite</span> <span class="z-meta z-function-call z-css"><span class="z-support z-function z-timing z-css">steps</span><span class="z-meta z-group z-css"><span class="z-punctuation z-definition z-group z-begin z-css">(</span><span class="z-constant z-numeric z-integer z-decimal z-css">10</span></span><span class="z-meta z-group z-css"><span class="z-punctuation z-definition z-group z-end z-css">)</span></span></span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span></code></pre>
+<p>Just add the <code>do-transition</code> class to the element you want to animate. Adjust the <code>animation-duration</code> and the <code>steps()</code> count to get a balance between smoothness and performance.</p>
+<pre data-lang="js" class="language-js z-code"><code class="language-js" data-lang="js"><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">polygon</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-object z-ts">svg</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">querySelector</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>polygon<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-object z-ts">polygon</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-object z-property z-ts">classList</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">add</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>do-transition<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>Here's a little demo with a simple SVG. I've kept the <code>steps()</code> low to make the effect more noticeable.</p>
+<svg id="svg-interactive-21e12855-1b41-48d1-97c3-24a4f5f751c4" xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240' patternUnits="userSpaceOnUse">
+  <defs>
+    <pattern id="smallGrid" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect fill='#ddffaa' width='120' height='120'/>
+      <polygon fill='#AE9' fill-opacity='1' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120'/>
+    </pattern>
+  </defs>
+  <rect width="240" height="240" fill="url(#smallGrid)" />
+</svg>
+<script>
+  const svg = document.getElementById('svg-interactive-21e12855-1b41-48d1-97c3-24a4f5f751c4');
+
+  const polygon = svg.querySelector('polygon');
+  polygon.classList.add('do-transition');
+  
+  const rect = svg.querySelector('rect');
+  rect.classList.add('do-transition');
+</script>
+<style>
+  @keyframes color-change {
+    100% { fill: rgb(12, 169, 210); }
+  }
+
+  .do-transition {
+    animation-name: color-change;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(10);
+  }
+</style>
+<p>That's the basic idea anyway. I hope it helps if you run into a similar problem.</p>
+<p>(Bonus tip: Use <code>animation-delay</code> to stagger the animations if you have a lot of elements transitioning at once so they don't all paint on the screen at once on each <code>step()</code>)</p>
+<p>Happy coding! 🚀</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/a-brief-interlude-into-gleam-concurrency/">A brief interlude into Gleam concurrency</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-07-17
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/concurrency/">#Concurrency</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/gleam/">#Gleam</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/programming/">#Programming</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>I've been learning <a href="https://www.rust-lang.org/" title="The Rust programming language website">Rust</a> for a while now.</p>
+<p>The other day I came across this little project called <a href="https://gleam.run/" title="The Gleam programming language website">Gleam</a>. It's a functional programming language. It's written in Rust. It compiles to JavaScript and Erlang. It borrows a lot of the good bits from Rust while hiding away a lot of the lower-level stuff.  It feels kinda like Rust-lite.</p>
+<p>I was intrigued, so I took a quick look into it.</p>
+<p>If you're also intrigued I recommend taking the <a href="https://tour.gleam.run/" title="The Gleam language tour">Gleam language tour</a>, or keep reading for a quick speedrun.</p>
+<p>Gleam is easy to <a href="https://gleam.run/getting-started/installing/" title="Installation instruction for Gleam and Erlang etc.">install</a> via Homebrew or your system package manager.</p>
+<p>New projects can be made with <code>gleam new my_project</code>.</p>
+<p>Packages can be added with <code>gleam add</code>. Let's add <a href="https://hexdocs.pm/gleam_otp/" title="Gleam Open Telecom Platform">gleam_otp</a> with <code>gleam add gleam_otp</code>, which we'll use to spawn new tasks. It will now be an entry in your <code>gleam.toml</code> file, under <code>[dependencies]</code></p>
+<pre class="z-code"><code><span class="z-text z-plain">gleam_otp = &quot;&gt;= 0.10.0 and &lt; 1.0.0&quot;
+</span></code></pre>
+<p>I'm interested in Gleam's concurrency handling, so let's test it out. Add the following code to <code>src/my_project.gleam</code> (an example from the Gleam homepage).</p>
+<pre data-lang="gleam" class="language-gleam z-code"><code class="language-gleam" data-lang="gleam"><span class="z-source z-gleam"><span class="z-keyword z-control z-gleam">import</span> gleam<span class="z-keyword z-operator z-arithmetic z-int z-gleam">/</span>int
+</span><span class="z-source z-gleam"><span class="z-keyword z-control z-gleam">import</span> gleam<span class="z-keyword z-operator z-arithmetic z-int z-gleam">/</span>io
+</span><span class="z-source z-gleam"><span class="z-keyword z-control z-gleam">import</span> gleam<span class="z-keyword z-operator z-arithmetic z-int z-gleam">/</span>list
+</span><span class="z-source z-gleam"><span class="z-keyword z-control z-gleam">import</span> gleam<span class="z-keyword z-operator z-arithmetic z-int z-gleam">/</span>otp<span class="z-keyword z-operator z-arithmetic z-int z-gleam">/</span>task
+</span><span class="z-source z-gleam">
+</span><span class="z-source z-gleam"><span class="z-keyword z-control z-gleam">fn</span> spawn_task(i) {
+</span><span class="z-source z-gleam">  task<span class="z-constant z-numeric z-gleam">.</span>async(<span class="z-keyword z-control z-gleam">fn</span>() {
+</span><span class="z-source z-gleam">    <span class="z-keyword z-control z-gleam">let</span> n <span class="z-keyword z-operator z-assignment z-gleam">=</span> int<span class="z-constant z-numeric z-gleam">.</span>to_string(i)
+</span><span class="z-source z-gleam">    io<span class="z-constant z-numeric z-gleam">.</span>println(<span class="z-string z-quoted z-double z-gleam"><span class="z-punctuation z-definition z-string z-begin z-gleam">&quot;</span>Hello from <span class="z-punctuation z-definition z-string z-end z-gleam">&quot;</span></span> &lt;&gt; n)
+</span><span class="z-source z-gleam">  })
+</span><span class="z-source z-gleam">}
+</span><span class="z-source z-gleam">
+</span><span class="z-source z-gleam"><span class="z-keyword z-control z-gleam">pub</span> <span class="z-keyword z-control z-gleam">fn</span> main() {
+</span><span class="z-source z-gleam">  <span class="z-comment z-line z-gleam"><span class="z-punctuation z-definition z-comment z-gleam">//</span> Run loads of threads, no problem</span>
+</span><span class="z-source z-gleam">  list<span class="z-constant z-numeric z-gleam">.</span>range(<span class="z-constant z-numeric z-gleam">0</span>, 200_000)
+</span><span class="z-source z-gleam">  <span class="z-keyword z-operator z-pipe z-gleam">|&gt;</span> list<span class="z-constant z-numeric z-gleam">.</span>map(spawn_task)
+</span><span class="z-source z-gleam">  <span class="z-keyword z-operator z-pipe z-gleam">|&gt;</span> list<span class="z-constant z-numeric z-gleam">.</span>each(task<span class="z-constant z-numeric z-gleam">.</span>await_forever)
+</span><span class="z-source z-gleam">}
+</span></code></pre>
+<p>Compile and run the code with <code>gleam run</code>.</p>
+<p>You should see a whole bunch of hellos from different numbers. They appear, at first glance, to be counting in order from 0 to 200,000 like this.</p>
+<pre class="z-code"><code><span class="z-text z-plain">Hello from 44790
+</span><span class="z-text z-plain">Hello from 44791
+</span><span class="z-text z-plain">Hello from 44792
+</span><span class="z-text z-plain">Hello from 44793
+</span><span class="z-text z-plain">Hello from 44795
+</span><span class="z-text z-plain">Hello from 44794
+</span><span class="z-text z-plain">Hello from 44796
+</span><span class="z-text z-plain">Hello from 44797
+</span><span class="z-text z-plain">Hello from 44798
+</span><span class="z-text z-plain">Hello from 44799
+</span></code></pre>
+<p>The cool thing is though, that each of these tasks is being run concurrently (if you've got a multi-core processor that is ... I think) ...</p>
+<p>... And if you scroll back up, you should see that some of the numbers are actually out of order. This is because sometimes — for whatever electronic reason I won't try to understand right now — one of the tasks makes it through your CPU faster than a previous one, thus overtaking it and printing its number out first.</p>
+<p>Pretty cool, huh?</p>
+<p>Looking forward to <a href="https://gleam.run/documentation/" title="Gleam main documentation page">exploring more</a>, and maybe using Gleam for when I don't need to be quite as close to the metal as Rust gets me.</p>
+<hr />
+<h2 id="update-2025-06-13">UPDATE 2025-06-13</h2>
+<p>Seems like <code>gleam_otp</code> <a href="https://github.com/gleam-lang/otp">has released</a> a v1 which has removed support for <code>task</code> and they now use <code>actors</code>. I'll see if I can get my head around them and either do a new post or update this one.</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/3/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
