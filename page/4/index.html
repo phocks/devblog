@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/installing-umami-analytics/">Installing Umami analytics</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-04-03
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/analytics/">#Analytics</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/tech/">#Tech</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/tracking/">#Tracking</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/umami/">#Umami</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Real quick post. <a href="https://umami.is">Umami</a> I saw the other day on <a href="https://boehs.org">Evan Boehs</a>' blog. Wanted to try it out myself. So I did. It's tracking analytics right now on this page.</p>
+<p>I went the <a href="https://umami.is/docs">self-hosted</a> route. Real easy install. Already had a PostgreSQL container on my <a href="https://www.proxmox.com/en/">Proxmox</a> box, so I just had to spin up a new container, install Node.js, and go through the <a href="https://umami.is/docs/install">installation instructions</a>.</p>
+<p>I pointed my <a href="https://caddyserver.com">Caddy server</a> to the new container and bam, analytics. You can even make a public link. <a href="https://umami.phocks.org/share/LE5nfO82Ck9n1cIM/josh.is-cool.dev">Check it</a>. You should see yourself there.</p>
+<p>Update 2025: My container went down. Hopefully I can fix it!</p>
+<p>Anyways. Bye for now! Peace.</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/asus-rog-strix-you-need-to-calm-down/">ASUS ROG Strix X570-i Gaming motherboard chipset fan you need to calm down</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-02-26
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/asus/">#ASUS</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/hardware/">#Hardware</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/motherboard/">#Motherboard</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/tech/">#Tech</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p><em>TL;DR If you have an ASUS ROG Strix X570-i Gaming motherboard (or similar) and are having issues with a constant high-pitched fan noise, try <a href="https://www.reddit.com/r/FormD/comments/ktt4wr/dropping_your_strix_x570i_board_chipset_temp/">the instructions here</a> to enable ASPM and then <a href="https://www.reddit.com/r/Amd/comments/nu59wl/modifying_pch_fan_curve_on_nonmodded_asus_x570/">these instructions</a> to alter the fan curve.</em></p>
+<p>A very niche post, but here it is.</p>
+<p>I recently flashed the latest BIOS on my motherboard. It all went fine, but then the sound was back again. I'd completely wiped it from my memory, the huge saga that I went through when I first got the board. The chipset runs real hot, and the fan runs real loud.</p>
+<p>I'd fixed it before, so now I'm just writing it up for next time, or for anyone else who's having the same issue. I make no guarantees that you won't brick your motherboard, but I've done this twice now and it's been fine.</p>
+<p>Step 1: Enable <a href="https://en.wikipedia.org/wiki/Active_State_Power_Management">ASPM</a>.</p>
+<p>Using information from <a href="https://www.reddit.com/r/FormD/comments/ktt4wr/dropping_your_strix_x570i_board_chipset_temp/">this Reddit post</a>, follow the steps below:</p>
+<ol>
+<li>Download this boot file: <a href="https://drive.google.com/drive/folders/1F7h1Ga0DXgppT2YPwON7sZUgnao789kv">bootx64.efi</a></li>
+<li>FAT32 format a USB drive and create a folder <code>/efi/boot</code>.</li>
+<li>Put the file in the <code>boot</code> folder.</li>
+<li>Restart your PC and boot from the USB drive from your BIOS.</li>
+<li>You will get a GRUB screen and a command prompt.</li>
+<li>Type <code>setup_var 170 37</code> and press enter.</li>
+<li>Power off and restart Windows.</li>
+<li>Check <a href="https://www.hwinfo.com/download/">HWiNFO64</a> and search for <strong>ASPM</strong> settings.</li>
+<li>It should say <strong>L1 Entry</strong> instead of <strong>disabled</strong>.</li>
+</ol>
+<p>To reset back to default:</p>
+<ol>
+<li>Do the same kind of thing until you get to the GRUB cli.</li>
+<li>type <code>setup_var 170 00</code> and press enter.</li>
+<li>Reboot.</li>
+</ol>
+<p>Step 2: Tweak the fan curve.</p>
+<p>Using instructions from <a href="https://www.reddit.com/r/Amd/comments/nu59wl/modifying_pch_fan_curve_on_nonmodded_asus_x570/">this Reddit post</a>, follow these steps:</p>
+<ol>
+<li>Download <a href="https://github.com/datasone/grub-mod-setup_var/releases">modGRUBShell.efi</a> and put it in <code>/efi/boot</code> on your USB drive.</li>
+<li>Delete <code>bootx64.efi</code> and rename <code>modGRUBShell.efi</code> to <code>bootx64.efi</code>. (They may actually do the same thing, but I'm not sure. Better safe than sorry.)</li>
+<li>Boot from the USB drive and you'll get a GRUB screen and a command prompt.</li>
+<li>Type <code>setup_var_cv QFan 0x3a</code> and press enter. You should see <code>offset 0x3a is: 0x3c</code> which means the PCH Fan Middle Temperature is set to 60 degrees. If it doesn't say this, go back to the Reddit post and do <em>"Phase 1: Getting the correct variable offset for your BIOS"</em>.</li>
+<li>Type <code>setup_var_cv QFan 0x3a 0x01 0x50</code> and press enter. This sets the fan curve to 80 degrees, which means it will wait until the chipset is 80 degrees before it starts ramping up the fan speed. (You can also try 0x55 for the final value to set it to 85 degrees).</li>
+<li>Reboot and you should be golden.</li>
+</ol>
+<p>Note: Use <a href="https://github.com/LibreHardwareMonitor/LibreHardwareMonitor">LibreHardwareMonitor</a> to get the real chipset temperature and fan speed.</p>
+<p>That's it. Remember, I'm not responsible if you enter the wrong values and your motherboard explodes.</p>
+<p>Enjoy the quiet!</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/3/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/5/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
