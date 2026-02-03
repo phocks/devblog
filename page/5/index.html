@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/in-browser-wasm-we-trust/">In-browser WebAssembly we trust</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-02-15
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/rust/">#Rust</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/wasm/">#Wasm</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/webassembly/">#WebAssembly</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/webdev/">#WebDev</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Rust compiles to machine code, which runs as an executable file on your computer. You can also compile it to <a href="https://webassembly.org/">WebAssembly</a> (Wasm for short) and have it run in the browser.</p>
+<p>Until recently, if you wanted to add interactivity to a web page, or do a bunch of calculations in-browser, you'd use JavaScript. Now that Wasm is supported in all modern browsers, we can use Rust (or <a href="https://github.com/appcypher/awesome-wasm-langs">another compatible language</a>) and run much closer to the metal.</p>
+<p>Good times! Here's how to do it.</p>
+<p>Firstly, <a href="https://rustwasm.github.io/wasm-pack/installer/">install wasm-pack</a>. It's a tool that helps build Rust code for the web.</p>
+<p>Then, create a new Rust project with <code>wasm-pack new my-wasm-project</code>. This will generate a basic Rust library for you.</p>
+<p>We only need to worry about <code>src/lib.rs</code> for now.</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-module z-rust"><span class="z-storage z-type z-module z-rust">mod</span> <span class="z-entity z-name z-module z-rust">utils</span><span class="z-punctuation z-terminator z-rust">;</span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-keyword z-other z-rust">use</span> <span class="z-meta z-path z-rust">wasm_bindgen<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">prelude<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-keyword z-operator z-arithmetic z-rust">*</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">wasm_bindgen</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-keyword z-other z-rust">extern</span> <span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>C<span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">alert</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">s</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-keyword z-operator z-rust">&amp;</span><span class="z-storage z-type z-rust">str</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">wasm_bindgen</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-modifier z-rust">pub</span> <span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">greet</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-function z-rust">alert</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>Hello, my-wasm-test!<span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>The <code>extern "C"</code> block pulls the <code>alert</code> function in from JavaScript and we "export" the <code>greet</code> function using <code>pub</code> so we can call it from JavaScript.</p>
+<p>Those <code>#[wasm_bindgen]</code> annotations are what bind our Rust code to JavaScript. They tell the compiler where the Wasm module should interface with JavaScript.</p>
+<p>The <code>alert</code> function ... shows an alert box on the page. Cool. Let's do something a bit more interesting!</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-module z-rust"><span class="z-storage z-type z-module z-rust">mod</span> <span class="z-entity z-name z-module z-rust">utils</span><span class="z-punctuation z-terminator z-rust">;</span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-keyword z-other z-rust">use</span> <span class="z-meta z-path z-rust">wasm_bindgen<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">prelude<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-keyword z-operator z-arithmetic z-rust">*</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">wasm_bindgen</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-modifier z-rust">pub</span> <span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">fibonacci</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">n</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">u32</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-storage z-type z-rust">u32</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-keyword z-control z-rust">match</span> n <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-constant z-numeric z-integer z-decimal z-rust">0</span> <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">0</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span> <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-keyword z-operator z-rust">_</span> <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-support z-function z-rust">fibonacci</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>n <span class="z-keyword z-operator z-arithmetic z-rust">-</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-support z-function z-rust">fibonacci</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>n <span class="z-keyword z-operator z-arithmetic z-rust">-</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">2</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>This function calculates the nth Fibonacci number. Now we can hook it up and call this function from our page. But first, we need to compile it into WebAssembly.</p>
+<p>Build your <a href="https://rustwasm.github.io/docs/wasm-bindgen/examples/without-a-bundler.html">Wasm module</a> with <code>wasm-pack build --target web</code> in the root of your project. This will create a <code>pkg</code> directory with a <code>wasm.js</code> file and a <code>wasm_bg.wasm</code> file.</p>
+<p>We'll need an <code>index.js</code> file at the root of our project to import our Wasm module.</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-variable z-other z-readwrite z-alias z-ts">init</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-alias z-ts">fibonacci</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./pkg/my_wasm_project.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">init</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">let</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-readwrite z-ts">result</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">fibonacci</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">32</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">result</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 2178309</span>
+</span></code></pre>
+<p>And an <code>index.html</code> to load our script.</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-sgml z-doctype z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;!</span><span class="z-keyword z-declaration z-doctype z-html">DOCTYPE</span> <span class="z-constant z-language z-doctype z-html">html</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-structure z-any z-html">html</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">lang</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>en<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-structure z-any z-html">head</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">meta</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">charset</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>UTF-8<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">meta</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">name</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>viewport<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">content</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>width=device-width, initial-scale=1.0<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">meta</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">http-equiv</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>X-UA-Compatible<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">content</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>ie=edge<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">title</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>Hello World!<span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-inline z-any z-html">title</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-script z-html">script</span></span><span class="z-meta z-tag z-script z-begin z-html"> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">type</span></span></span><span class="z-meta z-tag z-script z-begin z-html"><span class="z-meta z-attribute-with-value z-html"><span class="z-punctuation z-separator z-key-value z-html">=</span></span></span><span class="z-meta z-tag z-script z-begin z-html"><span class="z-meta z-attribute-with-value z-html"></span></span><span class="z-meta z-tag z-script z-begin z-html"><span class="z-meta z-attribute-with-value z-html"><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>module<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">defer</span> </span><span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">async</span> </span><span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">src</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>./index.js<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span><span class="z-meta z-tag z-script z-end z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-script z-html">script</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-structure z-any z-html">head</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-structure z-any z-html">body</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    Hello World!
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-structure z-any z-html">body</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-structure z-any z-html">html</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p>Now serve your root directory with <a href="https://github.com/svenstaro/miniserve">miniserve</a> (or your favourite <a href="https://github.com/vercel/serve">local static file server</a>) and open <code>index.html</code> in your <a href="https://www.mozilla.org/firefox">browser</a>. You should see the result of the <code>fibonacci</code> function in <a href="https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html">the console</a>.</p>
+<p><em>The 32nd Fibonacci number is 2178309 btw.</em></p>
+<p>And there you have it. Wasm running in-browser.</p>
+<p>'Till next time. ✌️</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/running-a-mastodon-instance-entirely-free-forever/">Running a Mastodon instance entirely free forever</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-01-25
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/domains/">#Domains</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/fediverse/">#Fediverse</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/hosting/">#Hosting</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/mastodon/">#Mastodon</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/social/">#Social</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>My single-user Mastodon instance has been ticking away for a while now, over a year at least. All up, I've paid zero dollars to keep it running. I've had a few people ask me to write up something about it, so here it is.</p>
+<p>If you're comfortable logging into a Linux server via <abbr title="Secure Shell">SSH</abbr> and running commands you shouldn't have any major troubles setting it up, but it will take a few hours of work. Enjoy!</p>
+<p>Firstly though, why would anyone even want to run their own Mastodon instance? Well, for the fun of mucking around with servers and software, perhaps? Maybe for the freedom to post whatever you want on your own platform and no dumb billionaire can suspend you or force you to take it down? Who knows? Anyway...</p>
+<p>To run a Mastodon instance you need 2 things.</p>
+<ol>
+<li>A domain, or subdomain.</li>
+<li>A server, 2<abbr title="gigabytes">GB</abbr> <abbr title="Random Access Memory">RAM</abbr> minimum. 50GB disk space minimum.</li>
+</ol>
+<p>Getting a proper domain name for free is more art than science these days, especially since <a href="https://www.freenom.com">Freenom</a> shut down new registrations. Here are some other places to try.</p>
+<ol>
+<li><a href="https://nic.eu.org">nic.eu.org</a> - They make you <a href="https://forum.infinityfree.com/t/how-to-get-a-free-eu-org-domain/88508">jump through a few hoops</a>, plus it can take up to a month or two (or forever) to get approved.</li>
+<li><a href="https://nic.ua/en/domains/.pp.ua">nic.ua</a> - pp.ua domain. 1-year registrations only, but you can renew manually for free each year.</li>
+</ol>
+<p><em>(If you know of any other places to get free domains, please <a href="/about">let me know</a>.)</em></p>
+<p>You can also use a subdomain. Subdomains are easier to get for free. Try some of these places or <a href="https://duckduckgo.com/?q=register+a+free+subdomain+with+dns&amp;t=ffab&amp;ia=web">do a search</a> online.</p>
+<ol>
+<li><a href="https://freedns.afraid.org">afraid.org</a></li>
+<li><a href="https://github.com/topics/free-subdomain">GitHub free-subdomain topic</a></li>
+<li><a href="https://www.noip.com">noip.com</a></li>
+<li><a href="https://www.duckdns.org">duckdns.org</a></li>
+</ol>
+<p>Or else, if you already own a domain name, you can create a subdomain like <code>mastodon.yourdomain.com</code> or <code>fedi.yourdomain.com</code> or whatever you like.</p>
+<p>Now you need a server to point your domain to.</p>
+<p>You could use any old computer that you have lying around the house, or you could sign up for the <a href="https://www.oracle.com/cloud/free/">free tier on the Oracle Cloud</a>. This is what I'm using currently.</p>
+<p>Google Cloud also offers <a href="https://cloud.google.com/free/docs/free-cloud-features#compute">a free server</a>, but they only give you 30GB storage and 1GB of outbound traffic and Mastodon will chew through this pretty quick. But you could try <a href="https://gotosocial.org/">GoToSocial</a>, <a href="https://pleroma.social/">Pleroma</a>, or <a href="https://akkoma.social/">Akkoma</a> instead, which are a bit more lightweight.</p>
+<p><em>(If anyone knows any other free-forever tier <abbr title="Virtual Private Server">VPS</abbr>s please <a href="/about">let me know</a> too.)</em></p>
+<p>I wrote up <a href="https://phocks.github.io/how-to-get-2x-oracle-cloud-servers-free-forever.html">this little guide</a> a while ago about how to get 2x Oracle Cloud servers free forever. These are x86 servers with 1GB RAM each. 1GB is a bit small for a Mastodon instance, but I can confirm that it does run if you <a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04">enable some swap space</a> and don't enable <a href="https://docs.joinmastodon.org/admin/elasticsearch/">Elastic Search</a>. You could even try splitting the database and the web server between the two separate servers, if you're feeling adventurous.</p>
+<p>Good news though. Oracle has now added <abbr title="Advanced RISC Machines">ARM</abbr> servers to their free tier. These are the <a href="https://www.oracle.com/cloud/compute/arm/">Ampere A1 Compute</a> servers. You can create from 1 up to 4 servers with 24GB of RAM spread between them, which is more than enough for a Mastodon instance. And they're free forever too. I am running mine on a 2-thread ARM CPU with 12GB RAM and 50GB block storage.</p>
+<p>Oracle gives you up to 200GB of block storage, which you can spread across all your servers. I have had some issues with running low on disk space and having to set up scripts to compress media etc (see below), so I'd probably recommend using 100GB for your Mastodon instance as a minimum. Unfortunately, Mastodon uses a lot of space for storing accounts and media etc. You can hook up <a href="https://docs.joinmastodon.org/admin/optional/object-storage/">object storage</a> later if you want, but it's not necessary for starters.</p>
+<p>OK, so now you have your domain and you have it pointed to the <abbr title="Internet Protocol">IP</abbr> address of your server (or your home IP address with ports 80 and 443 forwarded to your internal address). Now you need to install Mastodon. Simply follow the instructions over at the <a href="https://docs.joinmastodon.org/user/run-your-own/">official guide</a> to get started. There are quite a few steps involved, but it's not too hard if you take it one step at a time.</p>
+<p>If everything went well, you should now have a working Mastodon instance. Log in and start posting!</p>
+<hr />
+<p>ps.</p>
+<p>Here are some scripts that I run <a href="https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job">on cron</a> every few hours, mostly to help keep disk usage down.</p>
+<p>This first one runs <code>tootctl</code> to prune old accounts and media etc. This may not be necessary these days as I believe Mastodon has some built-in pruning now. But I've been running this for a while and it seems to work.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/usr/bin/env bash</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-storage z-modifier z-shell">export</span> <span class="z-variable z-other z-readwrite z-assignment z-shell">PATH</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">HOME</span></span>/.rbenv/bin:<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">PATH</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-eval z-shell">eval</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rbenv</span></span><span class="z-meta z-function-call z-arguments z-shell"> init -</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-storage z-modifier z-shell">export</span> <span class="z-variable z-other z-readwrite z-assignment z-shell">RAILS_ENV</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">production</span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Added from https://ricard.dev/improving-mastodons-disk-usage/</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> accounts prune</span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">/home/mastodon/live/bin/tootctl media remove --remove-headers --include-follows --days 1</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> media remove<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>prune-profiles</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>days</span> 1</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> cache clear</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> statuses remove<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>days</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>1</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> media remove<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>days</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>1</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> preview_cards remove<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>days</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>1</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> media remove-orphans</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/mastodon/live/bin/tootctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> media usage</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">date</span></span>
+</span></code></pre>
+<p>This compresses images in the cache. You'll need to install <a href="https://lindevs.com/install-jpegoptim-on-ubuntu/">jpegoptim</a> and <a href="https://pngquant.org">pngquant</a> for this to work.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/usr/bin/env bash</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> /home/mastodon/live/public/system/cache</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>*.jpg<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print0</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xargs</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>0</span> jpegoptim<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>preserve</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>threshold</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>max</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>45</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>*.jpeg<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print0</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xargs</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>0</span> jpegoptim<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>preserve</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>threshold</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>max</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>45</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> /home/mastodon/live/public/system/cache/accounts</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>*.png<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print0</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xargs</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>0</span> pngquant<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>ext</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>.png<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>force</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>speed</span> 10<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>quality</span> 45-50<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>skip-if-larger</span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> /home/mastodon/live/public/system/cache/media_attachments</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>*.png<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print0</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xargs</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>0</span> pngquant<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>ext</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>.png<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>force</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>speed</span> 10<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>quality</span> 45-50<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>skip-if-larger</span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> /home/mastodon/live/public/system/cache/preview_cards</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>*.png<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print0</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xargs</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>0</span> pngquant<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>ext</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>.png<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>force</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>speed</span> 10<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>quality</span> 45-50<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>skip-if-larger</span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Can&#39;t really use gif compression as you can&#39;t ignore on bigger file size etc</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">find -name &#39;*.gif&#39; -print0 | xargs -0 gifsicle -O3 --colors=64 --use-col=web --lossy=100 --batch</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></code></pre>
+<p>Aaaaaaaand... there you have it. Contact me on Mastodon at <a href="https://masto.byrd.ws/@josh">@josh</a> if you have any questions or need any help, or if you just wanna say hi 👋</p>
+<hr />
+<p>pps.</p>
+<p>I forgot to mention, the only other thing that you kinda might need during the install is an <abbr title="Simple Mail Transfer Protocol">SMTP</abbr> service for sending emails for sign-ups. I'm pretty sure it's not 100% necessary for a single-user instance, because the installation will set up an admin account for you and you can also use the <a href="https://docs.joinmastodon.org/admin/tootctl/">Mastodon cli</a> tools to create accounts without email confirmation.</p>
+<p>But if you want to be able to send emails, you can use <a href="https://www.mailgun.com">Mailgun</a> for free. You can also try <a href="https://sendgrid.com">SendGrid</a>, but I believe they require you to verify your identity with a credit card.</p>
+<p>You can also try setting up <a href="https://kinsta.com/blog/gmail-smtp-server/">SMTP through Gmail</a>, as suggested by <a href="https://mindly.social/@KuJoe/111819333521765387">KuJoe</a>.</p>
+<p>Happy days!</p>
+<hr />
+<p>ppps.</p>
+<p>Thanks to <a href="https://old.mermaid.town/@futzle/111816078208038636">@futzle</a> for pointing out that if you don't want literal Nazis and 4chan-like trolls posting the worst stuff on the Internet at you (I found out the hard way), you should probably import a blocklist to block the worst of the worst instances in the fediverse. Here's a good one here called <a href="https://seirdy.one/posts/2023/05/02/fediverse-blocklists/">FediNuke</a>. You can import the text file in admin settings under <strong>Moderation -&gt; Federation</strong>.</p>
+<hr />
+<p><em>UPDATE 2024-03-03: Unfortunately <a href="https://www.oracle.com/cloud/free/">Oracle's free-tier</a> services locked me out of my account without warning, with no way to contact a human for support :(</em></p>
+<p>The steps above will still work, but I would recommend you run your Mastodon instance on your own hardware in-house, or try <a href="https://cloud.google.com/free/docs/free-cloud-features#compute">Google's free tier</a> (though it probably won't have enough storage — maybe try <a href="https://gotosocial.org/">GoToSocial</a>), otherwise (and yes this is not free forever but hey whatever) try to find a cheap VPS on <a href="https://lowendbox.com/">LowEndBox</a>.</p>
+<p>I'm now running <a href="https://masto.byrd.ws">an instance</a> on my own hardware at home.</p>
+<p>Good luck out there!</p>
+<hr />
+<p>If you found this useful, please consider <a href="https://ko-fi.com/phocks">buying me a coffee</a>, as unfortunately coffee isn't free 🥲 ☕</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/4/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/6/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
