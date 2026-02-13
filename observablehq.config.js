@@ -24,7 +24,7 @@ export default {
   root: "src",
 
   // Some additional configuration options and their defaults:
-  theme: ["parchment", "ink"], // try "light", "dark", "slate", etc.
+  theme: ["cotton", "sun-faded"], // try "light", "dark", "slate", etc.
   // header: "<span>Josh's Dev Blog</span>", // what to show in the header (HTML)
   // footer: "Built with Observable.", // what to show in the footer (HTML)
   // sidebar: true, // whether to show the sidebar
