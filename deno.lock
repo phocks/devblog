@@ -2,6 +2,9 @@
   "version": "5",
   "specifiers": {
     "npm:@observablehq/framework@^1.13.3": "1.13.3_rollup@4.57.1_markdown-it@14.1.1_esbuild@0.20.2",
+    "npm:@types/d3-dsv@^3.0.7": "3.0.7",
+    "npm:@types/d3-time-format@^4.0.3": "4.0.3",
+    "npm:@types/node@^25.2.3": "25.2.3",
     "npm:d3-dsv@^3.0.1": "3.0.1",
     "npm:d3-time-format@^4.1.0": "4.1.0",
     "npm:rimraf@^5.0.5": "5.0.10"
@@ -594,6 +597,12 @@
         "escape-string-regexp"
       ]
     },
+    "@types/d3-dsv@3.0.7": {
+      "integrity": "sha512-n6QBF9/+XASqcKK6waudgL0pf/S5XHPPI8APyMLLUHd8NqouBGLsU8MgtO7NINGtPBtk9Kko/W4ea0oAspwh9g=="
+    },
+    "@types/d3-time-format@4.0.3": {
+      "integrity": "sha512-5xg9rC+wWL8kdDj153qZcsJ0FWiFt0J5RB6LYUNZjwSnesfblqrI/bJ1wBdJ8OQfncgbJG5+2F+qfqnqyzYxyg=="
+    },
     "@types/estree@1.0.8": {
       "integrity": "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="
     },
@@ -609,6 +618,12 @@
     },
     "@types/mdurl@2.0.0": {
       "integrity": "sha512-RGdgjQUZba5p6QEFAVx2OGb8rQDL/cPRG7GiedRzMcJ1tYnUANBncjbSB1NRGwbvjcPeikRABz2nshyPk1bhWg=="
+    },
+    "@types/node@25.2.3": {
+      "integrity": "sha512-m0jEgYlYz+mDJZ2+F4v8D1AyQb+QzsNqRuI7xg1VQX/KlKS0qT9r1Mo16yo5F/MtifXFgaofIFsdFMox2SxIbQ==",
+      "dependencies": [
+        "undici-types"
+      ]
     },
     "@types/resolve@1.20.2": {
       "integrity": "sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q=="
@@ -1053,6 +1068,7 @@
         "package-json-from-dist",
         "path-scurry"
       ],
+      "deprecated": true,
       "bin": true
     },
     "glob@8.1.0": {
@@ -1739,6 +1755,9 @@
     "uc.micro@2.1.0": {
       "integrity": "sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A=="
     },
+    "undici-types@7.16.0": {
+      "integrity": "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="
+    },
     "universalify@0.2.0": {
       "integrity": "sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg=="
     },
@@ -1845,6 +1864,9 @@
     "packageJson": {
       "dependencies": [
         "npm:@observablehq/framework@^1.13.3",
+        "npm:@types/d3-dsv@^3.0.7",
+        "npm:@types/d3-time-format@^4.0.3",
+        "npm:@types/node@^25.2.3",
         "npm:d3-dsv@^3.0.1",
         "npm:d3-time-format@^4.1.0",
         "npm:rimraf@^5.0.5"

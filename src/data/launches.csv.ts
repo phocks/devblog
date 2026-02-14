@@ -1,7 +1,7 @@
 import {csvFormat, tsvParse} from "d3-dsv";
 import {utcParse} from "d3-time-format";
 
-async function text(url) {
+async function text(url: string) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`fetch failed: ${response.status}`);
   return response.text();
@@ -33,17 +33,17 @@ const TOP_STATES_MAP = new Map([
 const launchVehicles = tsvParse(await text("https://planet4589.org/space/gcat/tsv/tables/lv.tsv"));
 
 // Construct map to lookup vehicle family from name.
-const launchVehicleFamilyMap = new Map(launchVehicles.map((d) => [d["#LV_Name"], d.LV_Family.trim()]));
+const launchVehicleFamilyMap = new Map<string, string>(launchVehicles.map((d: any) => [d["#LV_Name"], d.LV_Family.trim()]));
 
 // Reduce cardinality by mapping smaller states to “Other”.
-function normalizeState(d) {
+function normalizeState(d: string) {
   return TOP_STATES_MAP.get(d) ?? "Other";
 }
 
 // Reduce cardinality by mapping smaller launch families to “Other”.
-function normalizeFamily(d) {
+function normalizeFamily(d: string) {
   const family = launchVehicleFamilyMap.get(d);
-  return TOP_LAUNCH_VEHICLES.has(family) ? family : "Other";
+  return family && TOP_LAUNCH_VEHICLES.has(family) ? family : "Other";
 }
 
 // Parse dates!
@@ -55,7 +55,7 @@ const launchHistory = tsvParse(await text("https://planet4589.org/space/gcat/tsv
   state: normalizeState(d.LVState),
   stateId: d.LVState,
   family: normalizeFamily(d.LV_Type)
-})).filter((d) => d.date != null);
+})).filter((d: any) => d.date != null);
 
 // Write out csv formatted data.
 process.stdout.write(csvFormat(launchHistory));
