@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/svelte-state-sharing-just-use-classes-theyre-fine/">Svelte state sharing? Just use classes. They&#x27;re fine.</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-05-31
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/javascript/">#JavaScript</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/runes/">#Runes</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/svelte/">#Svelte</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Who here remembers <a href="https://svelte.dev/docs/svelte/stores">Stores</a> from Svelte 4?</p>
+<pre data-lang="ts" class="language-ts z-code"><code class="language-ts" data-lang="ts"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> counter.ts</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-alias z-ts">writable</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>svelte/store<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">count</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">writable</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">0</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>In Svelte 5, Stores <a href="https://svelte.dev/tutorial/svelte/stores">are out</a> and Runes are in. <a href="https://svelte.dev/tutorial/svelte/universal-reactivity">Universal reactivity</a> baby!</p>
+<pre data-lang="ts" class="language-ts z-code"><code class="language-ts" data-lang="ts"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> counter.svelte.ts</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">count</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$state</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">value</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-constant z-numeric z-decimal z-ts">0</span> </span><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>The problem is there are <a href="https://joyofcode.xyz/how-to-share-state-in-svelte-5">too many different ways</a> to share state across modules.</p>
+<p>Basically, after extensive experimentation, I'd suggest ... just use classes.</p>
+<p>They're fine, flexible, fun!</p>
+<pre data-lang="ts" class="language-ts z-code"><code class="language-ts" data-lang="ts"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> counter.svelte.ts</span>
+</span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-storage z-type z-class z-ts">class</span> <span class="z-entity z-name z-type z-class z-ts">Counter</span> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-field z-declaration z-ts">  <span class="z-meta z-definition z-property z-ts"><span class="z-variable z-object z-property z-ts">value</span></span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$state</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">0</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-field z-declaration z-ts">  <span class="z-meta z-definition z-property z-ts"><span class="z-variable z-object z-property z-ts">doubled</span></span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$derived</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span> <span class="z-keyword z-operator z-arithmetic z-ts">*</span> <span class="z-constant z-numeric z-decimal z-ts">2</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">counter</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-ts">Counter</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>That's it! That's my recommendation.</p>
+<p>Maybe I'll expand on reasoning etc later, when I have more time.</p>
+<p>Peace out ✌️</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/offloading-svg-transitions-to-the-gpu-using-layers/">Offloading SVG transitions to the GPU using layers</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-05-20
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/gpu/">#GPU</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/graphics/">#Graphics</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/layers/">#Layers</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/transitions/">#Transitions</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Previously <a href="/using-steps-for-performant-css-transitions/">I wrote about</a> leveraging <code>steps()</code> in CSS animations to enhance SVG transitions performance by essentially "lowering the framerate" of the transition. This worked well, but ultimately it wasn't enough, because CSS <code>fill</code> isn't GPU accellerated. In order to get silky smooth fading between two complex SVGs, I needed to make sure work was being offloaded to the GPU.</p>
+<p>In modern browsers (although some <code>filter</code> properties are now supported) basically only <code>opacity</code> and <code>transform</code> are GPU accelerated. So we can transition between multiple layers using <code>opacity</code>.</p>
+<p>Here's the basic idea. First we have two SVGs.</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-block z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-block z-any z-html">div</span> <span class="z-meta z-attribute-with-value z-class z-html"><span class="z-entity z-other z-attribute-name z-class z-html">class</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span></span><span class="z-string z-quoted z-double z-html"><span class="z-meta z-class-name z-html">svg-fader-container</span><span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-comment z-block z-html"><span class="z-punctuation z-definition z-comment z-begin z-html">&lt;!--</span> Bottom SVG Layer <span class="z-punctuation z-definition z-comment z-end z-html">--&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">svg</span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-class z-html"><span class="z-entity z-other z-attribute-name z-class z-html">class</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span></span><span class="z-string z-quoted z-double z-html"><span class="z-meta z-class-name z-html">svg-layer</span> <span class="z-meta z-class-name z-html">bottom</span><span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">width</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>300<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">height</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>300<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">viewBox</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>0 0 100 100<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">xmlns</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>http://www.w3.org/2000/svg<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">  <span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">defs</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">      <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">pattern</span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-id z-html"><span class="z-entity z-other z-attribute-name z-id z-html">id</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span></span><span class="z-string z-quoted z-double z-html"><span class="z-meta z-toc-list z-id z-html">circle-pattern-bottom</span><span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">width</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>20<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">height</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>20<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">patternUnits</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>userSpaceOnUse<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">      <span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">        <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">circle</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">cx</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>10<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">cy</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>10<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">r</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>8<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">fill</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>mediumseagreen<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">      <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">pattern</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">defs</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">rect</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">width</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>100<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">height</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>100<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">fill</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>url(#circle-pattern-bottom)<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">svg</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">
+</span><span class="z-text z-html z-basic">  <span class="z-comment z-block z-html"><span class="z-punctuation z-definition z-comment z-begin z-html">&lt;!--</span> Top SVG Layer <span class="z-punctuation z-definition z-comment z-end z-html">--&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">svg</span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-class z-html"><span class="z-entity z-other z-attribute-name z-class z-html">class</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span></span><span class="z-string z-quoted z-double z-html"><span class="z-meta z-class-name z-html">svg-layer</span> <span class="z-meta z-class-name z-html">top</span><span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">width</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>300<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">height</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>300<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">viewBox</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>0 0 100 100<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">xmlns</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>http://www.w3.org/2000/svg<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">  <span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">defs</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">      <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">pattern</span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-id z-html"><span class="z-entity z-other z-attribute-name z-id z-html">id</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span></span><span class="z-string z-quoted z-double z-html"><span class="z-meta z-toc-list z-id z-html">circle-pattern-top</span><span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">width</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>20<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">height</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>20<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">        <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">patternUnits</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>userSpaceOnUse<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-other z-html">      <span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">        <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">circle</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">cx</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>10<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">cy</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>10<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">r</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>8<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">fill</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>darkorange<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">      <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">pattern</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">defs</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">rect</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">width</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>100<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">height</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>100<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">fill</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>url(#circle-pattern-top)<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-other z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span></span><span class="z-meta z-tag z-other z-html"><span class="z-entity z-name z-tag z-other z-html">svg</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-block z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-block z-any z-html">div</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p>Then we layer the SVGs on top of each other using CSS and animate the top layer's opacity.</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>svg-fader-container</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">position</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">relative</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">width</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">300<span class="z-keyword z-other z-unit z-css">px</span></span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">height</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">300<span class="z-keyword z-other z-unit z-css">px</span></span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">border</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">1<span class="z-keyword z-other z-unit z-css">px</span></span> <span class="z-support z-constant z-property-value z-css">solid</span> <span class="z-constant z-other z-color z-rgb-value z-css"><span class="z-punctuation z-definition z-constant z-css">#</span>eee</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">
+</span><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>svg-layer</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">position</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">absolute</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">top</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">0</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">left</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">0</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">
+</span><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>svg-layer</span><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>bottom</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">z-index</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">1</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">
+</span><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>svg-layer</span><span class="z-entity z-other z-attribute-name z-class z-css"><span class="z-punctuation z-definition z-entity z-css">.</span>top</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">z-index</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">2</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">animation</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css">fade-<span class="z-support z-constant z-property-value z-css">top</span>-svg <span class="z-constant z-numeric z-integer z-decimal z-css">4<span class="z-keyword z-other z-unit z-css">s</span></span> <span class="z-support z-constant z-property-value z-css">infinite</span> <span class="z-support z-constant z-property-value z-css">alternate</span> <span class="z-support z-constant z-property-value z-css">ease-in-out</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">
+</span><span class="z-source z-css"><span class="z-meta z-at-rule z-keyframe z-css"><span class="z-keyword z-control z-at-rule z-keyframe z-css"><span class="z-punctuation z-definition z-keyword z-css">@</span>keyframes</span> <span class="z-entity z-other z-animation-name z-css">fade-top-svg</span> </span><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span><span class="z-source z-css">  <span class="z-constant z-numeric z-integer z-decimal z-css">0<span class="z-keyword z-other z-unit z-css">%</span></span> <span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">opacity</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">1</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span>  <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">  <span class="z-constant z-numeric z-integer z-decimal z-css">100<span class="z-keyword z-other z-unit z-css">%</span></span> <span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">opacity</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-numeric z-integer z-decimal z-css">0</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span>  <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span></code></pre>
+<p>And there you have it! A GPU accelerated transition between two SVGs. Here's <a href="https://svelte.dev/playground/453283d49c1343179dd343ec45f83743?version=5.31.1">a live version</a>.</p>
+<p>You could even use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function/steps"><code>steps()</code></a> to reduce the frequency of opacity changes. Or else tie the opacity to a throttled scroll position or mouse position to create a more interactive experience.</p>
+<p>For additional reading check out this excellent article from Smashing Magazine called <a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/">CSS GPU Animation: Doing It Right</a></p>
+<p>Anyway that's it. Have fun!</p>
+<p><em>ps. if your SVGs are really huge and complex (like mine were), you can even dynamically render them to a canvas element first at the correct DPI, but that's a subject for another time.</em></p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/2/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

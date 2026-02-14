@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/running-runes-locally-with-svelte-5-pre-release-alpha/">Running Runes locally with Svelte 5 pre-release alpha</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-11-29
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/javascript/">#JavaScript</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/runes/">#Runes</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/svelte/">#Svelte</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/webdev/">#WebDev</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>I noticed Svelte published some v5 pre-releases. Previously you could only try out <a href="https://svelte.dev/blog/runes">Svelte Runes</a> by using the <a href="https://svelte-5-preview.vercel.app">online playground</a>. Now you can run them locally.</p>
+<p>Here's how. You'll need:</p>
+<ul>
+<li><a href="https://nodejs.org">Node.js</a>.</li>
+<li><a href="https://pnpm.io">pnpm</a> - Svelte uses it, but <code>npm</code> should work too.</li>
+</ul>
+<p>Download one of the version 5 pre-releases from the <a href="https://github.com/sveltejs/svelte/releases">Svelte releases page</a> and extract it. Or you could just clone <a href="https://github.com/sveltejs/svelte">the repo</a> to get the bleeding edge version.</p>
+<p>Then move into the dir and do a <code>pnpm install</code> to install the dependencies.</p>
+<p>Then run <code>pnpm run build</code> to compile everything.</p>
+<p>^^^ You know what, scrap that, silly me, I just realised that they are actually publishing these pre-releases <a href="https://www.npmjs.com/package/svelte?activeTab=versions">to npm</a>. So you can simply link your <code>svelte</code> dev dependency to the latest pre-release version.</p>
+<p>Well then. Instead of linking in <code>package.json</code> to the version we just compiled, we can just link to the one on npm.</p>
+<p>Anyway, I'll press on regardless. It's up to you if you want to compile it locally or not.</p>
+<p>Create a new Svelte project in a separate directory.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">npm</span></span><span class="z-meta z-function-call z-arguments z-shell"> create vite@latest <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Select svelte option</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span></code></pre>
+<p>In <code>package.json</code> find the <code>svelte</code> dev dependency and change the version.</p>
+<p>To use the npm version:</p>
+<pre data-lang="json" class="language-json z-code"><code class="language-json" data-lang="json"><span class="z-source z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>svelte<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>: <span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>5.0.0-next.15<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>
+</span></code></pre>
+<p>Otherwise, link to your locally compiled version of Svelte:</p>
+<pre data-lang="json" class="language-json z-code"><code class="language-json" data-lang="json"><span class="z-source z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>svelte<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>: <span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>file:../svelte/packages/svelte<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>
+</span></code></pre>
+<p>And then <code>npm install</code> all your <code>node_modules</code>.</p>
+<p>In Svelte 5 there's <a href="https://svelte-5-preview.vercel.app/docs/breaking-changes#components-are-no-longer-classes">a new way</a> of mounting the app. So you'll have to edit <code>main.ts</code> to look a bit like this:</p>
+<pre data-lang="typescript" class="language-typescript z-code"><code class="language-typescript" data-lang="typescript"><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./app.css<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-variable z-other z-readwrite z-alias z-ts">App</span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./App.svelte<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-alias z-ts">createRoot</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>svelte<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">target</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-variable z-dom z-ts">document</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">getElementById</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>app<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-keyword z-control z-conditional z-ts">if</span> <span class="z-meta z-brace z-round z-ts">(</span><span class="z-keyword z-operator z-logical z-ts">!</span><span class="z-variable z-other z-readwrite z-ts">target</span><span class="z-meta z-brace z-round z-ts">)</span> <span class="z-keyword z-control z-trycatch z-ts">throw</span> <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-ts">Error</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Failed to find #app<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">app</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">createRoot</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">App</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-meta z-object z-member z-ts"><span class="z-variable z-other z-readwrite z-ts">target</span> </span><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-keyword z-control z-default z-ts">default</span> <span class="z-variable z-other z-readwrite z-ts">app</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>Then you can run <code>npm run dev</code> and you should see the app running.</p>
+<p>Change <code>Counter.svelte</code> to use runes, and away you go.</p>
+<pre data-lang="typescript" class="language-typescript z-code"><code class="language-typescript" data-lang="typescript"><span class="z-source z-ts"><span class="z-keyword z-operator z-relational z-ts">&lt;</span><span class="z-variable z-other z-readwrite z-ts">script</span> <span class="z-variable z-other z-readwrite z-ts">lang</span><span class="z-keyword z-operator z-assignment z-ts">=</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>ts<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-keyword z-operator z-relational z-ts">&gt;</span>
+</span><span class="z-source z-ts">  <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">let</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-readwrite z-ts">count</span></span><span class="z-meta z-type z-annotation z-ts"><span class="z-keyword z-operator z-type z-annotation z-ts">:</span> <span class="z-support z-type z-primitive z-ts">number</span> </span></span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">$state</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">0</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts">  <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts"><span class="z-entity z-name z-function z-ts">onclick</span></span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span><span class="z-meta z-arrow z-ts"> <span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> </span><span class="z-meta z-arrow z-ts"><span class="z-storage z-type z-function z-arrow z-ts">=&gt;</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-arrow z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-other z-readwrite z-ts">count</span> <span class="z-keyword z-operator z-assignment z-compound z-ts">+=</span> <span class="z-constant z-numeric z-decimal z-ts">1</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-arrow z-ts"><span class="z-meta z-block z-ts">  <span class="z-punctuation z-definition z-block z-ts">}</span></span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-keyword z-operator z-relational z-ts">&lt;</span><span class="z-keyword z-operator z-arithmetic z-ts">/</span><span class="z-variable z-other z-readwrite z-ts">script</span><span class="z-keyword z-operator z-relational z-ts">&gt;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-keyword z-operator z-relational z-ts">&lt;</span><span class="z-variable z-other z-readwrite z-ts">button</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span><span class="z-variable z-other z-readwrite z-ts">onclick</span><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-keyword z-operator z-relational z-ts">&gt;</span>
+</span><span class="z-source z-ts">  <span class="z-variable z-other z-readwrite z-ts">count</span> <span class="z-variable z-other z-readwrite z-ts">is</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span><span class="z-variable z-other z-readwrite z-ts">count</span><span class="z-punctuation z-definition z-block z-ts">}</span></span>
+</span><span class="z-source z-ts"><span class="z-keyword z-operator z-relational z-ts">&lt;</span><span class="z-keyword z-operator z-arithmetic z-ts">/</span><span class="z-variable z-other z-readwrite z-ts">button</span><span class="z-keyword z-operator z-relational z-ts">&gt;</span>
+</span></code></pre>
+<p>Have run writing your next Svelte app with runes!</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/switching-filesystems-in-arch-linux/">Switching filesystems in Arch Linux</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-11-27
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/btrfs/">#Btrfs</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/f2fs/">#F2FS</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/filesystems/">#Filesystems</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/linux/">#Linux</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/ssd/">#SSD</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/storage/">#Storage</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>So you wanna jump from one moving train to another for fun?</p>
+<p>You could just do a fresh install. Or you could try this. Basically we're going to reinstall your base system, then restore all your old files over the top. This means you can avoid reinstalling all your old programs and settings etc.</p>
+<p>After many failed attempts, this is what worked for me. Recording it here for future reference and in case it's useful for anyone else. (In my case I was going from f2fs to btrfs btw.)</p>
+<p>The main issue is making sure you don't overwrite the new <code>/etc/fstab</code> with your old one, otherwise you'll end up with a system that won't boot because it will be looking for your old filesystems.</p>
+<p>Here's what you do.</p>
+<p>Make a full system backup with something like <a href="https://rescuezilla.com/">Rescuezilla</a> for <del>if</del> when you screw up your system and need to restore it.</p>
+<p>Make a backup on an external drive of all your files. I used <a href="https://github.com/linuxmint/timeshift">Timeshift</a> with the RSYNC option.</p>
+<p><a href="/one-does-indeed-simply-install-arch-linux">Reinstall Arch</a> on your main drive, and choose the filesystem you want to switch to.</p>
+<p>Make sure the new system boots.</p>
+<p>Then we're going to boot into the <a href="https://www.system-rescue.org/">System Rescue CD</a> and mount the new system drive and the old Timeshift backup.</p>
+<p>Use <code>lsblk</code> to get your device names and replace them in the code below eg. <code>nvme0n1p2</code> and <code>sda1</code>.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> /mnt</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mkdir</span></span><span class="z-meta z-function-call z-arguments z-shell"> new old</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mount</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>t</span> btrfs /dev/nvme0n1p2 new/</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mount</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>t</span> f2fs /dev/sda1 old/</span>
+</span></code></pre>
+<p>(Replace filesystems and drive names with your own.)</p>
+<p>Make a backup of the new <code>fstab</code> file.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cp</span></span><span class="z-meta z-function-call z-arguments z-shell"> new/@/etc/fstab new/@/etc/fstab.bak</span>
+</span></code></pre>
+<p>Now we're going to copy the old Timeshift backup files to the new system.</p>
+<p>I did this one directory at a time, just to be sure, starting with <code>/home</code>, then rebooting, then repeating the process with <code>/usr</code>, <code>/var</code>, and <code>/root</code> and the others and finally <code>/etc</code>.</p>
+<p>For example:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rsync</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>av</span> old/timeshift/2021-11-27-000000/localhost/home/ /new/@home/</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rsync</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>av</span> old/timeshift/2021-11-27-000000/localhost/usr/ /new/@/usr/</span>
+</span></code></pre>
+<p>Replace the directory names with your own. (btrfs is a bit strange as it uses @ to denote subvolumes.)</p>
+<p>If I remember correctly, I think I had to use the <code>--ignore-times</code> option for the <code>/etc</code> directory. This forces files to be overwritten, even if they're older. There was a little guesswork involved in this process and I want to go back over it sometime.</p>
+<p>In the end, you'll want to restore the <code>fstab</code> backup file.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cp</span></span><span class="z-meta z-function-call z-arguments z-shell"> new/@/etc/fstab.bak new/@/etc/fstab</span>
+</span></code></pre>
+<p>Then reboot. And hopefully you now have a working system.</p>
+<p>If not, restore from your Rescuezilla backup and try, try again.</p>
+<p>Good luck!</p>
+<hr />
+<p>UPDATE-2023-12-27</p>
+<p>I tried the process again and didn't seem to need <code>--ignore-times</code> this time. Also because Arch maps the <code>@log/</code> subvolume to <code>/var/log</code> I removed the contents of <code>@/var/log/</code> after I rsynced it over.</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/7/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/9/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

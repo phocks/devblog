@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>One does indeed simply install Arch Linux | Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/one-does-indeed-simply-install-arch-linux/">One does indeed simply install Arch Linux</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-11-19
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/arch/">#Arch</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/instructions/">#Instructions</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/linux/">#Linux</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/thinkpad/">#ThinkPad</a></span>
+    
+
+        
+        <div class="post-content">
+            <p>A poll I ran on Mastodon recently forced me, against my will, to attempt an install of Arch Linux again.</p>
+<p><em>...Multiple hours of frustration later...</em></p>
+<p>Here's how to install Arch the easy way.</p>
+<ol>
+<li>Download and make a bootable USB of the <a href="https://archlinux.org/download/">Arch Linux ISO</a>.</li>
+<li>DON'T FOLLOW THE INSTALL GUIDE.</li>
+<li>Boot into the USB and run <code>iwctl</code> and follow <a href="https://wiki.archlinux.org/title/Iwd#iwctl">these instructions</a> to connect — basically <code>device list</code>, <code>station &lt;device&gt; scan</code>, <code>station &lt;device&gt; get-networks</code>, <code>station &lt;device&gt; connect &lt;SSID&gt;</code> — you can tab-complete devices and SSIDs.</li>
+<li>(OR simply plug in an ethernet cable.)</li>
+<li>Run <code>archinstall</code> and follow the prompts.</li>
+<li>Hit "Install" then run <code>reboot</code> when it's done.</li>
+</ol>
+<p>That's it. You're done. You have a working Arch Linux install.</p>
+<p>Of course, it won't actually do much just yet, but it's a start. Here's a good place to continue your journey: <a href="https://wiki.archlinux.org">https://wiki.archlinux.org</a>.</p>
+<p>Good luck out there!</p>
+
+        </div>
+
+        
+        <div class="pagination">
+            <div class="pagination__title">
+                <span class="pagination__title-h">Would you like to know more?</span>
+                <hr />
+            </div>
+            <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/a-static-site-with-zola/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">A static site with Zola</span>
+                        </a>
+                    </span>
+                
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/wifi-and-bluetooth-can-coexist/">
+                            <span class="button__text">WiFi and Bluetooth can coexist peacefully on 2.4 Ghz</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+        </div>
+    
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/a-custom-mastodon-favicon-while-you-wait/">A custom Mastodon favicon while you wait</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-05-10
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/config/">#Config</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/mastodon/">#Mastodon</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/social/">#Social</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Admin-uploadable custom favicons <a href="https://github.com/mastodon/mastodon/issues/7396">are officially coming</a>!</p>
+<p>But until then, if you are running your own Mastodon instance, you can still do it. This is the easiest way that I've found to do it.</p>
+<p>I'll lay it out here, so it's handy for future me, or someone else.</p>
+<p>In <code>/etc/nginx/sites-enabled/mastodon</code> add something like this:</p>
+<pre data-lang="conf" class="language-conf z-code"><code class="language-conf" data-lang="conf"><span class="z-source z-genconfig"><span class="z-keyword z-other z-genconfig">location</span> <span class="z-keyword z-operator z-genconfig">^</span><span class="z-keyword z-operator z-genconfig">~</span> <span class="z-string z-quoted z-double z-genconfig">&quot;/packs/media/icons/&quot;</span> {
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig">  <span class="z-variable z-parameter z-genconfig">return</span> </span><span class="z-constant z-numeric z-genconfig">301</span> <span class="z-meta z-url z-genconfig"><span class="z-constant z-other z-genconfig">https://yourdomain.org/favicon.ico</span></span>;
+</span><span class="z-source z-genconfig">}
+</span></code></pre>
+<p>Change <code>yourdomain.org</code> to whatever domain your Mastodon instance is running on.</p>
+<p>Then just replace the <code>favicon.ico</code> file in your <code>/home/mastodon/live/public/</code> directory with the favicon you want.</p>
+<p>Restart the Mastodon services with:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> systemctl restart mastodon-*</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> or a shell script:</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/usr/bin/env bash</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">systemctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> restart mastodon-sidekiq</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">systemctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> reload mastodon-web</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">systemctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> restart mastodon-streaming</span>
+</span></code></pre>
+<p>Then hard-reload your browser. Requests for any favicons (Mastodon uses a few different ones) should now be redirected to your custom one.</p>
+<p>This is good enough for me anyway, for now. Looking forward to having this all handled in the admin page soon anyway.</p>
+<p>Bye for now!</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/compiling-the-zed-code-editor-on-linux/">Compiling the Zed code editor on Linux</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-05-04
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/compiling/">#Compiling</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/editors/">#Editors</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/ide/">#IDE</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/linux/">#Linux</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Hello World! Coming to ya from my ThinkPad running Arch Linux with KDE Plasma 6. I'm typing this sentence into <a href="https://zed.dev/">Zed</a> right now, a new code editor from the devs who brought us <a href="https://en.wikipedia.org/wiki/Atom_(text_editor)">Atom</a> back in the day.</p>
+<p>There are no binaries available for Linux yet, but don't worry, for extra fun we can compile the code ourselves!</p>
+<p>Just <a href="https://github.com/zed-industries/zed">clone the repo</a>, then follow <a href="https://github.com/zed-industries/zed/blob/main/docs/src/development/linux.md">the instructions here</a>. Basically it's a <a href="https://www.rust-lang.org/">Rust</a> app, so you just need clone the code, do a bit of setup, and then run <code>cargo build --release</code> and go make a cup of tea (it will take a while).</p>
+<p>The <code>Zed</code> executable will be in <code>target/release</code>. Copy it to a directory in your homedir or something.</p>
+<p>Add it as a desktop application with a <code>.desktop</code> file like this.</p>
+<pre data-lang="ini" class="language-ini z-code"><code class="language-ini" data-lang="ini"><span class="z-source z-genconfig"><span class="z-meta z-comment z-genconfig"><span class="z-comment z-line z-number-sign z-genconfig"># ~/.local/share/applications/Zed.desktop
+</span></span></span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[Desktop Entry]
+</span></span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">Type</span><span class="z-keyword z-operator z-genconfig">=</span></span>Application
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">Name</span><span class="z-keyword z-operator z-genconfig">=</span></span>Zed
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">Exec</span><span class="z-keyword z-operator z-genconfig">=</span></span><span class="z-support z-constant z-genconfig">WAYLAND_DISPLAY</span><span class="z-keyword z-operator z-genconfig">=</span><span class="z-string z-quoted z-signle z-genconfig">&#39;&#39;</span> <span class="z-keyword z-operator z-genconfig">/</span>home<span class="z-keyword z-operator z-genconfig">/</span>phocks<span class="z-keyword z-operator z-genconfig">/</span>Apps<span class="z-keyword z-operator z-genconfig">/</span>Zed<span class="z-keyword z-operator z-genconfig">/</span>Zed
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">Icon</span><span class="z-keyword z-operator z-genconfig">=</span></span><span class="z-keyword z-operator z-genconfig">/</span>home<span class="z-keyword z-operator z-genconfig">/</span>phocks<span class="z-keyword z-operator z-genconfig">/</span>Apps<span class="z-keyword z-operator z-genconfig">/</span>Zed<span class="z-keyword z-operator z-genconfig">/</span>Zed<span class="z-keyword z-operator z-genconfig">.</span>jpg
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">Terminal</span><span class="z-keyword z-operator z-genconfig">=</span></span><span class="z-constant z-language z-genconfig">false</span>
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">Categories</span><span class="z-keyword z-operator z-genconfig">=</span></span>Utility;TextEditor;Development;
+</span></code></pre>
+<p>Add it to your commandline with a bash script in a directory available to your executable <a href="https://wiki.archlinux.org/title/Environment_variables#Per_user">PATH</a>.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/usr/bin/env bash</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Run the Zed app and pass arguments</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">WAYLAND_DISPLAY</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span><span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/phocks/Apps/Zed/Zed</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-language z-shell">@</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span> <span class="z-keyword z-operator z-logical z-job z-shell">&amp;</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Wait for the Zed app to start</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sleep</span></span><span class="z-meta z-function-call z-arguments z-shell"> 2</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Detach the process from the terminal</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-disown z-shell">disown</span></span>
+</span></code></pre>
+<p>We need <code>WAYLAND_DISPLAY=''</code> to run it in X11 mode so we can resize and move the window (there's <a href="https://github.com/zed-industries/zed/issues/9205">no client side decoration on Wayland</a> yet.)</p>
+<p>Well, that's about it. To update it just run a <code>git pull</code> to fetch the latest code in <code>main</code> and do the compile again and re-copy the resulting binary.</p>
+<p>Enjoy!</p>
+<p><em>And remember Zed is still in early development. If you want a more fully featured code editor use <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</em></p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/2/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/4/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
