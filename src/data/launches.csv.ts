@@ -1,5 +1,5 @@
-import {csvFormat, tsvParse} from "d3-dsv";
-import {utcParse} from "d3-time-format";
+import { csvFormat, tsvParse } from "d3-dsv";
+import { utcParse } from "d3-time-format";
 
 async function text(url: string) {
   const response = await fetch(url);
@@ -18,7 +18,7 @@ const TOP_LAUNCH_VEHICLES = new Set([
   "Proton",
   "Titan",
   "Zenit",
-  "Atlas"
+  "Atlas",
 ]);
 
 // “Top” launching states
@@ -26,14 +26,18 @@ const TOP_STATES_MAP = new Map([
   ["US", "United States"],
   ["SU", "Soviet Union"],
   ["RU", "Russia"],
-  ["CN", "China"]
+  ["CN", "China"],
 ]);
 
 // Load and parse launch vehicles.
-const launchVehicles = tsvParse(await text("https://planet4589.org/space/gcat/tsv/tables/lv.tsv"));
+const launchVehicles = tsvParse(
+  await text("https://planet4589.org/space/gcat/tsv/tables/lv.tsv"),
+);
 
 // Construct map to lookup vehicle family from name.
-const launchVehicleFamilyMap = new Map<string, string>(launchVehicles.map((d: any) => [d["#LV_Name"], d.LV_Family.trim()]));
+const launchVehicleFamilyMap = new Map<string, string>(
+  launchVehicles.map((d: any) => [d["#LV_Name"], d.LV_Family.trim()]),
+);
 
 // Reduce cardinality by mapping smaller states to “Other”.
 function normalizeState(d: string) {
@@ -50,12 +54,15 @@ function normalizeFamily(d: string) {
 const parseDate = utcParse("%Y %b %_d");
 
 // Load and parse launch-log and trim down to smaller size.
-const launchHistory = tsvParse(await text("https://planet4589.org/space/gcat/tsv/derived/launchlog.tsv"), (d) => ({
-  date: parseDate(d.Launch_Date.slice(0, 11)),
-  state: normalizeState(d.LVState),
-  stateId: d.LVState,
-  family: normalizeFamily(d.LV_Type)
-})).filter((d: any) => d.date != null);
+const launchHistory = tsvParse(
+  await text("https://planet4589.org/space/gcat/tsv/derived/launchlog.tsv"),
+  (d) => ({
+    date: parseDate(d.Launch_Date.slice(0, 11)),
+    state: normalizeState(d.LVState),
+    stateId: d.LVState,
+    family: normalizeFamily(d.LV_Type),
+  }),
+).filter((d: any) => d.date != null);
 
 // Write out csv formatted data.
 process.stdout.write(csvFormat(launchHistory));
