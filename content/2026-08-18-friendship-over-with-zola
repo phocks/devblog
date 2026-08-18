@@ -1,0 +1,16 @@
++++
+title = "Friendship over with Zola"
+date = 2026-08-18
+draft = false
+
+[taxonomies]
+tags = ["Zola", "Static", "Web"]
++++
+
+????? is my new best friend now.
+
+It's time to find a new static site generator. The only question is, which one?
+
+One of the main reason I've been absent here is due breaking changes in the static site generator [Zola](https://www.getzola.org/), which runs this site. Because it's just a binary installed via the OS package manager, it updates automatically and lately they've been altering the way the config files are structured and the way themes work and the way code syntac highlighting works.
+
+Ordinarily this wouldn't be too much of a problem, and I persevered through 
