@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/nature-keeps-evolving-rustaceans/">Nature keeps evolving Rustaceans</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-12-08
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/getting-started/">#Getting Started</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/hello-world/">#Hello World</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/rust/">#Rust</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/rustacean/">#Rustacean</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/tutorial/">#Tutorial</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>You can't fight nature.</p>
+<p>We're learning Rust OK? Evolution time. Let's gooooo!</p>
+<p>First up, <a rel="external" href="https://www.rust-lang.org/tools/install">install Rust</a>.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;">curl</span><span style="color: light-dark(#40A02B, #DBBC7F);"> -</span><span style="color: light-dark(#40A02B, #DBBC7F);">-proto</span><span style="color: light-dark(#40A02B, #A7C080);"> &#39;</span><span style="color: light-dark(#40A02B, #A7C080);">=https</span><span style="color: light-dark(#40A02B, #A7C080);">&#39;</span><span style="color: light-dark(#40A02B, #DBBC7F);"> -</span><span style="color: light-dark(#40A02B, #DBBC7F);">-tlsv1.2</span><span style="color: light-dark(#40A02B, #DBBC7F);"> -</span><span style="color: light-dark(#40A02B, #DBBC7F);">sSf</span><span style="color: light-dark(#40A02B, #DBBC7F);"> https://sh.rustup.rs</span><span style="color: light-dark(#179299, #E69875);"> |</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> sh</span></span></code></pre>
+<p>That will give you <code>rustc</code> and <code>cargo</code> and <code>rustup</code> and other stuff.</p>
+<p>Let's make a new project and scuttle into the directory.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;">cargo</span><span style="color: light-dark(#40A02B, #DBBC7F);"> new</span><span style="color: light-dark(#40A02B, #DBBC7F);"> hello</span></span>
+<span class="giallo-l"><span style="color: light-dark(#D20F39, #DBBC7F);font-style: italic;">cd</span><span style="color: light-dark(#40A02B, #DBBC7F);"> hello</span></span></code></pre>
+<p>Run the project.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;">cargo</span><span style="color: light-dark(#40A02B, #DBBC7F);"> run</span></span></code></pre>
+<p>You just ran your first Hello World program in Rust.</p>
+<p>Crab party time! 🦀🦀🦀🦀🦀🦀🦀🦀🦀</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/running-runes-locally-with-svelte-5-pre-release-alpha/">Running Runes locally with Svelte 5 pre-release alpha</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-11-29
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/javascript/">#JavaScript</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/runes/">#Runes</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/svelte/">#Svelte</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/webdev/">#WebDev</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>I noticed Svelte published some v5 pre-releases. Previously you could only try out <a rel="external" href="https://svelte.dev/blog/runes">Svelte Runes</a> by using the <a rel="external" href="https://svelte-5-preview.vercel.app">online playground</a>. Now you can run them locally.</p>
+<p>Here's how. You'll need:</p>
+<ul>
+<li><a rel="external" href="https://nodejs.org">Node.js</a>.</li>
+<li><a rel="external" href="https://pnpm.io">pnpm</a> - Svelte uses it, but <code>npm</code> should work too.</li>
+</ul>
+<p>Download one of the version 5 pre-releases from the <a rel="external" href="https://github.com/sveltejs/svelte/releases">Svelte releases page</a> and extract it. Or you could just clone <a rel="external" href="https://github.com/sveltejs/svelte">the repo</a> to get the bleeding edge version.</p>
+<p>Then move into the dir and do a <code>pnpm install</code> to install the dependencies.</p>
+<p>Then run <code>pnpm run build</code> to compile everything.</p>
+<p>^^^ You know what, scrap that, silly me, I just realised that they are actually publishing these pre-releases <a rel="external" href="https://www.npmjs.com/package/svelte?activeTab=versions">to npm</a>. So you can simply link your <code>svelte</code> dev dependency to the latest pre-release version.</p>
+<p>Well then. Instead of linking in <code>package.json</code> to the version we just compiled, we can just link to the one on npm.</p>
+<p>Anyway, I'll press on regardless. It's up to you if you want to compile it locally or not.</p>
+<p>Create a new Svelte project in a separate directory.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;">npm</span><span style="color: light-dark(#40A02B, #DBBC7F);"> create</span><span style="color: light-dark(#40A02B, #DBBC7F);"> vite@latest</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> #</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> Select svelte option</span></span></code></pre>
+<p>In <code>package.json</code> find the <code>svelte</code> dev dependency and change the version.</p>
+<p>To use the npm version:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="json"><span class="giallo-l"><span style="color: light-dark(#40A02B, #859289);">&quot;</span><span style="color: light-dark(#40A02B, #A7C080);">svelte</span><span style="color: light-dark(#40A02B, #859289);">&quot;</span><span>: </span><span style="color: light-dark(#40A02B, #859289);">&quot;</span><span style="color: light-dark(#40A02B, #A7C080);">5.0.0-next.15</span><span style="color: light-dark(#40A02B, #859289);">&quot;</span></span></code></pre>
+<p>Otherwise, link to your locally compiled version of Svelte:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="json"><span class="giallo-l"><span style="color: light-dark(#40A02B, #859289);">&quot;</span><span style="color: light-dark(#40A02B, #A7C080);">svelte</span><span style="color: light-dark(#40A02B, #859289);">&quot;</span><span>: </span><span style="color: light-dark(#40A02B, #859289);">&quot;</span><span style="color: light-dark(#40A02B, #A7C080);">file:../svelte/packages/svelte</span><span style="color: light-dark(#40A02B, #859289);">&quot;</span></span></code></pre>
+<p>And then <code>npm install</code> all your <code>node_modules</code>.</p>
+<p>In Svelte 5 there's <a rel="external" href="https://svelte.dev/docs/svelte/v5-migration-guide">a new way</a> of mounting the app. So you'll have to edit <code>main.ts</code> to look a bit like this:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="typescript"><span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">import</span><span style="color: light-dark(#40A02B, #DBBC7F);"> &quot;</span><span style="color: light-dark(#40A02B, #DBBC7F);">./app.css</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">import</span><span> App</span><span style="color: light-dark(#8839EF, #E67E80);"> from</span><span style="color: light-dark(#40A02B, #DBBC7F);"> &quot;</span><span style="color: light-dark(#40A02B, #DBBC7F);">./App.svelte</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">import</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span><span> createRoot</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> }</span><span style="color: light-dark(#8839EF, #E67E80);"> from</span><span style="color: light-dark(#40A02B, #DBBC7F);"> &quot;</span><span style="color: light-dark(#40A02B, #DBBC7F);">svelte</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #E69875);">const</span><span> target</span><span style="color: light-dark(#179299, #E69875);"> =</span><span> document</span><span style="color: light-dark(#179299, #859289);">.</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;">getElementById</span><span>(</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#40A02B, #DBBC7F);">app</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #E67E80);">if</span><span> (</span><span style="color: light-dark(#179299, #E69875);">!</span><span>target</span><span>)</span><span style="color: light-dark(#8839EF, #E67E80);"> throw</span><span style="color: light-dark(#8839EF, #E67E80);font-weight: bold;"> new</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> Error</span><span>(</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#40A02B, #DBBC7F);">Failed to find #app</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #E69875);">const</span><span> app</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> createRoot</span><span>(</span><span>App</span><span style="color: light-dark(#7C7F93, #D3C6AA);">,</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span><span> target</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> }</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">export</span><span style="color: light-dark(#8839EF, #E67E80);"> default</span><span> app</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span></code></pre>
+<p>Then you can run <code>npm run dev</code> and you should see the app running.</p>
+<p>Change <code>Counter.svelte</code> to use runes, and away you go.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="typescript"><span class="giallo-l"><span style="color: light-dark(#179299, #E69875);">&lt;</span><span>script</span><span> lang</span><span style="color: light-dark(#179299, #E69875);">=</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#40A02B, #DBBC7F);">ts</span><span style="color: light-dark(#40A02B, #DBBC7F);">&quot;</span><span style="color: light-dark(#179299, #E69875);">&gt;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #E69875);">  let</span><span> count</span><span style="color: light-dark(#179299, #859289);">:</span><span style="color: light-dark(#8839EF, #7FBBB3);"> number</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> $state</span><span>(</span><span style="color: light-dark(#FE640B, #D699B6);">0</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #E69875);">  const</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> onclick</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> (</span><span style="color: light-dark(#7C7F93, #D3C6AA);">)</span><span style="color: light-dark(#179299, #E69875);"> =&gt;</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span></span>
+<span class="giallo-l"><span>    count</span><span style="color: light-dark(#179299, #E69875);"> +=</span><span style="color: light-dark(#FE640B, #D699B6);"> 1</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #D3C6AA);">  }</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#179299, #E69875);">&lt;</span><span style="color: light-dark(#179299, #E69875);">/</span><span>script</span><span style="color: light-dark(#179299, #E69875);">&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#179299, #E69875);">&lt;</span><span>button</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span><span>onclick</span><span style="color: light-dark(#7C7F93, #D3C6AA);">}</span><span style="color: light-dark(#179299, #E69875);">&gt;</span></span>
+<span class="giallo-l"><span>  count</span><span> is</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span><span>count</span><span style="color: light-dark(#7C7F93, #D3C6AA);">}</span></span>
+<span class="giallo-l"><span style="color: light-dark(#179299, #E69875);">&lt;</span><span style="color: light-dark(#179299, #E69875);">/</span><span>button</span><span style="color: light-dark(#179299, #E69875);">&gt;</span></span></code></pre>
+<p>Have run writing your next Svelte app with runes!</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/7/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/9/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

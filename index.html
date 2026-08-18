@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/friendship-over-with-zola/">Friendship over with Zola</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2026-08-18
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/static/">#Static</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/web/">#Web</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/zola/">#Zola</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>????? is my new best friend now.</p>
+<p>It's time to find a new static site generator. The only question is, which one?</p>
+<p>One of the main reason I've been absent here is due to breaking changes in the static site generator <a href="https://josh.is-cool.dev/friendship-over-with-zola/1">Zola</a>, which runs this site. Because it's just a binary installed via the OS package manager, it updates automatically and lately they've been altering the way the config files are structured, the way themes work, and the way code syntax highlighting works.</p>
+<p>Ordinarily, this wouldn't be too much of a problem, and I persevered through a few updates, just changing my config file accordingly. But then some changes began breaking the theme too and of course theme authors never have time to fix their themes, so I'd end up spending hours I don't have digging through code, just to get the site to build.</p>
+<p>So I just wouldn't post, mostly. An "I'll deal with it later" type situation.</p>
+<p>But now we've hit breaking point. Now I can't even get the site to build at all with the current version. Zola keeps giving me syntax errors. Strangely different errors for local builds to <abbr title="Continuous Integration">CI</abbr> builds too. So who knows? I don't need this.</p>
+<p>Anyway, enough ranting. I'm jumping ship. I just don't really know which ship to jump to.</p>
+<p>My instinct is to go with <a href="https://josh.is-cool.dev/friendship-over-with-zola/2">Astro</a>, but I might check out <a href="https://josh.is-cool.dev/friendship-over-with-zola/3">11ty</a> as well. If anyone else has some suggestions, please <a href="/about/">get in touch</a>. I just want a static site builder that builds my markdown files and doesn't break every time the developer thinks up a "better" way to do the config or changes syntax on a whim.</p>
+<p>Cheers, and hopefully see you soon, on the other side!</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/svelte-state-sharing-just-use-classes-theyre-fine/">Svelte state sharing? Just use classes. They&#x27;re fine.</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-05-31
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/javascript/">#JavaScript</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/runes/">#Runes</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/svelte/">#Svelte</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Who here remembers <a rel="external" href="https://svelte.dev/docs/svelte/stores">Stores</a> from Svelte 4?</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="typescript"><span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">//</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> counter.ts</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">import</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span><span> writable</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> }</span><span style="color: light-dark(#8839EF, #E67E80);"> from</span><span style="color: light-dark(#40A02B, #DBBC7F);"> &#39;</span><span style="color: light-dark(#40A02B, #DBBC7F);">svelte/store</span><span style="color: light-dark(#40A02B, #DBBC7F);">&#39;</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">export</span><span style="color: light-dark(#8839EF, #E69875);"> const</span><span> count</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> writable</span><span>(</span><span style="color: light-dark(#FE640B, #D699B6);">0</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span></code></pre>
+<p>In Svelte 5, Stores <a rel="external" href="https://svelte.dev/tutorial/svelte/stores">are out</a> and Runes are in. <a rel="external" href="https://svelte.dev/tutorial/svelte/universal-reactivity">Universal reactivity</a> baby!</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="typescript"><span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">//</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> counter.svelte.ts</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">export</span><span style="color: light-dark(#8839EF, #E69875);"> const</span><span> count</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> $state</span><span>(</span><span style="color: light-dark(#7C7F93, #D3C6AA);">{</span><span> value</span><span style="color: light-dark(#179299, #859289);">:</span><span style="color: light-dark(#FE640B, #D699B6);"> 0</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> }</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span></code></pre>
+<p>The problem is there are <a rel="external" href="https://joyofcode.xyz/how-to-share-state-in-svelte-5">too many different ways</a> to share state across modules.</p>
+<p>Basically, after extensive experimentation, I'd suggest ... just use classes.</p>
+<p>They're fine, flexible, fun!</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="typescript"><span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">//</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> counter.svelte.ts</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #E67E80);">class</span><span style="color: light-dark(#DF8E1D, #83C092);font-style: italic;"> Counter</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> {</span></span>
+<span class="giallo-l"><span>  value</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> $state</span><span>(</span><span style="color: light-dark(#FE640B, #D699B6);">0</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"><span>  doubled</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> $derived</span><span>(</span><span style="color: light-dark(#D20F39, #D699B6);">this</span><span style="color: light-dark(#179299, #859289);">.</span><span>value</span><span style="color: light-dark(#179299, #E69875);"> *</span><span style="color: light-dark(#FE640B, #D699B6);"> 2</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #D3C6AA);">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #D699B6);">export</span><span style="color: light-dark(#8839EF, #E69875);"> const</span><span> counter</span><span style="color: light-dark(#179299, #E69875);"> =</span><span style="color: light-dark(#8839EF, #E67E80);font-weight: bold;"> new</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> Counter</span><span>(</span><span>)</span><span style="color: light-dark(#7C7F93, #D3C6AA);">;</span></span></code></pre>
+<p>That's it! That's my recommendation.</p>
+<p>Maybe I'll expand on reasoning etc later, when I have more time.</p>
+<p>Peace out ✌️</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/2/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

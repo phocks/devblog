@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Josh&#x27;s Cool Dev Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/style.css">
+    <link rel="stylesheet" href="https://josh.is-cool.dev/color/green-auto.css">
+
+    <link rel="stylesheet" href="https://josh.is-cool.dev/font-hack-subset.css">
+
+                <link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed" href="https://josh.is-cool.dev/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed" href="https://josh.is-cool.dev/atom.xml" />
+        <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    
+<link rel="me" href="https://bne.social/@phocks" />
+<link rel="me" href="https://ms.phocks.org/@josh" />
+<link rel="me" href="https://masto.byrd.ws/@josh" />
+<meta name="description" content="The dev blog of Joshua Byrd" />
+<meta name="keywords" content="hacking, programming, ranting" />
+<meta property="og:image" content="/favicon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="google-site-verification" content="zAlHk1gMLdo06K0pmQamanclrMQZNDTuXW_m8UrD-_4" />
+<style>
+  abbr {
+    cursor: help;
+  }
+
+  @media (hover: none) {
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  ::selection {
+    background: #ffb7b7;
+    color: #000;
+  }
+
+  .z-code {
+    margin-block: 1.5rem;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+
+<!-- Load JavaScript -->
+<script type="module" defer async src="/index.js"></script>
+
+<!-- Umami.is analytics tracking -->
+<!-- Currently broken -->
+<!-- <script defer src="https://umami.phocks.org/script.js" data-website-id="d3c5f87e-0f3f-41c8-84c2-a2d762155d0b"></script> -->
+
+<meta name="fediverse:creator" content="@phocks@bne.social" />
+<meta name="fediverse:creator" content="@josh@masto.byrd.ws" />
+<link rel="alternate" type="application/rss+xml" title="Josh&#x27;s Cool Dev Blog RSS Feed"
+  href="https://josh.is-cool.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Josh&#x27;s Cool Dev Blog Atom Feed"
+  href="https://josh.is-cool.dev/atom.xml" />
+
+</head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://josh.is-cool.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            josh@thinkpad:~&#x2F;src$
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://josh.is-cool.dev">blog</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/about">about</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/archive">archive</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/tags">tags</a></li>
+            
+                <li><a href="https://josh.is-cool.dev/atom.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/compiling-the-zed-code-editor-on-linux/">Compiling the Zed code editor on Linux</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-05-04
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/compiling/">#Compiling</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/editors/">#Editors</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/ide/">#IDE</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/linux/">#Linux</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Hello World! Coming to ya from my ThinkPad running Arch Linux with KDE Plasma 6. I'm typing this sentence into <a rel="external" href="https://zed.dev/">Zed</a> right now, a new code editor from the devs who brought us <a rel="external" href="https://en.wikipedia.org/wiki/Atom_(text_editor)">Atom</a> back in the day.</p>
+<p>There are no binaries available for Linux yet, but don't worry, for extra fun we can compile the code ourselves!</p>
+<p>Just <a rel="external" href="https://github.com/zed-industries/zed">clone the repo</a>, then follow <a rel="external" href="https://github.com/zed-industries/zed/blob/main/docs/src/development/linux.md">the instructions here</a>. Basically it's a <a rel="external" href="https://www.rust-lang.org/">Rust</a> app, so you just need clone the code, do a bit of setup, and then run <code>cargo build --release</code> and go make a cup of tea (it will take a while).</p>
+<p>The <code>Zed</code> executable will be in <code>target/release</code>. Copy it to a directory in your homedir or something.</p>
+<p>Add it as a desktop application with a <code>.desktop</code> file like this.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="ini"><span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">#</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> ~/.local/share/applications/Zed.desktop</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #E67E80);">[</span><span style="color: light-dark(#DF8E1D, #E67E80);">Desktop Entry</span><span style="color: light-dark(#7C7F93, #E67E80);">]</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #83C092);">Type</span><span style="color: light-dark(#179299, #E69875);">=</span><span>Application</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #83C092);">Name</span><span style="color: light-dark(#179299, #E69875);">=</span><span>Zed</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #83C092);">Exec</span><span style="color: light-dark(#179299, #E69875);">=</span><span style="color: light-dark(#1E66F5, #83C092);">WAYLAND_DISPLAY</span><span style="color: light-dark(#179299, #E69875);">=</span><span style="color: light-dark(#40A02B, #A7C080);">&#39;</span><span style="color: light-dark(#40A02B, #A7C080);">&#39;</span><span> /home/phocks/Apps/Zed/Zed</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #83C092);">Icon</span><span style="color: light-dark(#179299, #E69875);">=</span><span>/home/phocks/Apps/Zed/Zed.jpg</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #83C092);">Terminal</span><span style="color: light-dark(#179299, #E69875);">=</span><span>false</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #83C092);">Categories</span><span style="color: light-dark(#179299, #E69875);">=</span><span>Utility</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">;</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">TextEditor;Development;</span></span></code></pre>
+<p>Add it to your commandline with a bash script in a directory available to your executable <a rel="external" href="https://wiki.archlinux.org/title/Environment_variables#Per_user">PATH</a>.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #D3C6AA); background-color: light-dark(#EFF1F5, #2D353B);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#EA76CB, #859289);font-style: italic;">#!</span><span style="color: light-dark(#EA76CB, #859289);font-style: italic;">/usr/bin/env bash</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">#</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> Run the Zed app and pass arguments</span></span>
+<span class="giallo-l"><span>WAYLAND_DISPLAY</span><span style="color: light-dark(#179299, #E69875);">=</span><span style="color: light-dark(#40A02B, #A7C080);">&#39;</span><span style="color: light-dark(#40A02B, #A7C080);">&#39;</span><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;"> /home/phocks/Apps/Zed/Zed</span><span style="color: light-dark(#40A02B, #A7C080);"> &quot;</span><span style="color: light-dark(#E64553, #D3C6AA);font-style: italic;">$</span><span style="color: light-dark(#E64553, #D3C6AA);font-style: italic;">@</span><span style="color: light-dark(#40A02B, #A7C080);">&quot;</span><span style="color: light-dark(#7C7F93, #D3C6AA);"> &amp;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">#</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> Wait for the Zed app to start</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #A7C080);font-style: italic;">sleep</span><span style="color: light-dark(#FE640B, #D699B6);"> 2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #859289);font-style: italic;">#</span><span style="color: light-dark(#7C7F93, #859289);font-style: italic;"> Detach the process from the terminal</span></span>
+<span class="giallo-l"><span style="color: light-dark(#D20F39, #DBBC7F);font-style: italic;">disown</span></span></code></pre>
+<p>We need <code>WAYLAND_DISPLAY=''</code> to run it in X11 mode so we can resize and move the window (there's <a rel="external" href="https://github.com/zed-industries/zed/issues/9205">no client side decoration on Wayland</a> yet.)</p>
+<p>Well, that's about it. To update it just run a <code>git pull</code> to fetch the latest code in <code>main</code> and do the compile again and re-copy the resulting binary.</p>
+<p>Enjoy!</p>
+<p><em>And remember Zed is still in early development. If you want a more fully featured code editor use <a rel="external" href="https://code.visualstudio.com/">Visual Studio Code</a>.</em></p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://josh.is-cool.dev/installing-umami-analytics/">Installing Umami analytics</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2024-04-03
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/analytics/">#Analytics</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/tech/">#Tech</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/tracking/">#Tracking</a>&nbsp;
+                <a class="post-tag" href="https://josh.is-cool.dev/tags/umami/">#Umami</a></span>
+    
+
+                    
+        <div class="post-content">
+            <p>Real quick post. <a rel="external" href="https://umami.is">Umami</a> I saw the other day on <a rel="external" href="https://boehs.org">Evan Boehs</a>' blog. Wanted to try it out myself. So I did. It's tracking analytics right now on this page.</p>
+<p>I went the <a rel="external" href="https://umami.is/docs">self-hosted</a> route. Real easy install. Already had a PostgreSQL container on my <a rel="external" href="https://www.proxmox.com/en/">Proxmox</a> box, so I just had to spin up a new container, install Node.js, and go through the <a rel="external" href="https://umami.is/docs/install">installation instructions</a>.</p>
+<p>I pointed my <a rel="external" href="https://caddyserver.com">Caddy server</a> to the new container and bam, analytics. You can even make a public link. <a href="#">Check it</a> -- currently broken :(. You should see yourself there.</p>
+<p>Update 2025: My container went down. Hopefully I can fix it!</p>
+<p>Anyways. Bye for now! Peace.</p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://josh.is-cool.dev/page/3/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://josh.is-cool.dev/page/5/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">By Joshua Byrd :: Hit count #<span id="hit-count"></span></span></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
