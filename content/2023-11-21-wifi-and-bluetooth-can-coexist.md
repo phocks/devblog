@@ -17,7 +17,7 @@ The easy solution was to connect my WiFi on the 5 Ghz band. Done. It worked. No 
 
 I found a few possible solutions. I tried changing the WiFi channel on my router, and that helped a little bit, but not quite enough.
 
-In the Arch Wiki they have a small section about [Intel combined WiFi and Bluetooth cards](https://wiki.archlinux.org/title/Bluetooth#Intel_combined_WiFi_and_Bluetooth_cards) and playing with the coexistence setting and I thought I was onto something. 
+In the Arch Wiki they have a small section about [Intel combined WiFi and Bluetooth cards](https://wiki.archlinux.org/title/Bluetooth#Intel_combined_Wi-Fi_and_Bluetooth_cards) and playing with the coexistence setting and I thought I was onto something.
 
 They suggested adding the following to `/etc/modprobe.d/iwlwifi.conf`:
 
@@ -45,4 +45,4 @@ Anyway, hope this helps someone else. Happy hacking!
 
 **ps.**
 
-- [Jim Mussared](https://mastodon.social/@jimmo/111451012551649253) put me on to this page about [iwlwifi and platform noise](https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi#about_platform_noise) which gives a bit more information about why this works.
+- [Jim Mussared](https://mastodon.social/@jimmo/111451012551649253) put me on to this page about [iwlwifi and platform noise](https://wireless.docs.kernel.org/en/latest/en/users/drivers/iwlwifi.html#about-platform-noise) which gives a bit more information about why this works.

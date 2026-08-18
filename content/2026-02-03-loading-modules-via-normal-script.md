@@ -1,5 +1,5 @@
 +++
-title = "Svelte state sharing? Just use classes. They're fine."
+title = "Loading modules without modules"
 date = 2025-05-31
 draft = true
 

@@ -26,16 +26,48 @@ taxonomies = [{ name = "tags" }]
 author = "Joshua Byrd"
 
 # Code highlighting
-[markdown]
-highlight_code = true
-highlight_theme = "css"
-highlight_themes_css = [
-  { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
-  { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
-]
+# [markdown]
+# highlight_code = true
+# highlight_theme = "css"
+# highlight_themes_css = [
+#   { theme = "base16-ocean-light", filename = "syntax-theme-light.css" },
+#   { theme = "base16-ocean-dark", filename = "syntax-theme-dark.css" },
+# ]
+
+# Syntax highlighting configuration (optional)
+[markdown.highlighting]
+# When set to "true", missing highlight languages are treated as errors. Defaults to false but recommended to set to true.
+error_on_missing_language = false
+
+# Whether to use inline hex colours (`inline`) or CSS classes (`class`)
+style = "inline"
+
+# Selecting a theme is always required: you have a choice between single (1) or dual themes (2).
+# Only outputting CSS classes like before 0.22 is not possible anymore.
+# 1. If you use a single theme, put its name here. See the syntax highlighting page for the possible choices.
+# theme = "solarized-dark"
+
+# 2. If you want light/dark themes, use the 2 fields below instead. See the syntax highlighting page for the possible choices.
+light_theme = "catppuccin-latte"
+dark_theme = "everforest-dark"
+
+# A list of files for additional JSON TextMate grammars
+extra_grammars = []
+
+# A list of files for additional JSON TextMate themes
+# Get themes from https://textmate-grammars-themes.netlify.app/
+extra_themes = []
+
+# Where to insert the data attributes for codeblocks. Default to on the <code> element.
+# Other options are: "pre", "both" and "none"
+data_attr_position = "code"
+
+# Whether the generated CSS should set color-scheme when using a dual theme
+# Defaults to `true`
+add_color_scheme = true
 
 # A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
-extra_syntaxes_and_themes = ["syntaxes"]
+# extra_syntaxes_and_themes = ["syntaxes"]
 
 [extra]
 
@@ -54,7 +86,7 @@ background_color = "green-auto"
 logo_text = "josh@thinkpad:~/src$"
 
 # The logo link - defaults to base_url.
-#logo_home_link = "/take/me/away!"
+# logo_home_link = "/take/me/away!"
 
 # Copyright text in HTML format. If specified,
 # entirely replaces default copyright and author.

@@ -11,7 +11,7 @@ Real quick post. [Umami](https://umami.is) I saw the other day on [Evan Boehs](h
 
 I went the [self-hosted](https://umami.is/docs) route. Real easy install. Already had a PostgreSQL container on my [Proxmox](https://www.proxmox.com/en/) box, so I just had to spin up a new container, install Node.js, and go through the [installation instructions](https://umami.is/docs/install).
 
-I pointed my [Caddy server](https://caddyserver.com) to the new container and bam, analytics. You can even make a public link. [Check it](https://umami.phocks.org/share/LE5nfO82Ck9n1cIM/josh.is-cool.dev). You should see yourself there.
+I pointed my [Caddy server](https://caddyserver.com) to the new container and bam, analytics. You can even make a public link. [Check it](#) -- currently broken :(. You should see yourself there.
 
 Update 2025: My container went down. Hopefully I can fix it!
 
