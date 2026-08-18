@@ -60,7 +60,7 @@ extra_themes = []
 
 # Where to insert the data attributes for codeblocks. Default to on the <code> element.
 # Other options are: "pre", "both" and "none"
-data_attr_position = "Code"
+data_attr_position = "code"
 
 # Whether the generated CSS should set color-scheme when using a dual theme
 # Defaults to `true`
