@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../components/Layout.astro';
+import TypedLede from '../components/TypedLede.astro';
+import SkillsMarquee from '../components/SkillsMarquee.astro';
+import { formatPostDate, postSlug } from '../lib/posts';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const personSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Your Name',
+  jobTitle: 'Your Job Title',
+  url: 'https://example.com',
+  sameAs: [
+    'https://github.com/your-username',
+    'https://linkedin.com/in/your-profile',
+  ],
+  // Escape < so no value can ever close the inline <script> tag.
+}).replace(/</g, '\\u003c');
+---
+
+<Layout
+  title="Palette — Your Name"
+  description="A short tagline describing you and what you write about."
+  canonicalPath="/"
+>
+  <script type="application/ld+json" is:inline set:html={personSchema} />
+  <main class="content-shell">
+    <div class="page-hero">
+      <h1 class="visually-hidden">Home</h1>
+      <TypedLede text="The devblog of Joshua Byrd." />
+    </div>
+
+    <section class="section" aria-label="Recent posts">
+      {posts.length === 0 ? (
+        <p class="empty-note">No posts yet, check back soon.</p>
+      ) : (
+        <nav class="commit-tree" aria-label="Recent posts">
+          <a class="commit-tree-head" href="/blog/" title="All posts">Blog</a>
+          {posts.map((post) => (
+            <a href={`/blog/${postSlug(post)}/`}>
+              {post.data.title}
+              <span class="commit-tree-date">{formatPostDate(post.data.date)}</span>
+            </a>
+          ))}
+          <a href="/about/">About</a>
+        </nav>
+      )}
+    </section>
+
+    <SkillsMarquee />
+  </main>
+</Layout>

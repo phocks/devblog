@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatPostDate, postSlug } from '../lib/posts';
+import { slugifyTag } from '../lib/tags';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  latest?: boolean;
+}
+
+const { post, latest = false } = Astro.props;
+// Tags whose slug is empty have no archive page; skip their chips.
+const tags = post.data.tags.filter((tag) => slugifyTag(tag) !== '');
+---
+
+<article class="post-card">
+  <a class="post-card-link" href={`/blog/${postSlug(post)}/`}>
+    <div>
+      <h2>{post.data.title}{latest && <span class="tag-latest">latest</span>}</h2>
+      <p>{post.data.description}</p>
+      <p class="post-card-meta">{formatPostDate(post.data.date)}</p>
+    </div>
+  </a>
+  {/* Chips are siblings of the card link, not children: anchors can't nest. */}
+  {tags.length > 0 && (
+    <p class="post-tags">
+      {tags.map((tag) => (
+        <a class="tag" href={`/tags/${slugifyTag(tag)}/`}>#{tag}</a>
+      ))}
+    </p>
+  )}
+</article>

@@ -1,0 +1,19 @@
+---
+import { skills, slugifyTag } from '../lib/tags';
+---
+
+<section class="skills-marquee" aria-label="Skills">
+  <ul class="visually-hidden">
+    {skills.map((skill) => (
+      <li><a href={`/tags/${slugifyTag(skill)}/`}>{skill}</a></li>
+    ))}
+  </ul>
+  {/* Two copies make the loop seamless; hidden from readers and search.
+      tabindex="-1" keeps the aria-hidden copies out of the tab order —
+      the visually-hidden list above is the keyboard-reachable one. */}
+  <div class="skills-track" aria-hidden="true" data-pagefind-ignore>
+    {[...skills, ...skills].map((skill) => (
+      <a class="skills-item" href={`/tags/${slugifyTag(skill)}/`} tabindex="-1">{skill}</a>
+    ))}
+  </div>
+</section>

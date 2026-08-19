@@ -1,0 +1,537 @@
+---
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogType?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  canonicalPath = '/',
+  ogType = 'website',
+} = Astro.props;
+
+const site = 'https://josh.is-cool.dev';
+const canonicalUrl = new URL(canonicalPath, site).toString();
+// Replace public/assets/og.png with your own 1200x630 social preview image.
+const ogImageUrl = new URL('/assets/og.png', site).toString();
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f0eee9" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Palette" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Palette" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="preload" href="/assets/jbm.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      (() => {
+        const apply = () => {
+          const saved = localStorage.getItem('site-palette');
+          const system = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'vesper'
+            : 'rose-pine-dawn';
+          document.documentElement.setAttribute('data-palette', saved || system);
+        };
+        apply();
+        document.addEventListener('astro:after-swap', apply);
+      })();
+    </script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <ClientRouter />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="Palette Home">
+          <span>josh@thinkpad:~/src$</span>
+        </a>
+
+        <details class="nav-menu">
+          <summary class="nav-menu-button" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
+          <div class="nav-menu-panel">
+            <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Home</a>
+            <a href="/blog/" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>Blog</a>
+            <a href="/about/" aria-current={currentPath === '/about/' ? 'page' : undefined}>About</a>
+          </div>
+        </details>
+
+        <div class="nav-links">
+          <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Home</a>
+          <a href="/blog/" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>Blog</a>
+          <a href="/about/" aria-current={currentPath === '/about/' ? 'page' : undefined}>About</a>
+        </div>
+
+        <div class="nav-tools">
+          <button class="nav-icon-link" type="button" id="search-open" aria-label="Search (Ctrl+K)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </button>
+          <a class="nav-icon-link" href="https://github.com/your-username" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.64 7.64 0 0 1 8 3.87c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+            </svg>
+          </a>
+          <a class="nav-icon-link" href="https://linkedin.com/in/your-profile" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a class="nav-icon-link" href="mailto:you@example.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m2 7 10 7 10-7" />
+            </svg>
+          </a>
+          <a class="nav-icon-link" href="/rss.xml" aria-label="RSS feed">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11a9 9 0 0 1 9 9" />
+              <path d="M4 4a16 16 0 0 1 16 16" />
+              <circle cx="5" cy="19" r="1" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="footer">
+      <span>&copy; {new Date().getFullYear()} example.com</span>
+    </footer>
+
+    <div class="theme-hint" id="theme-hint">
+      <span class="theme-hint-label" id="theme-hint-label">Light</span>
+    </div>
+
+    <div class="theme-overlay" id="theme-overlay" hidden>
+      <div class="theme-overlay-panel" role="dialog" aria-label="Theme switcher" aria-modal="true">
+        <div class="theme-overlay-list" id="theme-overlay-list" role="listbox" aria-label="Themes">
+          <div class="theme-sep"><span>Dark</span></div>
+          <button type="button" role="option" data-value="catppuccin">Catppuccin</button>
+          <button type="button" role="option" data-value="terminal">Terminal</button>
+          <button type="button" role="option" data-value="tokyo-night">Tokyo Night</button>
+          <button type="button" role="option" data-value="dracula">Dracula</button>
+          <button type="button" role="option" data-value="nord">Nord</button>
+          <button type="button" role="option" data-value="gruvbox">Gruvbox</button>
+          <button type="button" role="option" data-value="one-dark">One Dark</button>
+          <button type="button" role="option" data-value="solarized">Solarized</button>
+          <button type="button" role="option" data-value="kanagawa">Kanagawa</button>
+          <button type="button" role="option" data-value="rose-pine">Rose Pine</button>
+          <button type="button" role="option" data-value="vesper">Vesper</button>
+          <div class="theme-sep"><span>Light</span></div>
+          <button type="button" role="option" data-value="catppuccin-latte">Catppuccin Latte</button>
+          <button type="button" role="option" data-value="tokyo-night-day">Tokyo Day</button>
+          <button type="button" role="option" data-value="gruvbox-light">Gruvbox Light</button>
+          <button type="button" role="option" data-value="one-light">One Light</button>
+          <button type="button" role="option" data-value="solarized-light">Solarized Light</button>
+          <button type="button" role="option" data-value="kanagawa-lotus">Kanagawa Lotus</button>
+          <button type="button" role="option" data-value="rose-pine-dawn">Rose Pine Dawn</button>
+        </div>
+        <div class="theme-overlay-footer">
+          <span class="theme-overlay-actions">
+            <button class="theme-close-btn" type="button" id="theme-close-btn">esc</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="theme-overlay" id="search-overlay" hidden>
+      <div class="theme-overlay-panel" role="dialog" aria-label="Search" aria-modal="true">
+        <div class="search-input-row">
+          <span class="search-prompt" aria-hidden="true">$</span>
+          <input id="search-input" type="search" autocomplete="off" spellcheck="false" aria-label="Search query" />
+          <span class="search-caret" aria-hidden="true"></span>
+        </div>
+        <div class="search-results" id="search-results" role="listbox" aria-label="Search results">
+          <p class="search-empty">Type to search</p>
+        </div>
+        <div class="theme-overlay-footer">
+          <span class="theme-overlay-actions">
+            <button class="theme-close-btn" type="button" id="search-close-btn">esc</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let searchController: AbortController | undefined;
+      let pagefind: { search: (q: string) => Promise<any>; init: () => void } | null = null;
+      let pagefindFailed = false;
+
+      async function loadPagefind() {
+        if (pagefind || pagefindFailed) return pagefind;
+        try {
+          // The index only exists in the build output; new Function keeps the
+          // bundler from rewriting this runtime-only import.
+          pagefind = await new Function("return import('/pagefind/pagefind.js')")();
+          pagefind?.init();
+        } catch {
+          pagefindFailed = true;
+        }
+        return pagefind;
+      }
+
+      function initSearch() {
+        searchController?.abort();
+        searchController = new AbortController();
+        const { signal } = searchController;
+
+        const overlay = document.getElementById('search-overlay');
+        const input = document.getElementById('search-input') as HTMLInputElement | null;
+        const results = document.getElementById('search-results');
+        const openBtn = document.getElementById('search-open');
+        const closeBtn = document.getElementById('search-close-btn');
+        if (!overlay || !input || !results || !openBtn || !closeBtn) return;
+
+        let items: HTMLAnchorElement[] = [];
+        let activeIndex = -1;
+        let debounceTimer: ReturnType<typeof setTimeout> | undefined;
+        let queryId = 0;
+        // Shell-style history: -1 = not browsing, 0 = most recent search.
+        let historyIndex = -1;
+        const HISTORY_KEY = 'site-search-history';
+
+        function loadHistory(): string[] {
+          try {
+            const raw = JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '[]');
+            return Array.isArray(raw) ? raw.filter((q) => typeof q === 'string') : [];
+          } catch {
+            return [];
+          }
+        }
+
+        function saveHistory(query: string) {
+          const q = query.trim();
+          if (!q) return;
+          const history = [q, ...loadHistory().filter((h) => h !== q)].slice(0, 20);
+          localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+        }
+
+        function recallHistory(index: number) {
+          const history = loadHistory();
+          if (index < 0) {
+            historyIndex = -1;
+            input!.value = '';
+            setEmpty('Type to search');
+            return;
+          }
+          if (index >= history.length) return;
+          historyIndex = index;
+          input!.value = history[index] ?? '';
+          void runSearch(input!.value);
+        }
+
+        function setEmpty(message: string) {
+          if (!results) return;
+          results.innerHTML = '';
+          const p = document.createElement('p');
+          p.className = 'search-empty';
+          p.textContent = message;
+          results.append(p);
+          items = [];
+          activeIndex = -1;
+        }
+
+        function setActive(index: number) {
+          activeIndex = index;
+          items.forEach((item, i) => {
+            item.setAttribute('aria-selected', String(i === index));
+          });
+          items[index]?.scrollIntoView({ block: 'nearest' });
+        }
+
+        async function runSearch(query: string) {
+          const id = ++queryId;
+          if (!query.trim()) {
+            setEmpty('Type to search');
+            return;
+          }
+          const pf = await loadPagefind();
+          if (!pf) {
+            setEmpty('Search index not found: run npm run build to generate it.');
+            return;
+          }
+          const res = await pf.search(query);
+          if (id !== queryId || !results) return;
+          const top = await Promise.all(res.results.slice(0, 8).map((r: any) => r.data()));
+          if (id !== queryId) return;
+          if (top.length === 0) {
+            setEmpty(`No matches for "${query}"`);
+            return;
+          }
+          results.innerHTML = '';
+          items = top.map((data: any) => {
+            const link = document.createElement('a');
+            link.className = 'search-result';
+            link.href = data.url;
+            link.setAttribute('role', 'option');
+            const title = document.createElement('span');
+            title.className = 'search-result-title';
+            title.textContent = data.meta?.title ?? data.url;
+            const excerpt = document.createElement('span');
+            excerpt.className = 'search-result-excerpt';
+            excerpt.innerHTML = data.excerpt ?? '';
+            link.append(title, excerpt);
+            link.addEventListener('click', () => saveHistory(input!.value), { signal });
+            results.append(link);
+            return link;
+          });
+          setActive(0);
+        }
+
+        function openOverlay() {
+          overlay!.hidden = false;
+          document.body.style.overflow = 'hidden';
+          input!.value = '';
+          historyIndex = -1;
+          setEmpty('Type to search');
+          input!.focus();
+          void loadPagefind();
+        }
+
+        function closeOverlay() {
+          overlay!.hidden = true;
+          document.body.style.overflow = '';
+        }
+
+        input.addEventListener('input', () => {
+          historyIndex = -1;
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => runSearch(input.value), 150);
+        }, { signal });
+
+        openBtn.addEventListener('click', openOverlay, { signal });
+        closeBtn.addEventListener('click', closeOverlay, { signal });
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeOverlay();
+        }, { signal });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
+            // Don't stack on top of the theme switcher.
+            if (document.getElementById('theme-overlay')?.hidden === false) return;
+            e.preventDefault();
+            if (overlay.hidden) openOverlay();
+            else closeOverlay();
+            return;
+          }
+          if (overlay.hidden) return;
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeOverlay();
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex >= 0) {
+              // Symmetric with ArrowUp: down walks toward newer history
+              // entries and finally back to the empty prompt.
+              recallHistory(historyIndex - 1);
+            } else if (items.length > 0) {
+              setActive(Math.min(items.length - 1, activeIndex + 1));
+            }
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (historyIndex >= 0 || input.value.trim() === '') {
+              recallHistory(historyIndex + 1);
+            } else if (items.length > 0) {
+              setActive(Math.max(0, activeIndex - 1));
+            }
+          } else if (e.key === 'Enter') {
+            const active = items[activeIndex];
+            if (active) {
+              e.preventDefault();
+              active.click();
+            }
+          } else if (e.key === 'Tab') {
+            // Trap focus inside the dialog while it is open.
+            const focusables = [input, ...items, closeBtn].filter(Boolean) as HTMLElement[];
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (!first || !last) return;
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }, { signal });
+      }
+
+      document.addEventListener('astro:page-load', initSearch);
+    </script>
+
+    <script>
+      let controller: AbortController | undefined;
+
+      function initThemeSwitcher() {
+        controller?.abort();
+        controller = new AbortController();
+        const { signal } = controller;
+
+        const overlay = document.getElementById('theme-overlay');
+        const list = document.getElementById('theme-overlay-list');
+        const hintLabel = document.getElementById('theme-hint-label');
+        const themeHint = document.getElementById('theme-hint');
+        const closeBtn = document.getElementById('theme-close-btn');
+        if (!overlay || !list || !themeHint || !closeBtn) return;
+
+        const options = Array.from(list.querySelectorAll<HTMLButtonElement>("[role='option']"));
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const saved = localStorage.getItem('site-palette') || '';
+        let committed = saved || defaultPalette();
+
+        function defaultPalette() {
+          return media.matches ? 'vesper' : 'rose-pine-dawn';
+        }
+
+        function setPalette(value: string) {
+          document.documentElement.setAttribute('data-palette', value || defaultPalette());
+        }
+
+        function updateUI(value: string) {
+          const activeValue = value || defaultPalette();
+          for (const opt of options) {
+            opt.setAttribute('aria-selected', String(opt.dataset.value === activeValue));
+          }
+          const active = options.find((opt) => opt.dataset.value === activeValue);
+          if (hintLabel && active) hintLabel.textContent = (active.textContent ?? '').trim();
+        }
+
+        function openOverlay() {
+          if (!overlay) return;
+          overlay.hidden = false;
+          document.body.style.overflow = 'hidden';
+          committed = localStorage.getItem('site-palette') || defaultPalette();
+          updateUI(committed);
+          const active = list?.querySelector<HTMLElement>("[aria-selected='true']") ?? options[0];
+          active?.focus();
+        }
+
+        function closeOverlay() {
+          if (!overlay) return;
+          overlay.hidden = true;
+          document.body.style.overflow = '';
+        }
+
+        function toggleOverlay() {
+          if (overlay?.hidden) openOverlay();
+          else closeOverlay();
+        }
+
+        function preview(index: number) {
+          const opt = options[index];
+          if (!opt) return;
+          setPalette(opt.dataset.value ?? '');
+          updateUI(opt.dataset.value ?? '');
+          opt.focus();
+        }
+
+        function commit(value: string) {
+          setPalette(value);
+          localStorage.setItem('site-palette', value);
+          updateUI(value);
+          closeOverlay();
+        }
+
+        function revert() {
+          setPalette(committed);
+          updateUI(committed);
+          closeOverlay();
+        }
+
+        media.addEventListener('change', () => {
+          if (!localStorage.getItem('site-palette')) {
+            setPalette('');
+            updateUI('');
+          }
+        }, { signal });
+
+        options.forEach((opt, idx) => {
+          opt.addEventListener('click', () => commit(opt.dataset.value ?? ''), { signal });
+          opt.addEventListener('mouseenter', () => preview(idx), { signal });
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (overlay.hidden) return;
+          const idx = options.indexOf(document.activeElement as HTMLButtonElement);
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            preview(idx >= 0 ? Math.min(options.length - 1, idx + 1) : 0);
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            preview(idx >= 0 ? Math.max(0, idx - 1) : options.length - 1);
+          } else if (e.key === 'Enter' && idx >= 0) {
+            e.preventDefault();
+            commit(options[idx]?.dataset.value ?? '');
+          } else if (e.key === 'Escape') {
+            e.preventDefault();
+            revert();
+          } else if (e.key === 'Tab') {
+            // Trap focus inside the dialog while it is open.
+            const focusables = [...options, closeBtn].filter(
+              (el): el is HTMLButtonElement | HTMLElement => el !== null,
+            );
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (!first || !last) return;
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              (last as HTMLElement).focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              (first as HTMLElement).focus();
+            }
+          }
+        }, { signal });
+
+        if (localStorage.getItem('site-theme-hint-seen') === '1') {
+          themeHint.classList.add('is-seen');
+        }
+        themeHint.addEventListener('mouseenter', () => {
+          localStorage.setItem('site-theme-hint-seen', '1');
+          themeHint.classList.add('is-seen');
+        }, { once: true, signal });
+        themeHint.addEventListener('click', toggleOverlay, { signal });
+        closeBtn.addEventListener('click', revert, { signal });
+        setPalette(saved);
+        updateUI(saved);
+      }
+
+      document.addEventListener('astro:page-load', initThemeSwitcher);
+    </script>
+  </body>
+</html>
