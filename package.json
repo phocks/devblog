@@ -1,30 +1,26 @@
 {
-  "name": "astro-palette",
-  "private": true,
-  "license": "AGPL-3.0-or-later",
-  "description": "A minimal Astro theme for personal sites and blogs",
-  "keywords": [
-    "astro",
-    "withastro",
-    "astro-theme",
-    "astro-template",
-    "blog"
-  ],
+  "name": "@lexington/microblog",
   "type": "module",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "start": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^7.0.5",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.1.0"
+    "@lexingtonthemes/seo": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.20",
+    "astro": "^7.2.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "pagefind": "^1.5.2",
-    "typescript": "^6.0.3"
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3"
   }
 }

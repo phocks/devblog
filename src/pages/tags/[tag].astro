@@ -1,59 +1,60 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import Layout from '../../components/Layout.astro';
-import PostCard from '../../components/PostCard.astro';
-import { getAllTags, slugifyTag } from '../../lib/tags';
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogEntries from "@/components/entries/BlogEntry.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  const published = posts
-    .filter((post) => !post.data.draft)
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
 
-  return getAllTags(posts).map(({ slug, name }) => ({
-    params: { tag: slug },
-    props: {
-      name,
-      posts: published.filter((post) =>
-        post.data.tags.some((tag) => slugifyTag(tag) === slug),
-      ),
-    },
-  }));
+  return uniqueTags.map((tag) => {
+    // Filter posts by tag
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    // Sort filtered posts by date in descending order
+    const sortedPosts = filteredPosts.sort(
+      (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    );
+
+    return {
+      params: { tag },
+      props: { posts: sortedPosts },
+    };
+  });
 }
 
-interface Props {
-  name: string;
-  posts: CollectionEntry<'blog'>[];
-}
-
-const { name, posts } = Astro.props;
-const slug = Astro.params.tag!;
+const { tag } = Astro.params;
+const { posts } = Astro.props;
 ---
 
-<Layout
-  title={`#${name} — Your Name`}
-  description={`Posts tagged "${name}".`}
-  canonicalPath={`/tags/${slug}/`}
->
-  <main class="content-shell">
-    <section class="page-hero">
-      <p class="eyebrow"><span class="status-dot dot-blue"></span>tag</p>
-      <h1># {name}</h1>
-      <p class="hero-lede">
-        {posts.length === 0
-          ? 'Nothing here yet — check back soon.'
-          : `${posts.length} post${posts.length === 1 ? '' : 's'} tagged ${name}.`}{' '}
-        <a class="inline-link" href="/tags/">all tags</a>
-      </p>
-    </section>
-
-    {posts.length > 0 && (
-      <section class="section" aria-label="Posts">
-        <div class="post-list">
-          {posts.map((post) => <PostCard post={post} />)}
-        </div>
-      </section>
-    )}
-  </main>
-</Layout>
+<BaseLayout pageTitle={tag}>
+  <section>
+    <div class="py-24">
+      <h1
+        class="text-4xl text-balance font-medium font-display text-base-900 max-w-xl"
+      >
+        All tags
+      </h1>
+      <div class="grid grid-cols-1 mt-4 gap-8 gap-y-24 sm:grid-cols-2">
+        {
+          posts.map((post: any) => (
+            <BlogEntries
+              url={"/posts/" + post.id}
+              title={post.data.title}
+              description={post.data.description}
+              alt={post.data.title}
+              pubDate={post.data.pubDate.toString().slice(0, 10)}
+              author={post.data.author}
+              image={post.data.image.url}
+              tags={post.data.tags}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

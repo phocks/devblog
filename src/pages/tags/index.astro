@@ -1,29 +1,33 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../components/Layout.astro';
-import TypedLede from '../../components/TypedLede.astro';
-import { getAllTags } from '../../lib/tags';
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const allPosts = await getCollection("posts");
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const sortedTags = tags.sort((a, b) => a.localeCompare(b)); // Sort tags alphabetically
 
-const tags = getAllTags(await getCollection('blog'));
+const pageTitle = "Tag Index";
 ---
 
-<Layout
-  title="Tags — Your Name"
-  description="Posts grouped by tag."
-  canonicalPath="/tags/"
->
-  <main class="content-shell">
-    <section class="page-hero">
-      <h1 class="visually-hidden">Tags</h1>
-      <TypedLede text="Posts grouped by tag." />
-    </section>
-
-    <section class="section" aria-label="Tags">
-      <div class="tag-cloud">
-        {tags.map(({ slug, name, count }) => (
-          <a class="tag" href={`/tags/${slug}/`}>#{name} {count > 0 && <span class="tag-count">{count}</span>}</a>
-        ))}
+<BaseLayout pageTitle={pageTitle}>
+  <section>
+    <div class="py-24">
+      <h1
+        class="text-4xl text-balance font-medium font-display text-base-900 max-w-xl"
+      >
+        All tags
+      </h1>
+      <div class="flex flex-wrap gap-3 mt-8">
+        {
+          sortedTags.map((tag) => (
+            <a
+              class=" hover:text-blue-500 text-xs font-medium text-base-600"
+              href={`/tags/${tag}`}
+            >
+              {tag}
+            </a>
+          ))
+        }
       </div>
-    </section>
-  </main>
-</Layout>
+    </div>
+  </section>
+</BaseLayout>
