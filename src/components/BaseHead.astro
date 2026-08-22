@@ -14,27 +14,31 @@ const structuredData = {
 <AstroSeo
 	title="Josh's devblog"
 	description="Adventures in code."
-	canonical="https://yoursite.com/"
+	canonical="https://josh.is-cool.dev/"
 	openGraph={{
-		url: "https://yoursite.com/",
+		url: "https://josh.is-cool.dev/",
 		title: "Josh's dev blog",
 		description: "A brief description of your website content.",
 		images: [
 			{
-				url: "/og-image.png",
+				url: "/og-image.jpg",
 				width: 1200,
 				height: 630,
-				alt: "Open Graph Image showing details of website.",
-				type: "image/png",
+				alt: "Open Graph Image.",
+				type: "image/jpeg",
 			},
 		],
 		site_name: "Your Site Name",
 		type: "website",
-		locale: "en_US",
+		locale: "en_AU",
 	}}
 />
 
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify(structuredData)}
+	is:inline
+/>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,4 +63,5 @@ const structuredData = {
 	rel="stylesheet"
 />
 
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" is:inline
+></script>
