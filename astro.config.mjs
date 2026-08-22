@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
+// Redirects from old Zola blog
 const oldPosts = ["an-initial-test-post"];
 const redirects = Object.fromEntries(
 	oldPosts.map((slug) => [`/${slug}`, `/posts/${slug}`]),
@@ -27,5 +28,5 @@ export default defineConfig({
 	},
 	site: "https://josh.is-cool.dev",
 	integrations: [sitemap(), mdx()],
-	redirects,
+	redirects: { ...redirects },
 });
