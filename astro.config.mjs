@@ -9,7 +9,8 @@ const oldPosts = [
 	"an-initial-test-post",
 	"a-static-site-with-zola",
 	"one-does-indeed-simply-install-arch-linux",
-	"wifi-and-bluetooth-can-coexist"
+	"wifi-and-bluetooth-can-coexist",
+	"dark-web-for-dummies"
 ];
 const redirects = Object.fromEntries(
 	oldPosts.map((slug) => [`/${slug}`, `/posts/${slug}`]),
