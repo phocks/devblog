@@ -3,7 +3,7 @@ pubDate: 2023-11-19
 author: Joshua Byrd
 title: One does indeed simply install Arch Linux
 slug: "one-does-indeed-simply-install-arch-linux"
-description: "A guide to installing Arch Linux the easy way."
+description: "A guide to installing Arch Linux without losing your marbles."
 image:
   url: "/src/images/blog/one-does-indeed-simply-install-arch-linux.jpg"
   alt: "An arch with a person walking towards some stairs."

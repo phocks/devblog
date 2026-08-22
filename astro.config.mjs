@@ -5,7 +5,12 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
 // Redirects from old Zola blog
-const oldPosts = ["an-initial-test-post", "a-static-site-with-zola"];
+const oldPosts = [
+	"an-initial-test-post",
+	"a-static-site-with-zola",
+	"one-does-indeed-simply-install-arch-linux",
+	"wifi-and-bluetooth-can-coexist"
+];
 const redirects = Object.fromEntries(
 	oldPosts.map((slug) => [`/${slug}`, `/posts/${slug}`]),
 );
