@@ -9,6 +9,7 @@
     "npm:@tailwindcss/typography@~0.5.20": "0.5.20_tailwindcss@4.3.3",
     "npm:@tailwindcss/vite@^4.3.3": "4.3.3_vite@8.2.2__esbuild@0.28.2",
     "npm:astro@^7.2.2": "7.2.4_@astrojs+markdown-remark@7.2.4_@emnapi+core@1.11.1_@emnapi+runtime@1.11.1",
+    "npm:sharp@~0.35.3": "0.35.3",
     "npm:tailwindcss@^4.3.3": "4.3.3"
   },
   "npm": {
@@ -3117,6 +3118,7 @@
         "npm:@tailwindcss/typography@~0.5.20",
         "npm:@tailwindcss/vite@^4.3.3",
         "npm:astro@^7.2.2",
+        "npm:sharp@~0.35.3",
         "npm:tailwindcss@^4.3.3"
       ]
     }
