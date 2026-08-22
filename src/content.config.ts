@@ -13,7 +13,8 @@ const postsCollection = defineCollection({
       author: z.string(),
       image: z.object({
         url: image(),
-        alt: z.string(),
+				alt: z.string(),
+        source: z.string(),
       }),
       tags: z.array(z.string()),
     }),
