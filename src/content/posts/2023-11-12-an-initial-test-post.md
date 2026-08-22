@@ -2,6 +2,7 @@
 pubDate: 2023-11-12
 author: Joshua Byrd
 title: An initial test post
+slug: "an-initial-test-post"
 description: "A test post so we can see if this thing is working."
 image:
   url: "/src/images/blog/an-initial-test-post.jpg"
