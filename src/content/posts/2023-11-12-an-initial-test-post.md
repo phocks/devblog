@@ -6,8 +6,9 @@ slug: "an-initial-test-post"
 description: "A test post so we can see if this thing is working."
 image:
   url: "/src/images/blog/an-initial-test-post.jpg"
-  alt: "#"
-tags: ["Blog", "Rust", "Testing"]
+  alt: "A sandy rusty type texture. Shades of red and light beige, with hints of blue."
+  source: "https://unsplash.com/photos/a-close-up-of-a-painting-of-a-cow-lM4iyzimWOI"
+tags: ["Rust"]
 ---
 
 Hello!
